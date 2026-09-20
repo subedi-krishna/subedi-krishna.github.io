@@ -7,6 +7,7 @@
       "HCI",
       "Empirical Study"
     ],
+    "domains": [],
     "title": "Measuring Perceived Performance in Single-Page Applications",
     "venue": "Journal of Web Engineering",
     "venueUrl": "#"
@@ -18,6 +19,7 @@
       "Accessibility",
       "Design Systems"
     ],
+    "domains": [],
     "title": "Accessible by Default: Component API Patterns for Inclusive Design Systems",
     "venue": "Conf Paper — Placeholder Proceedings",
     "venueUrl": "#"
@@ -30,6 +32,7 @@
       "Accessibility",
       "Tooling"
     ],
+    "domains": [],
     "title": "Dark Mode Done Right: Contrast Budgets for Low-Light Interfaces",
     "venue": "Workshop on Interface Aesthetics",
     "venueUrl": "#"
@@ -41,6 +44,7 @@
       "Web Performance",
       "Measurement"
     ],
+    "domains": [],
     "title": "The Cost of Convenience: Third-Party Script Bloat on News Sites",
     "venue": "Web Performance Summit",
     "venueUrl": "#"
@@ -52,6 +56,7 @@
       "Design Systems",
       "Tooling"
     ],
+    "domains": [],
     "title": "Tokens in Translation: Keeping Design Systems Consistent Across Platforms",
     "venue": "Design Systems Conference",
     "venueUrl": "#"
@@ -63,6 +68,7 @@
       "Accessibility",
       "UX"
     ],
+    "domains": [],
     "title": "Keyboard-First: Navigation Patterns for Complex Web Applications",
     "venue": "Accessibility Workshop",
     "venueUrl": "#"
@@ -74,6 +80,7 @@
       "HCI",
       "Web Performance"
     ],
+    "domains": [],
     "title": "Skeleton Screens and the Perception of Speed",
     "venue": "HCI Symposium",
     "venueUrl": "#"
