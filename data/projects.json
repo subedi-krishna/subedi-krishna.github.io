@@ -15,8 +15,14 @@
       "WebSockets"
     ],
     "title": "Pulse Dashboard",
-    "url": "#",
-    "year": "2024"
+    "year": "2024",
+    "slug": "pulse-dashboard",
+    "links": {
+      "live": "https://example.com/pulse-dashboard",
+      "video": "https://www.youtube.com/watch?v=aqz-KE-bpKQ",
+      "github": "https://github.com/example/pulse-dashboard"
+    },
+    "primaryLink": "video"
   },
   {
     "description": "A minimal note-taking web app with offline support, markdown rendering, and end-to-end encrypted sync across devices.",
@@ -33,8 +39,12 @@
       "Tailwind CSS"
     ],
     "title": "Nomad Notes",
-    "url": "#",
-    "year": "2023"
+    "year": "2023",
+    "slug": "nomad-notes",
+    "links": {
+      "video": "https://youtu.be/aqz-KE-bpKQ",
+      "github": "https://github.com/example/nomad-notes"
+    }
   },
   {
     "description": "A color palette generator and design-token exporter for design systems. Generates accessible palettes and exports to CSS variables, JSON, and Figma.",
@@ -51,8 +61,9 @@
       "Canvas API"
     ],
     "title": "Palette Forge",
-    "url": "#",
-    "year": "2023"
+    "year": "2023",
+    "slug": "palette-forge",
+    "links": {}
   },
   {
     "description": "An open-source portfolio starter template with a dark, minimal aesthetic. Used by hundreds of developers as a starting point for their personal sites.",
@@ -68,8 +79,9 @@
       "JavaScript"
     ],
     "title": "Devfolio Template",
-    "url": "#",
-    "year": "2022"
+    "year": "2022",
+    "slug": "devfolio-template",
+    "links": {}
   },
   {
     "description": "Uptime monitoring and status pages for SaaS teams. Synthetic checks from twelve regions, incident timelines, and subscriber notifications with sub-minute detection.",
@@ -87,8 +99,9 @@
       "Playwright"
     ],
     "title": "Beacon",
-    "url": "#",
-    "year": "2022"
+    "year": "2022",
+    "slug": "beacon",
+    "links": {}
   },
   {
     "description": "End-to-end encrypted team chat with channels, threads, and file sharing. Built for small teams that want real-time speed without the surveillance.",
@@ -105,8 +118,9 @@
       "Docker"
     ],
     "title": "Relay",
-    "url": "#",
-    "year": "2023"
+    "year": "2023",
+    "slug": "relay",
+    "links": {}
   },
   {
     "description": "Offline-first travel planner as a progressive web app. Itineraries, maps, and bookings keep working in airplane mode and sync quietly when you're back online.",
@@ -123,8 +137,9 @@
       "Mapbox GL"
     ],
     "title": "Waypoint",
-    "url": "#",
-    "year": "2021"
+    "year": "2021",
+    "slug": "waypoint",
+    "links": {}
   },
   {
     "description": "Personal finance dashboard with automatic categorization, budgets, and net-worth tracking across every account you connect.",
@@ -142,7 +157,8 @@
       "Tailwind CSS"
     ],
     "title": "Abacus",
-    "url": "#",
-    "year": "2021"
+    "year": "2021",
+    "slug": "abacus",
+    "links": {}
   }
 ]

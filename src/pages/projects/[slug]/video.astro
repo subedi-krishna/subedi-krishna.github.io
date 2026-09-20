@@ -1,0 +1,109 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Footer from '../../../components/Footer.astro';
+import ProjectLinkIcons from '../../../components/ProjectLinkIcons.astro';
+import projects from '../../../../data/projects.json';
+import { getYouTubeId, availableLinks, validateProjects } from '../../../lib/project-links';
+
+export function getStaticPaths() {
+  // Fail the build on bad link data (duplicate slugs, dangling primaryLink,
+  // bad video URLs) instead of silently hiding typos.
+  validateProjects(projects);
+  return projects
+    .filter((project) => getYouTubeId(project.links?.video))
+    .map((project) => ({ params: { slug: project.slug }, props: { project } }));
+}
+
+const { project } = Astro.props;
+const videoId = getYouTubeId(project.links.video)!;
+const otherLinks = availableLinks(project).filter((link) => link.type !== 'video');
+const backArrowPath = 'M17 10H4M9 5l-5 5 5 5';
+---
+
+<Layout
+  title={`${project.title} — demo video`}
+  description={`Watch the demo video for ${project.title}: ${project.description}`}
+>
+  <main id="content" class="video-main">
+    <a href="/archive" class="back-link">
+      <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <path
+          d={backArrowPath}
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+      <span>All projects</span>
+    </a>
+
+    <p class="card-domain">{project.domains.join(' · ')}</p>
+    <h1 class="video-title">{project.title}</h1>
+
+    <div
+      class="player-frame"
+      style={`view-transition-name: project-media-${project.slug}`}
+    >
+      <a
+        class="facade"
+        href={`https://www.youtube.com/watch?v=${videoId}`}
+        target="_blank"
+        rel="noreferrer noopener"
+        data-facade
+        data-video-id={videoId}
+        data-video-title={project.title}
+        aria-label={`Play the demo video for ${project.title} (opens YouTube in a new tab)`}
+      >
+        <img src={project.image} alt="" aria-hidden="true" width="1280" height="720" />
+        <span class="facade-play" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M8 5.5v13c0 .8.9 1.3 1.6.9l10.2-6.5c.6-.4.6-1.4 0-1.8L9.6 4.6c-.7-.4-1.6.1-1.6.9z" />
+          </svg>
+        </span>
+      </a>
+    </div>
+
+    <p class="video-desc">{project.description}</p>
+
+    <ul class="pills" aria-label="Technologies used">
+      {project.tech.map((t) => (
+        <li>
+          <span class="pill">{t}</span>
+        </li>
+      ))}
+    </ul>
+
+    {
+      otherLinks.length > 0 && (
+        <div class="video-links">
+          <p class="video-links-label">Also available</p>
+          <ProjectLinkIcons project={project} exclude={['video']} />
+        </div>
+      )
+    }
+  </main>
+
+  <Footer />
+</Layout>
+
+<script>
+  // Click-to-load YouTube facade: no iframe (and no Google request) until the
+  // visitor chooses to play. Without JavaScript the facade stays a plain link
+  // to the video on YouTube.
+  const facade = document.querySelector<HTMLAnchorElement>('[data-facade]');
+  facade?.addEventListener('click', (event) => {
+    event.preventDefault();
+    const videoId = facade.dataset.videoId;
+    if (!videoId) return;
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
+    iframe.title = `${facade.dataset.videoTitle ?? 'Project'} — demo video`;
+    iframe.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
+    iframe.allowFullscreen = true;
+    iframe.className = 'player-iframe';
+    facade.replaceWith(iframe);
+    // The activating control is gone from the DOM; keep keyboard users oriented.
+    iframe.focus();
+  });
+</script>

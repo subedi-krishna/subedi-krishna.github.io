@@ -1,5 +1,10 @@
 ---
 import projects from '../../data/projects.json';
+import ProjectLinkIcons from './ProjectLinkIcons.astro';
+import { resolvePrimary, availableLinks, validateProjects } from '../lib/project-links';
+
+// Fail the build on bad link data (duplicate slugs, dangling primaryLink, bad video URLs).
+validateProjects(projects);
 
 // Home shows a limited set; the archive link appears only when there is more to show.
 const LIMIT = 5;
@@ -8,6 +13,7 @@ const showArchiveLink = projects.length > LIMIT;
 
 const arrowPath =
   'M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z';
+const playPath = 'M7 4.8v10.4c0 .8.9 1.3 1.6.9l7.9-5.2c.6-.4.6-1.4 0-1.8l-7.9-5.2c-.7-.4-1.6.1-1.6.9z';
 const rightArrowPath = 'M3 10h13M11 5l5 5-5 5';
 ---
 
@@ -18,36 +24,66 @@ const rightArrowPath = 'M3 10h13M11 5l5 5-5 5';
   <div>
     <ul class="card-list">
       {
-        visibleProjects.map((project) => (
-          <li>
-            <div class="card">
-              <div class="card-body card-body--project">
-                <p class="card-domain">{project.domains.join(' · ')}</p>
-                <h3 class="card-title">
-                  <a href={project.url} aria-label={`${project.title} (opens in a new tab)`} target="_blank" rel="noreferrer noopener">
-                    <span>
-                      {project.title}
-                      <svg class="arrow-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                        <path fill-rule="evenodd" d={arrowPath} clip-rule="evenodd" />
+        visibleProjects.map((project) => {
+          const primary = resolvePrimary(project);
+          const hasVideo = availableLinks(project).some((link) => link.type === 'video');
+          return (
+            <li>
+              <div class="card">
+                <div class="card-body card-body--project">
+                  <p class="card-domain">{project.domains.join(' · ')}</p>
+                  <h3 class="card-title">
+                    {primary ? (
+                      <a
+                        href={primary.href}
+                        aria-label={primary.label}
+                        {...(primary.external ? { target: '_blank', rel: 'noreferrer noopener' } : {})}
+                      >
+                        <span>
+                          {project.title}
+                          {primary.type === 'video' ? (
+                            <svg class="arrow-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                              <path d={playPath} />
+                            </svg>
+                          ) : (
+                            <svg class="arrow-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                              <path fill-rule="evenodd" d={arrowPath} clip-rule="evenodd" />
+                            </svg>
+                          )}
+                        </span>
+                      </a>
+                    ) : (
+                      <span class="card-title-text">{project.title}</span>
+                    )}
+                  </h3>
+                  <p class="card-desc">{project.description}</p>
+                  <ul class="pills" aria-label="Technologies used">
+                    {project.tech.map((t) => (
+                      <li>
+                        <span class="pill">{t}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <ProjectLinkIcons project={project} />
+                </div>
+                <div
+                  class="card-thumb"
+                  aria-hidden="true"
+                  {...(hasVideo ? { style: `view-transition-name: project-media-${project.slug}` } : {})}
+                >
+                  <img src={project.image} alt="" loading="lazy" width="400" height="225" />
+                  {hasVideo && (
+                    <span class="play-badge">
+                      <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path d={playPath} />
                       </svg>
                     </span>
-                  </a>
-                </h3>
-                <p class="card-desc">{project.description}</p>
-                <ul class="pills" aria-label="Technologies used">
-                  {project.tech.map((t) => (
-                    <li>
-                      <span class="pill">{t}</span>
-                    </li>
-                  ))}
-                </ul>
+                  )}
+                </div>
               </div>
-              <div class="card-thumb" aria-hidden="true">
-                <img src={project.image} alt="" loading="lazy" width="400" height="225" />
-              </div>
-            </div>
-          </li>
-        ))
+            </li>
+          );
+        })
       }
     </ul>
   </div>

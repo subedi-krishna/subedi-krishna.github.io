@@ -2,7 +2,12 @@
 import Layout from '../layouts/Layout.astro';
 import Footer from '../components/Footer.astro';
 import FilterBar from '../components/FilterBar.astro';
+import ProjectLinkIcons from '../components/ProjectLinkIcons.astro';
 import projects from '../../data/projects.json';
+import { availableLinks, validateProjects } from '../lib/project-links';
+
+// Fail the build on bad link data (duplicate slugs, dangling primaryLink, bad video URLs).
+validateProjects(projects);
 
 const sorted = [...projects].sort((a, b) => Number(b.year) - Number(a.year));
 
@@ -25,8 +30,6 @@ const domainOptions = [...domainStats.entries()]
   .map(([value, stat]) => ({ value, ...stat }))
   .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
 
-const externalIconPath =
-  'M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z';
 const backArrowPath = 'M17 10H4M9 5l-5 5 5 5';
 ---
 
@@ -88,22 +91,13 @@ const backArrowPath = 'M17 10H4M9 5l-5 5 5 5';
                   </ul>
                 </td>
                 <td class="t-link">
-                  {project.url === '#' ? (
+                  {availableLinks(project).length === 0 ? (
                     <span class="t-empty">
                       <span aria-hidden="true">—</span>
                       <span class="sr-only">No link available</span>
                     </span>
                   ) : (
-                    <a
-                      href={project.url}
-                      target="_blank"
-                      rel="noreferrer noopener"
-                      aria-label={`${project.title} (opens in a new tab)`}
-                    >
-                      <svg class="ext-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                        <path fill-rule="evenodd" d={externalIconPath} clip-rule="evenodd" />
-                      </svg>
-                    </a>
+                    <ProjectLinkIcons project={project} />
                   )}
                 </td>
               </tr>
