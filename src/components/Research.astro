@@ -26,14 +26,18 @@ const rightArrowPath = 'M3 10h13M11 5l5 5-5 5';
               </header>
               <div class="card-body">
                 <h3 class="card-title">
-                  <a href={paper.venueUrl} aria-label={`${paper.title} (opens in a new tab)`} target="_blank" rel="noreferrer noopener">
-                    <span>
-                      {paper.title}
-                      <svg class="arrow-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                        <path fill-rule="evenodd" d={arrowPath} clip-rule="evenodd" />
-                      </svg>
-                    </span>
-                  </a>
+                  {paper.venueUrl && paper.venueUrl !== '#' ? (
+                    <a href={paper.venueUrl} aria-label={`${paper.title} (opens in a new tab)`} target="_blank" rel="noreferrer noopener">
+                      <span>
+                        {paper.title}
+                        <svg class="arrow-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                          <path fill-rule="evenodd" d={arrowPath} clip-rule="evenodd" />
+                        </svg>
+                      </span>
+                    </a>
+                  ) : (
+                    <span>{paper.title}</span>
+                  )}
                 </h3>
                 <p class="card-desc">
                   <span class="venue">{paper.venue}.</span> {paper.description}

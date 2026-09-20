@@ -1,0 +1,33 @@
+---
+import Layout from '../layouts/Layout.astro';
+import profile from '../../data/profile.json';
+
+const backArrowPath = 'M17 10H4M9 5l-5 5 5 5';
+---
+
+<Layout
+  title={`Page not found — ${profile.name}`}
+  description="This page doesn't exist."
+>
+  <main id="content" class="archive-main">
+    <a href="/" class="back-link">
+      <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <path
+          d={backArrowPath}
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+      {profile.name}
+    </a>
+    <h1 class="archive-title">Page not found</h1>
+    <p class="notfound-desc">
+      The page you're looking for doesn't exist or was moved.
+    </p>
+    <a class="more-link" href="/">
+      <span>Back to home</span>
+    </a>
+  </main>
+</Layout>

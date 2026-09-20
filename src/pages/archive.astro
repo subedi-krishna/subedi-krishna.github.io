@@ -4,6 +4,7 @@ import Footer from '../components/Footer.astro';
 import FilterBar from '../components/FilterBar.astro';
 import ProjectLinkIcons from '../components/ProjectLinkIcons.astro';
 import projects from '../../data/projects.json';
+import profile from '../../data/profile.json';
 import { availableLinks, validateProjects } from '../lib/project-links';
 
 // Fail the build on bad link data (duplicate slugs, dangling primaryLink, bad video URLs).
@@ -34,7 +35,7 @@ const backArrowPath = 'M17 10H4M9 5l-5 5 5 5';
 ---
 
 <Layout
-  title="Project Archive — Krishna Subedi"
+  title={`Project Archive — ${profile.name}`}
   description="Every project I've designed and built, in one place."
 >
   <main id="content" class="archive-main" data-filter-scope>
@@ -48,7 +49,7 @@ const backArrowPath = 'M17 10H4M9 5l-5 5 5 5';
           stroke-linejoin="round"
         />
       </svg>
-      Krishna Subedi
+      {profile.name}
     </a>
     <h1 class="archive-title">All Projects</h1>
     <FilterBar
