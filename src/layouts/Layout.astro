@@ -8,6 +8,11 @@ interface Props {
 }
 
 const { title = `${profile.name} — ${profile.title}`, description = profile.tagline } = Astro.props;
+
+// Absolute URLs for social previews and canonical links. Astro.site comes from
+// astro.config.mjs — replace the placeholder domain there before handover.
+const canonicalUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : null;
+const ogImageUrl = Astro.site ? new URL('/og-image.png', Astro.site).href : '/og-image.png';
 ---
 
 <!doctype html>
@@ -22,9 +27,13 @@ const { title = `${profile.name} — ${profile.title}`, description = profile.ta
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta name="twitter:card" content="summary" />
+    {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
+    <meta property="og:image" content={ogImageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

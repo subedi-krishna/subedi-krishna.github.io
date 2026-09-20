@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Footer from '../components/Footer.astro';
 import research from '../../data/research.json';
 
-const sorted = [...research].sort((a, b) => Number(b.date) - Number(a.date));
+const sorted = [...research].sort((a, b) => Number(b.year) - Number(a.year));
 
 const externalIconPath =
   'M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z';
@@ -44,7 +44,7 @@ const backArrowPath = 'M17 10H4M9 5l-5 5 5 5';
           {
             sorted.map((paper) => (
               <tr>
-                <td class="t-year">{paper.date}</td>
+                <td class="t-year">{paper.year}</td>
                 <th scope="row" class="t-project">
                   {paper.title}
                 </th>
@@ -60,8 +60,9 @@ const backArrowPath = 'M17 10H4M9 5l-5 5 5 5';
                 </td>
                 <td class="t-link">
                   {paper.venueUrl === '#' ? (
-                    <span class="t-empty" aria-hidden="true">
-                      —
+                    <span class="t-empty">
+                      <span aria-hidden="true">—</span>
+                      <span class="sr-only">No link available</span>
                     </span>
                   ) : (
                     <a

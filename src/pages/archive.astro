@@ -62,8 +62,9 @@ const backArrowPath = 'M17 10H4M9 5l-5 5 5 5';
                 </td>
                 <td class="t-link">
                   {project.url === '#' ? (
-                    <span class="t-empty" aria-hidden="true">
-                      —
+                    <span class="t-empty">
+                      <span aria-hidden="true">—</span>
+                      <span class="sr-only">No link available</span>
                     </span>
                   ) : (
                     <a
