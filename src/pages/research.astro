@@ -1,9 +1,29 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Footer from '../components/Footer.astro';
+import FilterBar from '../components/FilterBar.astro';
 import research from '../../data/research.json';
 
 const sorted = [...research].sort((a, b) => Number(b.year) - Number(a.year));
+
+const slugify = (s: string) =>
+  s
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+
+const tagStats = new Map<string, { label: string; count: number }>();
+for (const paper of research) {
+  for (const tag of paper.tags) {
+    const value = slugify(tag);
+    const stat = tagStats.get(value) ?? { label: tag, count: 0 };
+    stat.count += 1;
+    tagStats.set(value, stat);
+  }
+}
+const tagOptions = [...tagStats.entries()]
+  .map(([value, stat]) => ({ value, ...stat }))
+  .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
 
 const externalIconPath =
   'M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z';
@@ -14,7 +34,7 @@ const backArrowPath = 'M17 10H4M9 5l-5 5 5 5';
   title="Research Archive — Alex Carter"
   description="Every paper and study I've published, in one place."
 >
-  <main id="content" class="archive-main">
+  <main id="content" class="archive-main" data-filter-scope>
     <a href="/" class="back-link">
       <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
         <path
@@ -28,6 +48,13 @@ const backArrowPath = 'M17 10H4M9 5l-5 5 5 5';
       Alex Carter
     </a>
     <h1 class="archive-title">All Research</h1>
+    <FilterBar
+      label="Filter research by topic"
+      param="tag"
+      options={tagOptions}
+      total={research.length}
+      itemLabel="papers"
+    />
     <div class="table-scroll">
       <table class="archive-table">
         <caption class="sr-only">Complete archive of all research</caption>
@@ -43,7 +70,7 @@ const backArrowPath = 'M17 10H4M9 5l-5 5 5 5';
         <tbody>
           {
             sorted.map((paper) => (
-              <tr>
+              <tr data-filter-target data-filter-value={paper.tags.map(slugify).join(' ')}>
                 <td class="t-year">{paper.year}</td>
                 <th scope="row" class="t-project">
                   {paper.title}

@@ -1,9 +1,29 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Footer from '../components/Footer.astro';
+import FilterBar from '../components/FilterBar.astro';
 import projects from '../../data/projects.json';
 
 const sorted = [...projects].sort((a, b) => Number(b.year) - Number(a.year));
+
+const slugify = (s: string) =>
+  s
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+
+const domainStats = new Map<string, { label: string; count: number }>();
+for (const project of projects) {
+  for (const domain of project.domains) {
+    const value = slugify(domain);
+    const stat = domainStats.get(value) ?? { label: domain, count: 0 };
+    stat.count += 1;
+    domainStats.set(value, stat);
+  }
+}
+const domainOptions = [...domainStats.entries()]
+  .map(([value, stat]) => ({ value, ...stat }))
+  .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
 
 const externalIconPath =
   'M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z';
@@ -14,7 +34,7 @@ const backArrowPath = 'M17 10H4M9 5l-5 5 5 5';
   title="Project Archive — Alex Carter"
   description="Every project I've designed and built, in one place."
 >
-  <main id="content" class="archive-main">
+  <main id="content" class="archive-main" data-filter-scope>
     <a href="/" class="back-link">
       <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
         <path
@@ -28,6 +48,13 @@ const backArrowPath = 'M17 10H4M9 5l-5 5 5 5';
       Alex Carter
     </a>
     <h1 class="archive-title">All Projects</h1>
+    <FilterBar
+      label="Filter projects by domain"
+      param="domain"
+      options={domainOptions}
+      total={projects.length}
+      itemLabel="projects"
+    />
     <div class="table-scroll">
       <table class="archive-table">
         <caption class="sr-only">Complete archive of all projects</caption>
@@ -43,7 +70,7 @@ const backArrowPath = 'M17 10H4M9 5l-5 5 5 5';
         <tbody>
           {
             sorted.map((project) => (
-              <tr>
+              <tr data-filter-target data-filter-value={project.domains.map(slugify).join(' ')}>
                 <td class="t-year">{project.year}</td>
                 <th scope="row" class="t-project">
                   {project.title}

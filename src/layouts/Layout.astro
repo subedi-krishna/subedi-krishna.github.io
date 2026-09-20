@@ -97,6 +97,83 @@ const ogImageUrl = Astro.site ? new URL('/og-image.png', Astro.site).href : '/og
         );
         sections.forEach((s) => observer.observe(s));
       }
+
+      // Single-select filter bars (archive pages). Progressive enhancement:
+      // the bar stays hidden until this runs; without JS every row remains visible.
+      // The static pages render unfiltered, so the script reads the query string
+      // itself, applies the filter, syncs the URL on change, and handles
+      // back/forward navigation.
+      document.querySelectorAll('[data-filter-bar]').forEach((bar) => {
+        const param = bar.dataset.filterParam || 'filter';
+        const scope = bar.closest('[data-filter-scope]') || document;
+        const targets = Array.from(scope.querySelectorAll('[data-filter-target]'));
+        const buttons = Array.from(bar.querySelectorAll('[data-filter-value]'));
+        const countEl = bar.querySelector('[data-filter-count]');
+        const total = countEl ? Number(countEl.dataset.countTotal || targets.length) : targets.length;
+        const itemLabel = (countEl && countEl.dataset.countItem) || 'items';
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        // Static pages render unfiltered; the query string is read client-side.
+        const fromUrl = new URLSearchParams(window.location.search).get(param);
+        let active =
+          fromUrl && buttons.some((b) => b.dataset.filterValue === fromUrl) ? fromUrl : 'all';
+
+        const renderCount = (value, shown) => {
+          if (!countEl) return;
+          countEl.textContent =
+            value === 'all'
+              ? `Showing ${total} ${itemLabel}`
+              : `Showing ${shown} of ${total} ${itemLabel}`;
+        };
+
+        const apply = (value, push) => {
+          let shown = 0;
+          targets.forEach((t) => {
+            const values = (t.dataset.filterValue || '').split(' ').filter(Boolean);
+            const match = value === 'all' || values.includes(value);
+            t.classList.toggle('is-hidden', !match);
+            if (match) {
+              shown += 1;
+              if (!reduceMotion) {
+                t.classList.remove('row-in');
+                void t.offsetWidth;
+                t.classList.add('row-in');
+              }
+            } else {
+              t.classList.remove('row-in');
+            }
+          });
+          buttons.forEach((b) =>
+            b.setAttribute('aria-pressed', String(b.dataset.filterValue === value))
+          );
+          renderCount(value, shown);
+          if (push) {
+            const url = new URL(window.location.href);
+            if (value === 'all') url.searchParams.delete(param);
+            else url.searchParams.set(param, value);
+            window.history.pushState({}, '', url);
+          }
+        };
+
+        buttons.forEach((b) => {
+          b.addEventListener('click', () => {
+            const next = b.dataset.filterValue === active ? 'all' : b.dataset.filterValue || 'all';
+            active = next;
+            apply(next, true);
+          });
+        });
+
+        window.addEventListener('popstate', () => {
+          const fromUrl = new URL(window.location.href).searchParams.get(param) || 'all';
+          active = buttons.some((b) => b.dataset.filterValue === fromUrl) ? fromUrl : 'all';
+          apply(active, false);
+        });
+
+        // Apply a shared/bookmarked filter before the bar becomes visible.
+        if (active !== 'all') apply(active, false);
+
+        bar.hidden = false;
+      });
     </script>
   </body>
 </html>

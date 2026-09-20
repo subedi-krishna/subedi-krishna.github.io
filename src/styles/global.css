@@ -988,3 +988,94 @@ a:focus-visible {
     display: none;
   }
 }
+
+/* ---------- filter bars (archive pages) ---------- */
+.filter-bar {
+  margin-bottom: 2.5rem;
+}
+
+.filter-bar[hidden] {
+  display: none;
+}
+
+.filter-bar-row {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding: 0.25rem 0.125rem;
+  scrollbar-width: none;
+}
+
+.filter-bar-row::-webkit-scrollbar {
+  display: none;
+}
+
+.filter-btn {
+  flex-shrink: 0;
+  padding: 0.4rem 0.95rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 500;
+  line-height: 1.4;
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.filter-btn:hover {
+  color: var(--heading);
+  border-color: rgba(148, 163, 184, 0.35);
+}
+
+.filter-btn[aria-pressed='true'] {
+  background: rgba(94, 234, 212, 0.12);
+  border-color: rgba(94, 234, 212, 0.35);
+  color: var(--accent);
+}
+
+.filter-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.filter-count {
+  margin: 0.9rem 0 0;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+/* rows hidden by the active filter */
+.is-hidden {
+  display: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes row-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .archive-table tbody tr.row-in {
+    animation: row-in 0.25s ease;
+  }
+}
+
+/* ---------- card domain eyebrow ---------- */
+.card-domain {
+  margin: 0 0 0.4rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}

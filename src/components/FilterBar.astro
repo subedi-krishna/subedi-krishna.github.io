@@ -1,0 +1,51 @@
+---
+interface FilterOption {
+  value: string;
+  label: string;
+  count: number;
+}
+
+interface Props {
+  label: string;
+  param: string;
+  options: FilterOption[];
+  total: number;
+  itemLabel: string;
+}
+
+const { label, param, options, total, itemLabel } = Astro.props;
+---
+
+<div class="filter-bar" data-filter-bar data-filter-param={param} hidden>
+  <div class="filter-bar-row" role="group" aria-label={label}>
+    <button
+      type="button"
+      class="filter-btn"
+      data-filter-value="all"
+      aria-pressed="true"
+    >
+      All
+    </button>
+    {
+      options.map((option) => (
+        <button
+          type="button"
+          class="filter-btn"
+          data-filter-value={option.value}
+          aria-pressed="false"
+        >
+          {option.label}
+        </button>
+      ))
+    }
+  </div>
+  <p
+    class="filter-count"
+    data-filter-count
+    data-count-total={String(total)}
+    data-count-item={itemLabel}
+    aria-live="polite"
+  >
+    {`Showing ${total} ${itemLabel}`}
+  </p>
+</div>
