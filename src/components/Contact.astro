@@ -8,11 +8,9 @@ import profile from '../../data/profile.json';
     <h2>Contact</h2>
   </div>
   <div class="contact">
-    <p class="contact-eyebrow">{contact.eyebrow}</p>
-    <h2 class="contact-title">{contact.title}</h2>
-    <p class="contact-desc">{contact.description}</p>
-    <a class="contact-btn" href={`mailto:${profile.email}`}>
-      {contact.buttonLabel}
+    <p class="contact-desc">{contact.line}</p>
+    <a class="contact-email" href={`mailto:${profile.email}`}>
+      {profile.email}
     </a>
   </div>
 </section>
