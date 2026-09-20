@@ -623,6 +623,12 @@ a:hover .arrow-icon {
   white-space: nowrap;
 }
 
+/* non-core skills: same shape, quieter tone so core skills carry the row */
+.pill--secondary {
+  background-color: rgba(148, 163, 184, 0.08);
+  color: var(--text);
+}
+
 /* project thumbnails */
 .card-thumb {
   position: relative;

@@ -1,5 +1,11 @@
 ---
 import skills from '../../data/skills.json';
+
+// `core` (optional per category) names the skills that carry the most weight.
+// Core pills keep the full teal treatment and lead the row; everything else
+// renders quieter. When `core` is absent, all items render as core.
+const isCore = (group: { core?: string[] }, item: string) =>
+  (group.core ?? []).length === 0 || (group.core ?? []).includes(item);
 ---
 
 <section id="skills" class="section" aria-label="Skills">
@@ -8,18 +14,24 @@ import skills from '../../data/skills.json';
   </div>
   <div>
     {
-      skills.map((group) => (
-        <div class="skill-group">
-          <h3>{group.category}</h3>
-          <ul class="pills" aria-label={`${group.category} skills`}>
-            {group.items.map((item) => (
-              <li>
-                <span class="pill">{item}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))
+      skills.map((group) => {
+        const coreItems = group.items.filter((item) => isCore(group, item));
+        const otherItems = group.items.filter((item) => !isCore(group, item));
+        return (
+          <div class="skill-group">
+            <h3>{group.category}</h3>
+            <ul class="pills" aria-label={`${group.category} skills`}>
+              {[...coreItems, ...otherItems].map((item) => (
+                <li>
+                  <span class={isCore(group, item) ? 'pill' : 'pill pill--secondary'}>
+                    {item}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        );
+      })
     }
   </div>
 </section>
