@@ -9,14 +9,23 @@
  * All links are optional. Missing keys (or a bare "#" sentinel) mean "no link".
  * The primary destination decides what the main project card click does; the
  * per-destination icons always offer the explicit choice.
+ *
+ * Video aspect: the internal video page supports both landscape (16:9) and
+ * portrait (9:16) videos. Set `videoAspect: "9:16"` for a vertical video; it
+ * defaults to "16:9". A /shorts/ URL implies "9:16" unless videoAspect says
+ * otherwise — an explicit value always wins.
  */
 
 export type LinkType = 'live' | 'video' | 'github';
+
+/** Supported player aspect ratios for the internal video page. */
+export type VideoAspect = '16:9' | '9:16';
 
 export interface ProjectLinks {
   live?: string;
   video?: string;
   github?: string;
+  videoAspect?: string;
 }
 
 export interface ProjectLike {
@@ -38,8 +47,7 @@ const YOUTUBE_ID_PATTERN = /^[A-Za-z0-9_-]{11}$/;
 
 /**
  * Extract a YouTube video ID from a URL, or null when it is not a usable
- * landscape-video URL. Accepts watch, youtu.be, /embed/, /v/ and /live/ forms.
- * Rejects /shorts/ on purpose: vertical video in a 16:9 player pillarboxes.
+ * video URL. Accepts watch, youtu.be, /embed/, /v/, /live/ and /shorts/ forms.
  */
 export function getYouTubeId(url: string | undefined): string | null {
   if (!url || url === '#') return null;
@@ -53,7 +61,7 @@ export function getYouTubeId(url: string | undefined): string | null {
       if (parsed.pathname === '/watch') {
         id = parsed.searchParams.get('v');
       } else {
-        const match = parsed.pathname.match(/^\/(embed|v|live)\/([^/?#]+)/);
+        const match = parsed.pathname.match(/^\/(embed|v|live|shorts)\/([^/?#]+)/);
         if (match) id = match[2];
       }
     }
@@ -61,6 +69,32 @@ export function getYouTubeId(url: string | undefined): string | null {
     return null;
   }
   return id && YOUTUBE_ID_PATTERN.test(id) ? id : null;
+}
+
+/** True when the video URL is a /shorts/ link (vertical by definition). */
+export function isShortsUrl(url: string | undefined): boolean {
+  if (!url || url === '#') return false;
+  try {
+    const parsed = new URL(url);
+    const host = parsed.hostname.replace(/^(www\.|m\.)/, '');
+    return (
+      (host === 'youtube.com' || host === 'youtube-nocookie.com') &&
+      parsed.pathname.startsWith('/shorts/')
+    );
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * The player aspect ratio for a project's video page. An explicit
+ * `videoAspect` always wins; a /shorts/ URL implies "9:16"; otherwise "16:9".
+ */
+export function getVideoAspect(project: ProjectLike): VideoAspect {
+  const explicit = project.links?.videoAspect;
+  if (explicit === '16:9' || explicit === '9:16') return explicit;
+  if (isShortsUrl(project.links?.video)) return '9:16';
+  return '16:9';
 }
 
 /**
@@ -157,7 +191,18 @@ export function validateProjects(projects: ProjectLike[]): void {
     if (links.video && !getYouTubeId(links.video)) {
       throw new Error(
         `[project-links] Project "${project.title}" has an invalid YouTube URL: "${links.video}". ` +
-          `Use a watch, youtu.be, embed, v or live URL with an 11-character video ID (no /shorts/ links).`,
+          `Use a watch, youtu.be, embed, v, live or shorts URL with an 11-character video ID.`,
+      );
+    }
+    if (links.videoAspect && links.videoAspect !== '16:9' && links.videoAspect !== '9:16') {
+      throw new Error(
+        `[project-links] Project "${project.title}" has an invalid videoAspect "${links.videoAspect}". ` +
+          `Use "16:9" or "9:16".`,
+      );
+    }
+    if (links.videoAspect && !getYouTubeId(links.video)) {
+      throw new Error(
+        `[project-links] Project "${project.title}" sets videoAspect "${links.videoAspect}" but has no valid video URL.`,
       );
     }
   }

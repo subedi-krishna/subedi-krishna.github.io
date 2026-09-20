@@ -1199,6 +1199,14 @@ a:focus-visible {
   background: #0b1220;
 }
 
+/* Portrait (9:16) videos: a phone-width frame that never overflows the
+   column or the viewport height, centered in the content column. */
+.player-frame--portrait {
+  aspect-ratio: 9 / 16;
+  width: min(100%, 24rem, calc(78vh * 9 / 16));
+  margin-inline: auto;
+}
+
 .facade {
   display: block;
   position: relative;

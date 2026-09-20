@@ -3,7 +3,7 @@ import Layout from '../../../layouts/Layout.astro';
 import Footer from '../../../components/Footer.astro';
 import ProjectLinkIcons from '../../../components/ProjectLinkIcons.astro';
 import projects from '../../../../data/projects.json';
-import { getYouTubeId, availableLinks, validateProjects } from '../../../lib/project-links';
+import { getYouTubeId, getVideoAspect, availableLinks, validateProjects } from '../../../lib/project-links';
 
 export function getStaticPaths() {
   // Fail the build on bad link data (duplicate slugs, dangling primaryLink,
@@ -16,6 +16,8 @@ export function getStaticPaths() {
 
 const { project } = Astro.props;
 const videoId = getYouTubeId(project.links.video)!;
+const aspect = getVideoAspect(project);
+const isPortrait = aspect === '9:16';
 const otherLinks = availableLinks(project).filter((link) => link.type !== 'video');
 const backArrowPath = 'M17 10H4M9 5l-5 5 5 5';
 ---
@@ -42,7 +44,7 @@ const backArrowPath = 'M17 10H4M9 5l-5 5 5 5';
     <h1 class="video-title">{project.title}</h1>
 
     <div
-      class="player-frame"
+      class:list={['player-frame', { 'player-frame--portrait': isPortrait }]}
       style={`view-transition-name: project-media-${project.slug}`}
     >
       <a
@@ -55,7 +57,13 @@ const backArrowPath = 'M17 10H4M9 5l-5 5 5 5';
         data-video-title={project.title}
         aria-label={`Play the demo video for ${project.title} (opens YouTube in a new tab)`}
       >
-        <img src={project.image} alt="" aria-hidden="true" width="1280" height="720" />
+        <img
+          src={project.image}
+          alt=""
+          aria-hidden="true"
+          width={isPortrait ? '720' : '1280'}
+          height={isPortrait ? '1280' : '720'}
+        />
         <span class="facade-play" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="currentColor">
             <path d="M8 5.5v13c0 .8.9 1.3 1.6.9l10.2-6.5c.6-.4.6-1.4 0-1.8L9.6 4.6c-.7-.4-1.6.1-1.6.9z" />
