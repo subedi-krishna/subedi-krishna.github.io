@@ -41,11 +41,7 @@ const rightArrowPath = 'M3 10h13M11 5l5 5-5 5';
                       >
                         <span>
                           {project.title}
-                          {primary.type === 'video' ? (
-                            <svg class="arrow-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                              <path d={playPath} />
-                            </svg>
-                          ) : (
+                          {primary.external && (
                             <svg class="arrow-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                               <path fill-rule="evenodd" d={arrowPath} clip-rule="evenodd" />
                             </svg>

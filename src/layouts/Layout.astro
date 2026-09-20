@@ -72,10 +72,14 @@ const ogImageUrl = Astro.site ? new URL('/og-image.png', Astro.site).href : '/og
         );
       }
 
-      // Scroll-spy for the in-page nav
+      // Scroll-spy for the in-page nav: deterministic and flicker-free.
+      // The active link is the last section whose top has crossed a viewport
+      // anchor (~40% down the screen); reaching the page bottom pins the
+      // last link. Updates are rAF-throttled and positions re-measured on
+      // resize and load so late-loading media can't shift the results.
       const navLinks = Array.from(document.querySelectorAll('.nav-link'));
       const sections = Array.from(document.querySelectorAll('main section[id]'));
-      if ('IntersectionObserver' in window && navLinks.length && sections.length) {
+      if (navLinks.length && sections.length) {
         const setActive = (id) => {
           navLinks.forEach((link) => {
             const isActive = link.getAttribute('href') === `#${id}`;
@@ -87,15 +91,46 @@ const ogImageUrl = Astro.site ? new URL('/og-image.png', Astro.site).href : '/og
             }
           });
         };
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) setActive(entry.target.id);
-            });
-          },
-          { rootMargin: '-35% 0px -60% 0px', threshold: 0 }
-        );
-        sections.forEach((s) => observer.observe(s));
+        let tops = [];
+        const measure = () => {
+          tops = sections.map((s) => ({
+            id: s.getAttribute('id'),
+            top: s.getBoundingClientRect().top + window.scrollY,
+          }));
+        };
+        const pickActive = () => {
+          const anchor = window.scrollY + window.innerHeight * 0.4;
+          let current = tops[0].id;
+          for (const t of tops) {
+            if (t.top <= anchor) current = t.id;
+            else break;
+          }
+          const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+          if (window.scrollY >= maxScroll - 2) current = tops[tops.length - 1].id;
+          return current;
+        };
+        let ticking = false;
+        const update = () => {
+          ticking = false;
+          if (tops.length) setActive(pickActive());
+        };
+        const requestUpdate = () => {
+          if (!ticking) {
+            ticking = true;
+            window.requestAnimationFrame(update);
+          }
+        };
+        measure();
+        window.addEventListener('scroll', requestUpdate, { passive: true });
+        window.addEventListener('resize', () => {
+          measure();
+          requestUpdate();
+        });
+        window.addEventListener('load', () => {
+          measure();
+          requestUpdate();
+        });
+        requestUpdate();
       }
 
       // Single-select filter bars (archive pages). Progressive enhancement:
