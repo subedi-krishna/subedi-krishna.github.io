@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="225" viewBox="0 0 400 225">
+  <defs>
+    <radialGradient id="beaconGlow" cx="0.5" cy="0.5" r="0.55">
+      <stop offset="0" stop-color="#34d399" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#34d399" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="225" fill="#0f172a"/>
+  <rect width="400" height="225" fill="url(#beaconGlow)"/>
+  <g fill="none" stroke="#34d399">
+    <circle cx="200" cy="112" r="80" stroke-opacity="0.22"/>
+    <circle cx="200" cy="112" r="54" stroke-opacity="0.32"/>
+    <circle cx="200" cy="112" r="28" stroke-opacity="0.45"/>
+  </g>
+  <line x1="200" y1="112" x2="252" y2="60" stroke="#6ee7b7" stroke-opacity="0.55" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="240" cy="82" r="4.5" fill="#a7f3d0"/>
+  <circle cx="158" cy="142" r="3.5" fill="#6ee7b7" opacity="0.7"/>
+  <circle cx="200" cy="112" r="14" fill="#34d399" opacity="0.22"/>
+  <circle cx="200" cy="112" r="6.5" fill="#34d399"/>
+</svg>

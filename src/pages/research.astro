@@ -1,0 +1,87 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
+import research from '../../data/research.json';
+
+const sorted = [...research].sort((a, b) => Number(b.date) - Number(a.date));
+
+const externalIconPath =
+  'M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z';
+const backArrowPath = 'M17 10H4M9 5l-5 5 5 5';
+---
+
+<Layout
+  title="Research Archive — Alex Carter"
+  description="Every paper and study I've published, in one place."
+>
+  <main id="content" class="archive-main">
+    <a href="/" class="back-link">
+      <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <path
+          d={backArrowPath}
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+      Alex Carter
+    </a>
+    <h1 class="archive-title">All Research</h1>
+    <div class="table-scroll">
+      <table class="archive-table">
+        <caption class="sr-only">Complete archive of all research</caption>
+        <thead>
+          <tr>
+            <th scope="col">Year</th>
+            <th scope="col">Title</th>
+            <th scope="col" class="col-hide-sm">Venue</th>
+            <th scope="col" class="col-hide-md">Topics</th>
+            <th scope="col">Link</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            sorted.map((paper) => (
+              <tr>
+                <td class="t-year">{paper.date}</td>
+                <th scope="row" class="t-project">
+                  {paper.title}
+                </th>
+                <td class="col-hide-sm t-madeat">{paper.venue}</td>
+                <td class="col-hide-md">
+                  <ul class="pills pills--table" aria-label={`Topics of ${paper.title}`}>
+                    {paper.tags.map((t) => (
+                      <li>
+                        <span class="pill">{t}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </td>
+                <td class="t-link">
+                  {paper.venueUrl === '#' ? (
+                    <span class="t-empty" aria-hidden="true">
+                      —
+                    </span>
+                  ) : (
+                    <a
+                      href={paper.venueUrl}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      aria-label={`${paper.title} (opens in a new tab)`}
+                    >
+                      <svg class="ext-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd" d={externalIconPath} clip-rule="evenodd" />
+                      </svg>
+                    </a>
+                  )}
+                </td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+    <Footer />
+  </main>
+</Layout>

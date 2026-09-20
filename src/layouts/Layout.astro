@@ -1,0 +1,93 @@
+---
+import '../styles/global.css';
+import profile from '../../data/profile.json';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = `${profile.name} — ${profile.title}`, description = profile.tagline } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0f172a" />
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <a href="#content" class="skip-link">Skip to Content</a>
+    <div class="spotlight" id="spotlight" aria-hidden="true"></div>
+    <div class="page">
+      <div class="layout">
+        <slot />
+      </div>
+    </div>
+    <script>
+      // Mouse-follow spotlight
+      const spotlight = document.getElementById('spotlight');
+      if (spotlight && window.matchMedia('(pointer: fine)').matches) {
+        let raf = 0;
+        let x = window.innerWidth / 2;
+        let y = -100;
+        const render = () => {
+          spotlight.style.setProperty('--mx', `${x}px`);
+          spotlight.style.setProperty('--my', `${y}px`);
+          raf = 0;
+        };
+        window.addEventListener(
+          'mousemove',
+          (e) => {
+            x = e.clientX;
+            y = e.clientY;
+            if (!raf) raf = requestAnimationFrame(render);
+          },
+          { passive: true }
+        );
+      }
+
+      // Scroll-spy for the in-page nav
+      const navLinks = Array.from(document.querySelectorAll('.nav-link'));
+      const sections = Array.from(document.querySelectorAll('main section[id]'));
+      if ('IntersectionObserver' in window && navLinks.length && sections.length) {
+        const setActive = (id) => {
+          navLinks.forEach((link) => {
+            const isActive = link.getAttribute('href') === `#${id}`;
+            link.classList.toggle('active', isActive);
+            if (isActive) {
+              link.setAttribute('aria-current', 'true');
+            } else {
+              link.removeAttribute('aria-current');
+            }
+          });
+        };
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) setActive(entry.target.id);
+            });
+          },
+          { rootMargin: '-35% 0px -60% 0px', threshold: 0 }
+        );
+        sections.forEach((s) => observer.observe(s));
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+---
+import aboutData from '../../data/about.json';
+
+interface Segment {
+  text: string;
+  url?: string;
+  style?: string;
+}
+
+const about: { heading: string; paragraphs: Segment[][] } = aboutData;
+---
+
+<section id="about" class="section" aria-label="About me">
+  <div class="section-head">
+    <h2>{about.heading}</h2>
+  </div>
+  <div class="about-body">
+    {about.paragraphs.map((segments) => (
+      <p>
+        {segments.map((seg) =>
+          seg.url ? (
+            <a class={seg.style ?? 'inline-link'} href={seg.url}>{seg.text}</a>
+          ) : (
+            seg.text
+          )
+        )}
+      </p>
+    ))}
+  </div>
+</section>

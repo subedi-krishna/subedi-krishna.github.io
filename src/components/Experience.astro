@@ -1,0 +1,61 @@
+---
+import experience from '../../data/experience.json';
+import profile from '../../data/profile.json';
+
+const arrowPath =
+  'M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z';
+---
+
+<section id="experience" class="section" aria-label="Work experience">
+  <div class="section-head">
+    <h2>Experience</h2>
+  </div>
+  <div>
+    <ol class="card-list">
+      {
+        experience.map((job) => (
+          <li>
+            <div class="card">
+              <header class="card-date" aria-label={job.date}>
+                {job.date}
+              </header>
+              <div class="card-body">
+                <h3 class="card-title">
+                  <a href={job.companyUrl} aria-label={`${job.title} at ${job.company} (opens in a new tab)`} target="_blank" rel="noreferrer noopener">
+                    <span>
+                      {job.title} ·{' '}
+                      <span style="display:inline-block">
+                        {job.company}
+                        <svg class="arrow-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                          <path fill-rule="evenodd" d={arrowPath} clip-rule="evenodd" />
+                        </svg>
+                      </span>
+                    </span>
+                  </a>
+                </h3>
+                <p class="card-desc">{job.description}</p>
+                <ul class="pills" aria-label="Technologies used">
+                  {job.tech.map((t) => (
+                    <li>
+                      <span class="pill">{t}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+    <div>
+      <a class="more-link" href={profile.resumeUrl} aria-label="View full résumé (opens in a new tab)">
+        <span>
+          View Full Résumé
+          <svg class="arrow-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d={arrowPath} clip-rule="evenodd" />
+          </svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>

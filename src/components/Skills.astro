@@ -1,0 +1,25 @@
+---
+import skills from '../../data/skills.json';
+---
+
+<section id="skills" class="section" aria-label="Skills">
+  <div class="section-head">
+    <h2>Skills</h2>
+  </div>
+  <div>
+    {
+      skills.map((group) => (
+        <div class="skill-group">
+          <h3>{group.category}</h3>
+          <ul class="pills" aria-label={`${group.category} skills`}>
+            {group.items.map((item) => (
+              <li>
+                <span class="pill">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+  </div>
+</section>

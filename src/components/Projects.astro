@@ -1,0 +1,69 @@
+---
+import projects from '../../data/projects.json';
+
+// Home shows a limited set; the archive link appears only when there is more to show.
+const LIMIT = 5;
+const visibleProjects = projects.slice(0, LIMIT);
+const showArchiveLink = projects.length > LIMIT;
+
+const arrowPath =
+  'M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z';
+const rightArrowPath = 'M3 10h13M11 5l5 5-5 5';
+---
+
+<section id="projects" class="section" aria-label="Selected projects">
+  <div class="section-head">
+    <h2>Projects</h2>
+  </div>
+  <div>
+    <ul class="card-list">
+      {
+        visibleProjects.map((project) => (
+          <li>
+            <div class="card">
+              <div class="card-body card-body--project">
+                <h3 class="card-title">
+                  <a href={project.url} aria-label={`${project.title} (opens in a new tab)`} target="_blank" rel="noreferrer noopener">
+                    <span>
+                      {project.title}
+                      <svg class="arrow-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd" d={arrowPath} clip-rule="evenodd" />
+                      </svg>
+                    </span>
+                  </a>
+                </h3>
+                <p class="card-desc">{project.description}</p>
+                <ul class="pills" aria-label="Technologies used">
+                  {project.tech.map((t) => (
+                    <li>
+                      <span class="pill">{t}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div class="card-thumb" aria-hidden="true">
+                <img src={project.image} alt="" loading="lazy" width="400" height="225" />
+              </div>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+  {
+    showArchiveLink && (
+      <a class="archive-link" href="/archive">
+        <span>View Full Project Archive</span>
+        <svg class="arrow-right" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path
+            d={rightArrowPath}
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </a>
+    )
+  }
+</section>

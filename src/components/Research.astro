@@ -1,0 +1,71 @@
+---
+import research from '../../data/research.json';
+
+// Home shows a limited set; the archive link appears only when there is more to show.
+const LIMIT = 5;
+const visiblePapers = research.slice(0, LIMIT);
+const showArchiveLink = research.length > LIMIT;
+
+const arrowPath =
+  'M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z';
+const rightArrowPath = 'M3 10h13M11 5l5 5-5 5';
+---
+
+<section id="research" class="section" aria-label="Research">
+  <div class="section-head">
+    <h2>Research</h2>
+  </div>
+  <div>
+    <ol class="card-list">
+      {
+        visiblePapers.map((paper) => (
+          <li>
+            <div class="card">
+              <header class="card-date" aria-label={paper.date}>
+                {paper.date}
+              </header>
+              <div class="card-body">
+                <h3 class="card-title">
+                  <a href={paper.venueUrl} aria-label={`${paper.title} (opens in a new tab)`} target="_blank" rel="noreferrer noopener">
+                    <span>
+                      {paper.title}
+                      <svg class="arrow-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd" d={arrowPath} clip-rule="evenodd" />
+                      </svg>
+                    </span>
+                  </a>
+                </h3>
+                <p class="card-desc">
+                  <span class="venue">{paper.venue}.</span> {paper.description}
+                </p>
+                <ul class="pills" aria-label="Research topics">
+                  {paper.tags.map((t) => (
+                    <li>
+                      <span class="pill">{t}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+  {
+    showArchiveLink && (
+      <a class="archive-link" href="/research">
+        <span>View Full Research Archive</span>
+        <svg class="arrow-right" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path
+            d={rightArrowPath}
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </a>
+    )
+  }
+</section>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="225" viewBox="0 0 400 225">
+  <defs>
+    <linearGradient id="pulseFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5eead4" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#5eead4" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="pulseGlow" cx="0.5" cy="0.42" r="0.55">
+      <stop offset="0" stop-color="#5eead4" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#5eead4" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="225" fill="#0f172a"/>
+  <rect width="400" height="225" fill="url(#pulseGlow)"/>
+  <g stroke="#ffffff" stroke-opacity="0.06">
+    <line x1="24" y1="52" x2="376" y2="52"/>
+    <line x1="24" y1="92" x2="376" y2="92"/>
+    <line x1="24" y1="132" x2="376" y2="132"/>
+    <line x1="24" y1="172" x2="376" y2="172"/>
+  </g>
+  <path d="M24 168 C 58 158, 74 118, 108 122 C 142 126, 154 160, 188 152 C 222 144, 236 100, 270 96 C 304 92, 322 122, 352 106 C 360 102, 366 99, 372 96 L372 200 L24 200 Z" fill="url(#pulseFill)"/>
+  <path d="M24 168 C 58 158, 74 118, 108 122 C 142 126, 154 160, 188 152 C 222 144, 236 100, 270 96 C 304 92, 322 122, 352 106 C 360 102, 366 99, 372 96" fill="none" stroke="#5eead4" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="372" cy="96" r="11" fill="#5eead4" opacity="0.22"/>
+  <circle cx="372" cy="96" r="4.5" fill="#5eead4"/>
+</svg>
