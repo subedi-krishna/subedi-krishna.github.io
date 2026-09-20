@@ -1138,29 +1138,6 @@ a:focus-visible {
   margin-top: 0;
 }
 
-/* restrained play indicator on card thumbnails that have a video */
-.play-badge {
-  position: absolute;
-  right: 0.6rem;
-  bottom: 0.6rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 9999px;
-  background: rgb(15 23 42 / 0.72);
-  border: 1px solid rgb(94 234 212 / 0.5);
-  color: var(--accent);
-  backdrop-filter: blur(4px);
-}
-
-.play-badge svg {
-  width: 0.9rem;
-  height: 0.9rem;
-  margin-left: 1px;
-}
-
 /* ---------- video page ---------- */
 .video-main {
   width: 100%;
