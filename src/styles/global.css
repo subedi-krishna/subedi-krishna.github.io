@@ -721,35 +721,128 @@ a:hover .arrow-icon {
   padding-bottom: 2rem;
 }
 
+.contact-eyebrow {
+  margin: 0 0 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+}
+
+.contact-title {
+  margin: 0;
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--heading);
+}
+
 .contact-desc {
-  margin: 0 auto;
+  margin: 1.5rem auto 0;
   max-width: 32rem;
 }
 
-/* the address itself is the call to action: large, quiet, copiable */
-.contact-email {
+.contact-btn {
   display: inline-block;
-  margin-top: 1.75rem;
-  font-size: clamp(1.25rem, 3vw, 1.75rem);
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  color: var(--heading);
-  text-decoration: none;
-  border-bottom: 1px solid var(--line);
-  padding-bottom: 0.25rem;
-  transition: color 0.2s ease, border-color 0.2s ease;
-}
-
-.contact-email:hover,
-.contact-email:focus-visible {
+  margin-top: 2.5rem;
+  padding: 1rem 1.75rem;
+  border: 1px solid var(--accent);
+  border-radius: 0.375rem;
   color: var(--accent);
-  border-color: var(--accent);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
 }
 
-.contact-email:focus-visible {
+.contact-btn:hover,
+.contact-btn:focus-visible {
+  background-color: rgba(94, 234, 212, 0.1);
+  transform: translateY(-2px);
+}
+
+.contact-btn:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 4px;
-  border-radius: 2px;
+}
+
+/* "Say Hello" morphs into the email address on first click.
+   Apple-style: springy ease, label blurs out, email rises in. */
+.contact-reveal {
+  position: relative;
+  white-space: nowrap;
+  transition:
+    width 0.55s cubic-bezier(0.32, 0.72, 0, 1),
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.contact-reveal:active {
+  transform: scale(0.97);
+}
+
+.contact-reveal .reveal-label {
+  display: inline-block;
+  transition: opacity 0.3s ease, filter 0.3s ease, transform 0.3s ease;
+}
+
+.contact-reveal .reveal-email {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  width: max-content;
+  max-width: 88vw;
+  padding: 0 1.75rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, 10px) scale(0.98);
+  filter: blur(6px);
+  transition:
+    opacity 0.4s cubic-bezier(0.32, 0.72, 0, 1),
+    transform 0.4s cubic-bezier(0.32, 0.72, 0, 1),
+    filter 0.4s cubic-bezier(0.32, 0.72, 0, 1),
+    visibility 0s linear 0.4s;
+}
+
+.contact-reveal.is-open .reveal-label {
+  opacity: 0;
+  filter: blur(4px);
+  transform: scale(0.96);
+}
+
+.contact-reveal.is-open .reveal-email {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0) scale(1);
+  filter: blur(0);
+  transition-delay: 0.1s;
+}
+
+/* once the morph finishes, the email layer owns the layout */
+.contact-reveal.is-settled .reveal-label {
+  display: none;
+}
+
+.contact-reveal.is-settled .reveal-email {
+  position: static;
+  transform: none;
+  max-width: none;
+  padding: 0; /* the anchor's own padding takes over so the width doesn't jump */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-reveal,
+  .contact-reveal .reveal-label,
+  .contact-reveal .reveal-email {
+    transition: none;
+  }
 }
 
 /* ---------- footer ---------- */

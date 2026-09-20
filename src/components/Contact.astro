@@ -8,9 +8,58 @@ import profile from '../../data/profile.json';
     <h2>Contact</h2>
   </div>
   <div class="contact">
-    <p class="contact-desc">{contact.line}</p>
-    <a class="contact-email" href={`mailto:${profile.email}`}>
-      {profile.email}
+    <p class="contact-eyebrow">{contact.eyebrow}</p>
+    <h2 class="contact-title">{contact.title}</h2>
+    <p class="contact-desc">{contact.description}</p>
+    <a
+      class="contact-btn contact-reveal"
+      data-contact-reveal
+      href={`mailto:${profile.email}`}
+      aria-expanded="false"
+    >
+      <span class="reveal-label">{contact.buttonLabel}</span>
+      <span class="reveal-email" aria-hidden="true">{profile.email}</span>
     </a>
   </div>
 </section>
+
+<script>
+  // "Say Hello" morphs into the email address on first click.
+  // Without JS the button is a plain mailto link, so nothing breaks.
+  const reveal = document.querySelector('[data-contact-reveal]');
+  if (reveal) {
+    const email = reveal.querySelector('.reveal-email');
+    reveal.addEventListener('click', (event) => {
+      if (reveal.classList.contains('is-open')) return; // settled: follow the mailto link
+      event.preventDefault();
+
+      reveal.setAttribute('aria-expanded', 'true');
+      email.removeAttribute('aria-hidden');
+
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const startWidth = reveal.offsetWidth;
+      const endWidth = email.offsetWidth;
+
+      if (reduceMotion || endWidth <= startWidth) {
+        reveal.classList.add('is-open', 'is-settled');
+        return;
+      }
+
+      // Lock the current width, then animate to the email's natural width.
+      reveal.style.width = `${startWidth}px`;
+      void reveal.offsetWidth; // force the locked width to paint before animating
+      reveal.classList.add('is-open');
+      reveal.style.width = `${endWidth}px`;
+
+      reveal.addEventListener('transitionend', function onEnd(e) {
+        // NOTE: do not use { once: true } — other transitions (e.g. the
+        // :active press scale) can end first and would swallow the listener.
+        if (e.propertyName !== 'width') return;
+        reveal.removeEventListener('transitionend', onEnd);
+        // Hand layout back to the email layer so the pill stays correct on resize.
+        reveal.classList.add('is-settled');
+        reveal.style.width = '';
+      });
+    });
+  }
+</script>
