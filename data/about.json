@@ -10,7 +10,7 @@
       { "text": "Today I'm a Member of Technical Staff at " },
       { "text": "Neryva", "url": "https://neryva.com" },
       {
-        "text": ", building a customizable AI agent platform — multi-tenant runtime, agent orchestration, tool calling, WhatsApp/Slack integrations, guardrails, and evaluation pipelines for tool-calling accuracy and context-retrieval drift."
+        "text": ", building a customizable AI agent platform — multi-tenant agent runtime, custom harnesses, hierarchical memory, layered input/output safety, and the drag-and-drop canvas users design agents on — guardrails, and evaluation pipelines for tool-calling accuracy and context-retrieval drift."
       }
     ],
     [

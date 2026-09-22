@@ -4,7 +4,7 @@
     "companyUrl": "https://neryva.com",
     "date": "Jul 2025 — Present",
     "title": "Member of Technical Staff",
-    "description": "Architected a multi-tenant AI agent runtime — agent orchestration, tool calling, WhatsApp/Slack webhook integrations, production deployment. Designed guardrails and automated evaluation pipelines for tool-calling accuracy and context-retrieval drift.",
+    "description": "Architected the multi-tenant agent runtime — agent lifecycles, tool-calling loops, and state-machine transitions, executed in isolated sandboxes — with layered input/output safety, hierarchical memory, and the drag-and-drop agent canvas for building custom agents.",
     "tech": ["Python", "FastAPI", "REST APIs", "Multi-Tenancy", "LLM Evaluation"]
   },
   {
