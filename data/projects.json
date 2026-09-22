@@ -1,164 +1,38 @@
 [
   {
-    "description": "A real-time analytics dashboard for visualizing product metrics. Features interactive charts, customizable widgets, and live data streaming over WebSockets.",
-    "domains": [
-      "Web",
-      "Data"
-    ],
-    "image": "/images/project-pulse.svg",
-    "imageAlt": "Pulse Dashboard preview",
-    "madeAt": "Northwind Labs",
-    "tech": [
-      "React",
-      "TypeScript",
-      "D3.js",
-      "WebSockets"
-    ],
-    "title": "Pulse Dashboard",
+    "title": "Automated Robotic Arm — Pick and Place",
+    "slug": "robotic-arm",
     "year": "2024",
-    "slug": "pulse-dashboard",
-    "links": {
-      "live": "https://example.com/pulse-dashboard",
-      "video": "https://www.youtube.com/watch?v=aqz-KE-bpKQ",
-      "github": "https://github.com/example/pulse-dashboard"
-    },
-    "primaryLink": "video"
+    "description": "Designed and fabricated a custom 6-DOF pick-and-place arm — DH-parameter-optimized PyBullet inverse kinematics, real-time Python control with a custom Unity GUI, cycloidal actuators, and 3D-printed structural components. Built with a 4-person team.",
+    "domains": ["Robotics"],
+    "tech": ["Python", "PyBullet", "Unity", "3D Printing", "Inverse Kinematics"],
+    "image": "/images/project-robotic-arm.svg",
+    "imageAlt": "Automated Robotic Arm preview",
+    "madeAt": null,
+    "links": {}
   },
   {
-    "description": "A minimal note-taking web app with offline support, markdown rendering, and end-to-end encrypted sync across devices.",
-    "domains": [
-      "Web",
-      "Mobile"
-    ],
-    "image": "/images/project-nomad.svg",
-    "imageAlt": "Nomad Notes preview",
-    "madeAt": null,
-    "tech": [
-      "Next.js",
-      "IndexedDB",
-      "Tailwind CSS"
-    ],
-    "title": "Nomad Notes",
+    "title": "Shenz — EdTech Blog and Registration Backend",
+    "slug": "shenz",
     "year": "2023",
-    "slug": "nomad-notes",
-    "links": {
-      "video": "https://www.youtube.com/shorts/aqz-KE-bpKQ",
-      "github": "https://github.com/example/nomad-notes"
-    }
+    "description": "Django REST Framework API for an EdTech platform — blog CRUD with category search and pagination, instructor registration, and a homepage slider.",
+    "domains": ["Web"],
+    "tech": ["Django", "Django REST Framework", "SQLite"],
+    "image": "/images/project-shenz.svg",
+    "imageAlt": "Shenz preview",
+    "madeAt": null,
+    "links": {}
   },
   {
-    "description": "A color palette generator and design-token exporter for design systems. Generates accessible palettes and exports to CSS variables, JSON, and Figma.",
-    "domains": [
-      "Web",
-      "Design"
-    ],
-    "image": "/images/project-palette.svg",
-    "imageAlt": "Palette Forge preview",
-    "madeAt": null,
-    "tech": [
-      "Svelte",
-      "TypeScript",
-      "Canvas API"
-    ],
-    "title": "Palette Forge",
+    "title": "CampusHub — EdTech Platform with Courses and Community",
+    "slug": "campushub",
     "year": "2023",
-    "slug": "palette-forge",
-    "links": {}
-  },
-  {
-    "description": "An open-source portfolio starter template with a dark, minimal aesthetic. Used by hundreds of developers as a starting point for their personal sites.",
-    "domains": [
-      "Web"
-    ],
-    "image": "/images/project-devfolio.svg",
-    "imageAlt": "Devfolio Template preview",
+    "description": "Django platform with a course catalogue, community forum, and a nested-comment rating system on PostgreSQL.",
+    "domains": ["Web"],
+    "tech": ["Django", "PostgreSQL"],
+    "image": "/images/project-campushub.svg",
+    "imageAlt": "CampusHub preview",
     "madeAt": null,
-    "tech": [
-      "Astro",
-      "CSS",
-      "JavaScript"
-    ],
-    "title": "Devfolio Template",
-    "year": "2022",
-    "slug": "devfolio-template",
-    "links": {}
-  },
-  {
-    "description": "Uptime monitoring and status pages for SaaS teams. Synthetic checks from twelve regions, incident timelines, and subscriber notifications with sub-minute detection.",
-    "domains": [
-      "Web",
-      "DevOps"
-    ],
-    "image": "/images/project-beacon.svg",
-    "imageAlt": "Beacon preview",
-    "madeAt": "Northwind Labs",
-    "tech": [
-      "TypeScript",
-      "Node.js",
-      "PostgreSQL",
-      "Playwright"
-    ],
-    "title": "Beacon",
-    "year": "2022",
-    "slug": "beacon",
-    "links": {}
-  },
-  {
-    "description": "End-to-end encrypted team chat with channels, threads, and file sharing. Built for small teams that want real-time speed without the surveillance.",
-    "domains": [
-      "Web"
-    ],
-    "image": "/images/project-relay.svg",
-    "imageAlt": "Relay preview",
-    "madeAt": null,
-    "tech": [
-      "React",
-      "WebSockets",
-      "Redis",
-      "Docker"
-    ],
-    "title": "Relay",
-    "year": "2023",
-    "slug": "relay",
-    "links": {}
-  },
-  {
-    "description": "Offline-first travel planner as a progressive web app. Itineraries, maps, and bookings keep working in airplane mode and sync quietly when you're back online.",
-    "domains": [
-      "Web",
-      "Mobile"
-    ],
-    "image": "/images/project-waypoint.svg",
-    "imageAlt": "Waypoint preview",
-    "madeAt": null,
-    "tech": [
-      "Svelte",
-      "IndexedDB",
-      "Mapbox GL"
-    ],
-    "title": "Waypoint",
-    "year": "2021",
-    "slug": "waypoint",
-    "links": {}
-  },
-  {
-    "description": "Personal finance dashboard with automatic categorization, budgets, and net-worth tracking across every account you connect.",
-    "domains": [
-      "Web",
-      "Data"
-    ],
-    "image": "/images/project-abacus.svg",
-    "imageAlt": "Abacus preview",
-    "madeAt": null,
-    "tech": [
-      "Next.js",
-      "Prisma",
-      "PostgreSQL",
-      "Tailwind CSS"
-    ],
-    "title": "Abacus",
-    "year": "2021",
-    "slug": "abacus",
     "links": {}
   }
 ]

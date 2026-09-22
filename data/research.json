@@ -1,88 +1,38 @@
 [
   {
-    "year": "2024",
-    "description": "An empirical study comparing perceived load performance across rendering strategies. Proposes a lightweight metric correlating skeleton-screen timing with user satisfaction scores.",
-    "tags": [
-      "Web Performance",
-      "HCI",
-      "Empirical Study"
-    ],
-    "domains": [],
-    "title": "Measuring Perceived Performance in Single-Page Applications",
-    "venue": "Journal of Web Engineering",
-    "venueUrl": "#"
+    "year": "2026",
+    "title": "Bounded Precision-Geometry Scaling for Robust Multi-Task Learning under Loss Scale Mismatch",
+    "venue": "arXiv:2608.21653 [cs.LG]",
+    "venueUrl": "https://arxiv.org/abs/2608.21653",
+    "description": "Held macro 0.777→0.778 under 1000× loss rescaling, outperforming Nash-MTL on NYUv2.",
+    "tags": ["Multi-Task Learning", "Loss Scaling", "NYUv2"],
+    "domains": ["AI"]
   },
   {
-    "year": "2023",
-    "description": "Presents API design patterns that make accessible output the default in component libraries, evaluated through a case study of three production design systems.",
-    "tags": [
-      "Accessibility",
-      "Design Systems"
-    ],
-    "domains": [],
-    "title": "Accessible by Default: Component API Patterns for Inclusive Design Systems",
-    "venue": "Conf Paper — Placeholder Proceedings",
-    "venueUrl": "#"
+    "year": "2026",
+    "title": "Uniform Herding: Exemplar Replay with Representation Refresh",
+    "venue": "arXiv:2608.13061 [cs.AI]",
+    "venueUrl": "https://arxiv.org/abs/2608.13061",
+    "description": "Lifted continual-learning accuracy +1.67% and cut forgetting 7.65% vs iCaRL on CIFAR-100 (ResNet-18).",
+    "tags": ["Continual Learning", "Exemplar Replay", "CIFAR-100"],
+    "domains": ["AI"]
   },
   {
-    "year": "2022",
-    "description": "Introduces the idea of a “contrast budget” for dark interfaces and provides tooling to audit token palettes against WCAG contrast requirements.",
-    "tags": [
-      "Color Theory",
-      "Accessibility",
-      "Tooling"
-    ],
-    "domains": [],
-    "title": "Dark Mode Done Right: Contrast Budgets for Low-Light Interfaces",
-    "venue": "Workshop on Interface Aesthetics",
-    "venueUrl": "#"
+    "year": "2026",
+    "title": "Reflected UAS: Corrected Deterministic Stability and Direct CTMC Drift Calculation",
+    "venue": "arXiv:2607.28688 [cs.PF]",
+    "venueUrl": "https://arxiv.org/abs/2607.28688",
+    "description": "Derived direct Foster-Lyapunov drift bounds for UAS routing; achieved lower mean queue length than UAS and JSSQ.",
+    "tags": ["Queueing Theory", "Lyapunov Drift", "UAS"],
+    "domains": ["Systems"]
   },
   {
-    "year": "2024",
-    "description": "An audit of the hundred most-visited news sites, quantifying how third-party scripts inflate load times — and a bundling strategy that cut median script cost by a third.",
-    "tags": [
-      "Web Performance",
-      "Measurement"
-    ],
-    "domains": [],
-    "title": "The Cost of Convenience: Third-Party Script Bloat on News Sites",
-    "venue": "Web Performance Summit",
-    "venueUrl": "#"
-  },
-  {
-    "year": "2023",
-    "description": "A pipeline for transforming a single token source into platform-native themes for web, iOS, and Android, with drift detection wired into CI.",
-    "tags": [
-      "Design Systems",
-      "Tooling"
-    ],
-    "domains": [],
-    "title": "Tokens in Translation: Keeping Design Systems Consistent Across Platforms",
-    "venue": "Design Systems Conference",
-    "venueUrl": "#"
-  },
-  {
-    "year": "2022",
-    "description": "A pattern catalog for roving tabindex, skip links, and command palettes, evaluated against task-completion times in dense admin interfaces.",
-    "tags": [
-      "Accessibility",
-      "UX"
-    ],
-    "domains": [],
-    "title": "Keyboard-First: Navigation Patterns for Complex Web Applications",
-    "venue": "Accessibility Workshop",
-    "venueUrl": "#"
-  },
-  {
-    "year": "2021",
-    "description": "A controlled experiment on how loading placeholders shape perceived performance, finding that progressive disclosure beats spinners by a wide margin.",
-    "tags": [
-      "HCI",
-      "Web Performance"
-    ],
-    "domains": [],
-    "title": "Skeleton Screens and the Perception of Speed",
-    "venue": "HCI Symposium",
-    "venueUrl": "#"
+    "year": "2025",
+    "title": "The Reliability of LLMs for Medical Diagnosis: An Examination of Consistency, Manipulation, and Contextual Awareness",
+    "venue": "arXiv:2503.10647 [cs.CL]",
+    "venueUrl": "https://arxiv.org/abs/2503.10647",
+    "description": "Benchmarked Gemini 2.0 Flash vs ChatGPT-4o on 52 clinical scenarios; quantified adversarial and distractor prompt vulnerability.",
+    "tags": ["LLM Evaluation", "Medical AI", "Prompt Robustness"],
+    "domains": ["AI"]
   }
 ]

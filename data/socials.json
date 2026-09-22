@@ -1,1 +1,4 @@
-[{"icon":"github","label":"GitHub","url":"#"},{"icon":"linkedin","label":"LinkedIn","url":"#"},{"icon":"twitter","label":"Twitter","url":"#"},{"icon":"instagram","label":"Instagram","url":"#"}]
+[
+  { "icon": "github", "label": "GitHub", "url": "https://github.com/Luke23-45" },
+  { "icon": "linkedin", "label": "LinkedIn", "url": "https://linkedin.com/in/krishna-subedi" }
+]

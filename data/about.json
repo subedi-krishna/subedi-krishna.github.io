@@ -1,1 +1,24 @@
-{"heading":"About","paragraphs":[[{"text":"Hi there! I'm Alex, and I like building things for the web. I'm a software engineer with expertise in crafting accessible, pixel-perfect user interfaces. I take pride in creating thoughtful, inclusive products and have a sharp eye for the little details that separate a good product from an exceptional one."}],[{"text":"Currently, I'm a Senior Frontend Engineer at "},{"style":"inline-link","text":"Northwind Labs","url":"#"},{"text":", where I work on the design system and help build new products. I lead engineering efforts across our component library, partnering closely with designers and engineers to ensure accessibility is built into the foundation of everything we ship."}],[{"text":"In the past, I've built products for clients across education, healthcare, and media — and contributed to open-source tooling used by thousands of developers. In my spare time, you can usually find me hiking, playing chess, experimenting with film photography, or exploring new coffee shops."}]]}
+{
+  "heading": "About",
+  "paragraphs": [
+    [
+      {
+        "text": "I'm Krishna Subedi, a software engineer based in Kathmandu, Nepal. I moved from mechanical engineering into software through three employers: Nepal Oil Corporation, Smaitic Labs, and Neryva."
+      }
+    ],
+    [
+      { "text": "Today I'm a Member of Technical Staff at " },
+      { "text": "Neryva", "url": "https://neryva.com" },
+      {
+        "text": ", building a customizable AI agent platform — multi-tenant runtime, agent orchestration, tool calling, WhatsApp/Slack integrations, guardrails, and evaluation pipelines for tool-calling accuracy and context-retrieval drift."
+      }
+    ],
+    [
+      { "text": "Before Neryva I built the " },
+      { "text": "Vanidya", "url": "https://vanidya.com/" },
+      {
+        "text": " marketplace stack at Smaitic Labs — a 3-level admin hierarchy, a multi-tenant Spring Boot backend with RBAC, and a Kotlin Android app with an offline-first PWA — and, earlier, fuel-demand forecasting and automated reporting pipelines at Nepal Oil Corporation. I hold a Bachelor of Engineering in Mechanical Engineering from Tribhuvan University (2019–2023) and am a Licensed Engineer. I'm also the sole author of four arXiv papers, on multi-task learning, continual learning, queueing theory, and LLM evaluation."
+      }
+    ]
+  ]
+}

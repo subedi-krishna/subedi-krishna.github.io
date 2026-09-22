@@ -9,10 +9,21 @@ interface Props {
 
 const { title = `${profile.name} — ${profile.title}`, description = profile.tagline } = Astro.props;
 
-// Absolute URLs for social previews and canonical links. Astro.site comes from
-// astro.config.mjs — replace the placeholder domain there before handover.
-const canonicalUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : null;
-const ogImageUrl = Astro.site ? new URL('/og-image.png', Astro.site).href : '/og-image.png';
+// Absolute URLs for social previews and canonical links. Astro.site and the
+// deploy path prefix both come from astro.config.mjs (GitHub Pages project site).
+const base = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+const baseNoSlash = base.slice(0, -1);
+const canonicalUrl = Astro.site
+  ? new URL(
+      Astro.url.pathname === baseNoSlash ? `${baseNoSlash}/` : Astro.url.pathname,
+      Astro.site,
+    ).href
+  : null;
+const ogImageUrl = Astro.site
+  ? new URL(`${baseNoSlash}/og-image.png`, Astro.site).href
+  : `${baseNoSlash}/og-image.png`;
 ---
 
 <!doctype html>
@@ -23,7 +34,7 @@ const ogImageUrl = Astro.site ? new URL('/og-image.png', Astro.site).href : '/og
     <meta name="description" content={description} />
     <meta name="theme-color" content="#0f172a" />
     <title>{title}</title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />

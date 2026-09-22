@@ -1,6 +1,8 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  // Replace with the real domain before handover — used for canonical URLs and social preview images.
-  site: 'https://example.com',
+  // Deploy target (D-5): GitHub Pages project site neryva-lab/curly-octo-memory.
+  // Drives canonical URLs, social preview images, and in-site path prefixing.
+  site: 'https://neryva-lab.github.io',
+  base: '/curly-octo-memory',
 });

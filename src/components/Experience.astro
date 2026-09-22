@@ -57,7 +57,9 @@ const arrowPath =
       <div>
         <a
           class="more-link"
-          href={profile.resumeUrl}
+          href={profile.resumeUrl.startsWith('/')
+            ? `${import.meta.env.BASE_URL.replace(/\/$/, '')}${profile.resumeUrl}`
+            : profile.resumeUrl}
           aria-label="View full résumé (opens in a new tab)"
           target="_blank"
           rel="noreferrer noopener"

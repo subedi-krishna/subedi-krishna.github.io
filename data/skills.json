@@ -1,1 +1,32 @@
-[{"category":"Languages","core":["JavaScript","TypeScript"],"items":["JavaScript","TypeScript","HTML","CSS","Python","SQL"]},{"category":"Frameworks & Libraries","core":["React","Next.js"],"items":["React","Next.js","Astro","Node.js","Tailwind CSS","Svelte"]},{"category":"Tools & Platforms","core":["Git","Docker"],"items":["Git","Docker","Vercel","Figma","Storybook","Playwright"]},{"category":"Practices","core":["Accessibility (WCAG)","Design Systems"],"items":["Accessibility (WCAG)","Design Systems","CI/CD","Testing","Performance"]}]
+[
+  {
+    "category": "Languages",
+    "core": ["Python", "TypeScript"],
+    "items": ["Python", "TypeScript", "Java", "Kotlin", "SQL", "JavaScript", "C/C++"]
+  },
+  {
+    "category": "Web & Backend",
+    "core": ["Spring Boot", "React", "Node.js (Express)"],
+    "items": ["Spring Boot", "Node.js (Express)", "Django", "React", "Next.js", "Redux", "Tailwind", "Material UI"]
+  },
+  {
+    "category": "AI & Data",
+    "core": ["PyTorch", "LLMs/Generative AI"],
+    "items": ["PyTorch", "TensorFlow", "LLMs/Generative AI", "RAG", "LLM Evaluation", "FastAPI", "Multi-Task Learning", "Continual Learning", "Time-Series Forecasting", "Multi-Tenancy"]
+  },
+  {
+    "category": "Robotics & Simulation",
+    "core": ["ROS", "PyBullet"],
+    "items": ["ROS", "PyBullet", "Unity Engine", "Inverse Kinematics", "Motion Planning", "SDL2", "OpenGL"]
+  },
+  {
+    "category": "Datastores & Infra",
+    "core": ["PostgreSQL", "Docker"],
+    "items": ["PostgreSQL", "MySQL", "MongoDB", "Redis", "Docker", "Kubernetes", "Jenkins", "AWS (EC2/S3)", "Git", "CI/CD", "Linux"]
+  },
+  {
+    "category": "Engineering Practices",
+    "core": ["REST", "RBAC"],
+    "items": ["REST", "JWT", "RBAC", "Microservices", "PWA", "Jest"]
+  }
+]

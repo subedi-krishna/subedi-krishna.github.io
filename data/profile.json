@@ -1,1 +1,8 @@
-{"blurb":"I am a software engineer specializing in building exceptional digital experiences. Currently, I am focused on building accessible, human-centered products.","email":"hello@example.com","name":"Krishna Subedi","resumeUrl":"#","tagline":"I build accessible, pixel-perfect digital experiences for the web.","title":"Software Engineer"}
+{
+  "name": "Krishna Subedi",
+  "title": "Software Engineer",
+  "blurb": "Mechanical engineer by degree, software engineer by professional experience, AI engineer by direction. I work on AI agent platforms and production web systems, and publish research.",
+  "tagline": "Software engineer in Kathmandu — full-stack systems, applied AI, and sole-author research. Four arXiv papers.",
+  "email": "krishnasubedi219@gmail.com",
+  "resumeUrl": "/resume.pdf"
+}

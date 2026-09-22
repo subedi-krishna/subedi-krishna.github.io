@@ -66,7 +66,7 @@ const rightArrowPath = 'M3 10h13M11 5l5 5-5 5';
                   aria-hidden="true"
                   {...(hasVideo ? { style: `view-transition-name: project-media-${project.slug}` } : {})}
                 >
-                  <img src={project.image} alt="" loading="lazy" width="400" height="225" />
+                  <img src={`${import.meta.env.BASE_URL.replace(/\/$/, '')}${project.image}`} alt="" loading="lazy" width="400" height="225" />
                 </div>
               </div>
             </li>
@@ -77,7 +77,7 @@ const rightArrowPath = 'M3 10h13M11 5l5 5-5 5';
   </div>
   {
     showArchiveLink && (
-      <a class="archive-link" href="/archive">
+        <a class="archive-link" href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/archive`}>
         <span>View Full Project Archive</span>
         <svg class="arrow-right" viewBox="0 0 20 20" fill="none" aria-hidden="true">
           <path

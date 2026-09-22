@@ -1,1 +1,26 @@
-[{"company":"Northwind Labs","companyUrl":"#","date":"2023 — Present","description":"Build and maintain critical components used across the company’s flagship product. Partner closely with designers and product managers to ship accessible, high-quality interfaces, and lead frontend architecture decisions across multiple teams.","tech":["JavaScript","TypeScript","React","Design Systems"],"title":"Senior Frontend Engineer"},{"company":"Brightline Studio","companyUrl":"#","date":"2020 — 2023","description":"Built, styled, and shipped high-quality websites and digital experiences for a diverse array of clients. Led engineering efforts on the component library and spearheaded internal tooling to improve developer workflows.","tech":["JavaScript","TypeScript","React","Next.js","Node.js"],"title":"Frontend Engineer"},{"company":"Hexagon Media","companyUrl":"#","date":"2018 — 2020","description":"Developed and styled interactive web applications, including marketing sites and embeddable widgets. Collaborated with cross-functional teams to deliver polished, performant user interfaces.","tech":["JavaScript","HTML & SCSS","Vue","WordPress"],"title":"UI Engineer"},{"company":"Freelance","companyUrl":"#","date":"2016 — 2018","description":"Designed and developed production websites for small businesses and startups. Handled everything from initial wireframes to deployment, with a focus on clean code and responsive design.","tech":["HTML","CSS","JavaScript","jQuery"],"title":"Web Developer"}]
+[
+  {
+    "company": "Neryva",
+    "companyUrl": "https://neryva.com",
+    "date": "Jul 2025 — Present",
+    "title": "Member of Technical Staff",
+    "description": "Architected a multi-tenant AI agent runtime — agent orchestration, tool calling, WhatsApp/Slack webhook integrations, production deployment. Designed guardrails and automated evaluation pipelines for tool-calling accuracy and context-retrieval drift.",
+    "tech": ["Python", "FastAPI", "REST APIs", "Multi-Tenancy", "LLM Evaluation"]
+  },
+  {
+    "company": "Smaitic Labs",
+    "companyUrl": "https://vanidya.com/",
+    "date": "Apr 2024 — Jul 2025",
+    "title": "Full-stack Developer",
+    "description": "Built the Vanidya marketplace stack — 3-level admin hierarchy with role-specific access, multi-tenant Spring Boot backend with hierarchical RBAC and ZipCode-based delivery logistics, plus a native Android app and offline-first PWA for real-time order tracking.",
+    "tech": ["Spring Boot", "Java", "Kotlin", "TypeScript", "React", "PWA", "RBAC"]
+  },
+  {
+    "company": "Nepal Oil Corporation Limited",
+    "companyUrl": "#",
+    "date": "Oct 2023 — Mar 2024",
+    "title": "Software Engineer",
+    "description": "Built a time-series fuel-demand forecasting system for regional fuel demand (diesel, petrol, aviation), supporting inventory allocation and supply-chain decisions. Automated mission-critical daily dispatch reporting via Python/SQL pipelines, replacing manual reports with real-time executive dashboards for national fuel logistics.",
+    "tech": ["Python", "SQL", "Time-Series Forecasting", "Automated Reporting Pipelines"]
+  }
+]

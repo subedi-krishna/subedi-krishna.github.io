@@ -10,7 +10,7 @@ const backArrowPath = 'M17 10H4M9 5l-5 5 5 5';
   description="This page doesn't exist."
 >
   <main id="content" class="archive-main">
-    <a href="/" class="back-link">
+    <a href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/`} class="back-link">
       <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
         <path
           d={backArrowPath}
@@ -26,7 +26,7 @@ const backArrowPath = 'M17 10H4M9 5l-5 5 5 5';
     <p class="notfound-desc">
       The page you're looking for doesn't exist or was moved.
     </p>
-    <a class="more-link" href="/">
+      <a class="more-link" href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/`}>
       <span>Back to home</span>
     </a>
   </main>
