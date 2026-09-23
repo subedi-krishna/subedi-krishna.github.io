@@ -313,6 +313,15 @@ Owner: deploy on github.io; audit demanded zero mistakes (web-checked).
   Pages → Source = GitHub Actions → first workflow run → confirm live URL
   → flip career LINK-006 to `VERIFIED` + log row. Career `customised`
   2-file edit commits separately (never both repos in one commit).
+- `[!]` 13.7 Copy-regime change (owner hand-edits, found pre-push):
+  `experience.json` Smaitic/NOL no longer FS-resume-verbatim ("and a
+  multi-tenant", "ZIP code-based", "accommodates", festival/national
+  dropped) while `full-stack/main.tex:150/156/157` keeps the old wording —
+  so EXACT MATCH now holds for Neryva (AI) only; Smaitic/NOL are
+  owner-curated and diverge. Pushing owner's copy as-is (nothing broken
+  functionally). Pending owner pick: (a) propagate portfolio wording into
+  FS resume + rebuild + re-copy `resume.pdf`, or (b) accept portfolio-led
+  copy and retire the exact-match gate for those two jobs.
 - `[x]` 12.22 Brand SVGs for molt + agent-studio (owner: Apple-style,
   professional): hand-built 800×450 (16:9), site palette (`#0f172a` +
   `#5eead4`), zero `<text>`, glow/grid/shadow system shared across both —
