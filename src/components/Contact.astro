@@ -38,7 +38,9 @@ import profile from '../../data/profile.json';
 
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const startWidth = reveal.offsetWidth;
-      const endWidth = email.offsetWidth;
+      // Target = email width + the pill's own border, so the border lands
+      // exactly on the email and the settle flip (absolute -> static) is seamless.
+      const endWidth = email.offsetWidth + (reveal.offsetWidth - reveal.clientWidth);
 
       if (reduceMotion || endWidth <= startWidth) {
         reveal.classList.add('is-open', 'is-settled');
@@ -56,7 +58,8 @@ import profile from '../../data/profile.json';
         // :active press scale) can end first and would swallow the listener.
         if (e.propertyName !== 'width') return;
         reveal.removeEventListener('transitionend', onEnd);
-        // Hand layout back to the email layer so the pill stays correct on resize.
+        // Flip the email in-flow (see .is-settled CSS) and drop the locked
+        // width in the same frame: widths already match, so no jump.
         reveal.classList.add('is-settled');
         reveal.style.width = '';
       });

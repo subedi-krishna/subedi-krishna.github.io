@@ -1,6 +1,5 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
-import Footer from '../../../components/Footer.astro';
 import ProjectLinkIcons from '../../../components/ProjectLinkIcons.astro';
 import projects from '../../../../data/projects.json';
 import { getYouTubeId, getVideoAspect, availableLinks, validateProjects } from '../../../lib/project-links';
@@ -91,8 +90,6 @@ const backArrowPath = 'M17 10H4M9 5l-5 5 5 5';
       )
     }
   </main>
-
-  <Footer />
 </Layout>
 
 <script>

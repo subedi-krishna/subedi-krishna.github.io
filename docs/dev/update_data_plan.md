@@ -1,6 +1,6 @@
 # Portfolio Data Update Plan
 
-Last updated: 2026-09-23
+Last updated: 2026-09-24
 Owner: Krishna Subedi
 Status: research complete — ready for execution via [ledger.md](ledger.md)
 
@@ -66,9 +66,10 @@ Array of `{ id, label }`; `id` must match section ids exactly:
 `about, experience, projects, research, skills, contact` (index.astro). Unchanged.
 
 ### `socials.json`
-Array of `{ icon, label, url }`. Valid `icon` values are only the four brand
-paths in Sidebar.astro: `github, linkedin, twitter, instagram`. Entries with
-`url: "#"` are filtered out (Sidebar.astro:20).
+Array of `{ icon, label, url }`. Valid `icon` values are only the brand paths
+in Sidebar.astro: `github, linkedin, twitter, instagram, goodreads`
+(goodreads added 2026-09-24, official simple-icons path; URL owner-provided,
+HTTP 200). Entries with `url: "#"` are filtered out (Sidebar.astro:20).
 
 ### `about.json`
 `{ heading, paragraphs: Segment[][] }`, `Segment = { text, url?, style? }`.
@@ -156,18 +157,24 @@ URLs only):
 Full paragraph text is finalized at task 2.1, then approved before marking done.
 Every claim must cite a career data line; nothing from the old "Alex" copy.
 
-### 4.4 `experience.json` **[READY]** (order = newest first)
+### 4.4 `experience.json` **[SYNCED 2026-09-24]** (order = newest first)
+
+Neryva description = **AI-resume bullets verbatim** (`career/resume_/ai/main.tex`
+— owner correction 2026-09-24: portfolio derives from the AI variant, not FS).
+Smaitic + NOL descriptions = FS-resume bullets verbatim. `check-neryva-ai.cjs`
+confirms Neryva EXACT MATCH (normalizes `---`→em dash, `\href`→URL);
+`check-exp.js` covers the FS three.
 
 **Neryva**
 - `company`: `Neryva` · `companyUrl`: `https://neryva.com/` (LINK-011 `VERIFIED`)
 - `date`: `Jul 2025 — Present` (experience.md; em dash is this site's house
   style — same month/year values as the resume)
 - `title`: `Member of Technical Staff`
-- `description`: `Architected a multi-tenant AI agent runtime — agent orchestration, tool calling, and WhatsApp/Slack webhook integrations. Designed safety guardrails and automated evaluation pipelines benchmarking tool-calling accuracy and context-retrieval drift.`
-- `tech`: `["Python", "FastAPI", "Multi-Tenancy", "LLM Evaluation", "Webhook Integrations"]`
-  (experience.md Work + skills.md `VERIFIED` Neryva rows; every pill also appears
-  on a resume variant except "Webhook Integrations" which describes the Work
-  line — owner may trim at task 3.2)
+- `description`: `Architected the production multi-tenant agent runtime: asynchronous orchestration of agent lifecycles, tool-calling loops, and state-machine transitions with hierarchical memory — LLM output treated as untrusted code, executed in isolated sandboxes to run many agents concurrently per customer. Built custom agent harnesses tuned to enforce safety constraints, with layered input/output safety (token-classification at ingress flags prompt-injection and jailbreak attempts; output validation at egress) and evaluation pipelines for tool-calling accuracy and context-retrieval drift. Demo: https://neryva.com.`
+- `tech`: `["AI Architecture", "Optimization", "Safety"]`
+  `[!]` owner-set; `Optimization` does not appear in the description — open
+  question (remove / replace with `Evaluation` or `Multi-Tenancy` / keep),
+  ledger 12.5
 - Confidentiality: do **not** add internal frameworks beyond what the AI resume
   already lists; no metrics.
 
@@ -176,19 +183,19 @@ Every claim must cite a career data line; nothing from the old "Alex" copy.
   `VERIFIED` — the product link; experience.md Public link)
 - `date`: `Apr 2024 — Jul 2025`
 - `title`: `Full-stack Developer`
-- `description`: `Built the Vanidya marketplace stack — 3-level admin hierarchy with role-specific access, multi-tenant Spring Boot backend with hierarchical RBAC and ZipCode-based delivery logistics, plus a native Android app and offline-first PWA for real-time order tracking.`
+- `description`: `Built a three-tier admin hierarchy (main/state/seller) with role-specific access and per-tier dashboards, plus a multi-tenant Spring Boot backend (hierarchical RBAC, ZipCode-based delivery logistics) that absorbs new regions and sellers without structural change and runs an automated commission engine that eliminates manual per-order fee calculation. Shipped Vanidya marketplace apps: native Android (Kotlin), offline-first PWA, real-time order tracking.`
 - `tech`: `["Spring Boot", "Java", "Kotlin", "TypeScript", "React", "PWA", "RBAC"]`
-  (experience.md Technologies, `VERIFIED`)
+  (unchanged; experience.md Technologies, `VERIFIED`)
 - No employer code/dashboards/metrics (§Confidential).
 
 **Nepal Oil Corporation Limited**
 - `company`: `Nepal Oil Corporation Limited` · `companyUrl`: `#` (no public link)
 - `date`: `Oct 2023 — Mar 2024`
 - `title`: `Software Engineer`
-- `description`: `Built a time-series fuel-demand forecasting system for regional demand (diesel, petrol, aviation) supporting inventory allocation. Automated mission-critical daily dispatch reporting via Python/SQL pipelines, replacing manual reports with real-time executive dashboards.`
-- `tech`: `["Python", "SQL", "Time-Series Forecasting", "Automated Reporting"]`
-  (experience.md Technologies, `VERIFIED`; "mission-critical" kept — already
-  approved in resume D16 wording)
+- `description`: `Designed a time-series fuel-demand forecasting system for regional fuel demand (diesel, petrol, aviation), modeling festival surges, strikes, and protests so inventory allocation tracked real consumption spikes, supply stayed smooth, and swings never reached the pump. Built an automated dispatch reporting system for national fuel logistics, consolidating daily depot and tanker movements into live per-depot dashboards that replaced manual end-of-day report preparation.`
+- `tech`: `["Python", "Time-Series Forecasting", "Automated Reporting Pipelines"]`
+  (SQL dropped 2026-09-24 — resume resume-lines foreground forecasting +
+  pipelines; pills keep exact resume spelling)
 - Government data/depot counts/accuracy figures: never (§Confidential).
 
 ### 4.5 `research.json` **[READY]** — 4 entries, newest first
@@ -240,40 +247,43 @@ Note: LangGraph/Presidio/NeMo Guardrails/Langfuse appear on the **AI resume
 only**. They are `VERIFIED` in skills.md but reveal employer stack; default =
 **exclude from the fully-public portfolio** (D-7 lets the owner override).
 
-### 4.7 `projects.json` — **gated by D-2** (status check before anything ships)
+### 4.7 `projects.json` — **32 entries; home first-5 + archive** [REVISED 2026-09-24]
 
-Publishable **today** (status `VERIFIED` in career/data/projects.md) — **revised 2026-09-23**: owner shortlist A (Agent Studio + Krishi + Ecommerce) matches both resume variants; Arm/Shenz/CampusHub moved to `/archive`-only or out (Arm kept only if links needed later — currently out):
+Supersedes the shortlist-A-only state. After owner instruction "add all the
+projects from there [career `github_repo.md`, 93-repo inventory] to the project
+archive", the file holds **32 entries**: 3 → 37 via generator script, then owner
+rational cut **−5 SDL2 toys** (`coding-a-snake-game-with-sdl2`,
+`coding-an-analog-clock-with-sdl2`, `colorfull-ball-with-particle-effect-animation`,
+`a-pong-game-with-sdl2`, `painting-application`; How Spring Math kept per
+owner). Structure — verified (ledger 12.1/12.2):
 
-| title | slug | year | domains (D-1) | tech | links | madeAt |
-|---|---|---|---|---|---|---|
-| Agent Studio: Enterprise AI Agent Platform | `agent-studio` | `2025` | `["AI"]` | `["Python","FastAPI","RAG","Multi-Tenancy","LLM Evaluation"]` | live LINK-011 + github LINK-018; primary live | `Neryva` |
-| Krishi Vaidya: AI-Powered Crop Disease Diagnosis | `krishi-vaidya` | `2026` | `["AI","Mobile"]` | `["React Native","TFLite","OpenCV","Express","MongoDB"]` | github LINK-014; primary github | `null` |
-| Ecommerce Platform: Multi-Seller Marketplace | `ecommerce-platform` | `2025` | `["Web"]` | `["React","Node.js (Express)","MongoDB","Stripe","Docker"]` | github LINK-013; `live` stays `{}` until frontend public (§3.9) | `null` |
+- Home shows **first 5**: `agent-studio` → `krishi-vaidya` → `ecommerce-platform`
+  → `alcedo` → `molt`.
+- `/archive` renders all **32**, year-desc; Projects.astro archive link text =
+  `View Full Project Archive ({projects.length})` → **(32)**.
+- `public/images/` = **32 SVGs**, one per entry, zero orphans (audit 12.2).
 
-Candidate pool — **`DRAFT` in career data; owner must promote to `VERIFIED`
-there before the card appears here** (publish gate):
+| Role | slugs | source / gate |
+|---|---|---|
+| Home + archive, resume-backed | `agent-studio`, `krishi-vaidya`, `ecommerce-platform` | career projects.md `VERIFIED` (EV-010/011/012); links LINK-011/018, LINK-014, LINK-013 |
+| Home, **publish-gate pending `[!]`** | `alcedo` (no career section), `molt` (`DRAFT` in career projects.md) | promotions + home-order confirm = ledger 12.9 |
+| Archive only (27) | incl. 10 SDL2/simulation kept, `robotic-arm`/`shenz`/`campushub` (`VERIFIED`, out of shortlist A), `phaseforge`/`bgsl` (`DRAFT`), `how-spring...`, warehouse/space/pathfinding/cloth/pendulum/text-editor/etc. | owner-curated from `github_repo.md` (owner source, direct instruction) |
 
-| title | slug | year | links if promoted | notes |
-|---|---|---|---|---|
-| PhaseForge | `phaseforge` | `2026` | github `…/PhaseForge` | repo public, 256 commits, `DRAFT` |
-| molt | `molt` | `2026` | github `…/molt` | repo public, MIT, `DRAFT` |
-| bgsl | `bgsl` | `2026` | github `…/bgsl` | repo public, manuscript in prep, `DRAFT` |
-| Automated Robotic Arm | `robotic-arm` | `2024` | `{}` (report private) | `VERIFIED` but no public repo; owner may re-add later |
-| Shenz / CampusHub | `shenz` / `campushub` | `2023` | `{}` (local only) | `VERIFIED` learning projects; out of shortlist A |
+Never: Aurora (`REMOVE`), the 5 cut SDL2 slugs above, anything without a
+recognized source (career data or owner-curated `github_repo.md`).
 
-Never: Aurora (`REMOVE`), anything without a career data entry.
+- `description`: one factual sentence each = problem → solution; no metrics;
+  no `YOLOv9`.
+- `image`/`imageAlt`: one SVG per slug under `public/images/` (no orphans).
+- `primaryLink`: defaults live → video → github; empty links → plain title.
+- Home first-5 order + `LIMIT=5` in Projects.astro:10 — changing the home set
+  = reordering `projects.json` head, not a code edit.
 
-- `description`: one factual sentence each = problem → solution from
-  projects.md `Solution`/`Problem` lines; written at task 6.3, no metrics.
-- `image`/`imageAlt`: map to an SVG under `public/images/` per project
-  (task 6.4; 8 template SVGs exist — rename to match real slugs, keep art).
-- `primaryLink`: omit everywhere initially (defaults live → video → github;
-  empty links → plain title, valid).
+### 4.8 `footer.json` — **REMOVED 2026-09-24 (owner)**
 
-### 4.8 `footer.json` **[APPROVAL]**
-
-Replace the placeholder confession. Draft:
-`"Designed & built with Astro. © 2026 Krishna Subedi."`
+Owner asked to drop the footer entirely: `Footer.astro` + `data/footer.json`
+deleted, `<Footer />` removed from index/archive/research/video pages. No
+footer renders anywhere.
 
 ### 4.9 `contact.json`
 

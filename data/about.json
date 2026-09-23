@@ -3,21 +3,24 @@
   "paragraphs": [
     [
       {
-        "text": "I'm Krishna Subedi, a software engineer based in Kathmandu, Nepal. I moved from mechanical engineering into software through three employers: Nepal Oil Corporation, Smaitic Labs, and Neryva."
+        "text": "Hi there, I'm Krishna, and I enjoy research, designing and building things. I'm an engineer with a mechanical degree, and expertise across AI and full-stack. I take pride in designing and building thoughtful products for people. I enjoy working most at the intersection of AI, robotics, and backend engineering, where research meets user needs."
       }
     ],
     [
-      { "text": "Today I'm a Member of Technical Staff at " },
-      { "text": "Neryva", "url": "https://neryva.com" },
       {
-        "text": ", building a customizable AI agent platform — multi-tenant agent runtime, custom harnesses, hierarchical memory, layered input/output safety, and the drag-and-drop canvas users design agents on — guardrails, and evaluation pipelines for tool-calling accuracy and context-retrieval drift."
+        "text": "Currently, I'm a Member of Technical Staff at "
+      },
+      {
+        "text": "Neryva",
+        "url": "https://neryva.com"
+      },
+      {
+        "text": ", where I work on LLMs and Robotics and help build new products like Neryva Agent Studio and PhaseForge. I lead the engineering effort in system architecture, harness, and safety, partnering closely with engineers from different teams to ensure accessibility and quality are built into the foundations of everything that we ship."
       }
     ],
     [
-      { "text": "Before Neryva I built the " },
-      { "text": "Vanidya", "url": "https://vanidya.com/" },
       {
-        "text": " marketplace stack at Smaitic Labs — a 3-level admin hierarchy, a multi-tenant Spring Boot backend with RBAC, and a Kotlin Android app with an offline-first PWA — and, earlier, fuel-demand forecasting and automated reporting pipelines at Nepal Oil Corporation. I hold a Bachelor of Engineering in Mechanical Engineering from Tribhuvan University (2019–2023) and am a Licensed Engineer. I'm also the sole author of four arXiv papers, on multi-task learning, continual learning, queueing theory, and LLM evaluation."
+        "text": "In my spare time, I enjoy building robots, reading books, hiking, playing football, and camping with my friends"
       }
     ]
   ]

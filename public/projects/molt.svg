@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <defs>
+    <radialGradient id="mo-glow" cx="0.5" cy="0.5" r="0.55">
+      <stop offset="0" stop-color="#5eead4" stop-opacity="0.15"/>
+      <stop offset="0.6" stop-color="#5eead4" stop-opacity="0.05"/>
+      <stop offset="1" stop-color="#5eead4" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="mo-lift" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#5eead4" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#5eead4" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="mo-mod" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1b2942"/>
+      <stop offset="1" stop-color="#0d1526"/>
+    </linearGradient>
+    <linearGradient id="mo-hot" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#234047"/>
+      <stop offset="1" stop-color="#101d26"/>
+    </linearGradient>
+    <pattern id="mo-dots" width="44" height="44" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.6" fill="#64748b" opacity="0.28"/>
+    </pattern>
+    <filter id="mo-soft" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="10"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="450" fill="#0f172a"/>
+  <rect width="800" height="450" fill="url(#mo-dots)"/>
+  <rect width="800" height="450" fill="url(#mo-glow)"/>
+
+  <!-- baseline rail -->
+  <line x1="196" y1="352" x2="604" y2="352" stroke="#334155" stroke-width="2" opacity="0.7"/>
+  <circle cx="196" cy="352" r="4" fill="#334155"/>
+  <circle cx="604" cy="352" r="4" fill="#334155"/>
+
+  <!-- motion guides from slot to lifted module -->
+  <g stroke="#5eead4" stroke-width="2" stroke-dasharray="3 9" stroke-linecap="round" opacity="0.55">
+    <line x1="352" y1="196" x2="352" y2="148"/>
+    <line x1="448" y1="196" x2="448" y2="148"/>
+  </g>
+
+  <!-- left seated module -->
+  <g>
+    <ellipse cx="272" cy="344" rx="66" ry="9" fill="#000000" opacity="0.45" filter="url(#mo-soft)"/>
+    <rect x="208" y="216" width="128" height="128" rx="30" fill="url(#mo-mod)" stroke="#3b506b" stroke-width="2"/>
+    <rect x="244" y="252" width="56" height="56" rx="14" fill="none" stroke="#475569" stroke-width="2.5"/>
+    <circle cx="272" cy="280" r="8" fill="#5eead4" opacity="0.85"/>
+  </g>
+
+  <!-- vacant slot (dashed) -->
+  <rect x="336" y="216" width="128" height="128" rx="30" fill="none" stroke="#5eead4" stroke-width="2" stroke-dasharray="10 8" opacity="0.5"/>
+
+  <!-- right seated module -->
+  <g>
+    <ellipse cx="528" cy="344" rx="66" ry="9" fill="#000000" opacity="0.45" filter="url(#mo-soft)"/>
+    <rect x="464" y="216" width="128" height="128" rx="30" fill="url(#mo-mod)" stroke="#3b506b" stroke-width="2"/>
+    <rect x="500" y="252" width="56" height="56" rx="14" fill="none" stroke="#475569" stroke-width="2.5"/>
+    <circle cx="528" cy="280" r="8" fill="#5eead4" opacity="0.85"/>
+  </g>
+
+  <!-- lifted replacement module -->
+  <g>
+    <ellipse cx="400" cy="352" rx="76" ry="10" fill="#000000" opacity="0.5" filter="url(#mo-soft)"/>
+    <circle cx="400" cy="132" r="86" fill="url(#mo-lift)"/>
+    <rect x="336" y="68" width="128" height="128" rx="30" fill="url(#mo-hot)" stroke="#5eead4" stroke-width="3"/>
+    <rect x="336" y="68" width="128" height="128" rx="30" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1"/>
+    <rect x="372" y="104" width="56" height="56" rx="14" fill="none" stroke="#5eead4" stroke-width="3"/>
+    <circle cx="400" cy="132" r="9" fill="#5eead4"/>
+  </g>
+
+  <!-- guard ticks: safety checkmarks flanking the swap -->
+  <g stroke="#5eead4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.8">
+    <circle cx="238" cy="132" r="17" stroke-opacity="0.5"/>
+    <path d="M231 132 l5 5 l9 -10"/>
+    <circle cx="562" cy="132" r="17" stroke-opacity="0.5"/>
+    <path d="M555 132 l5 5 l9 -10"/>
+  </g>
+</svg>

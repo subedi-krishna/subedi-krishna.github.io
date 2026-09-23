@@ -1,28 +1,41 @@
 [
   {
-    "title": "Agent Studio: Enterprise AI Agent Platform",
+    "title": "Agent Studio",
     "slug": "agent-studio",
     "year": "2025",
     "description": "Enterprise control layer for LLM applications — multi-tenant architecture, guardrails, evaluation pipelines, and multi-platform deployment.",
-    "domains": ["AI"],
-    "tech": ["Python", "FastAPI", "RAG", "Multi-Tenancy", "LLM Evaluation"],
-    "image": "/images/project-agent-studio.svg",
+    "domains": [
+      "AI"
+    ],
+    "tech": [
+      "Python",
+      "FastAPI",
+      "RAG",
+      "Multi-Tenancy"
+    ],
+    "image": "/projects/agent-studio.svg",
     "imageAlt": "Agent Studio preview",
     "madeAt": "Neryva",
     "links": {
-      "live": "https://neryva.com",
       "github": "https://github.com/Luke23-45/agent-studio"
     },
-    "primaryLink": "live"
+    "primaryLink": "github"
   },
   {
-    "title": "Krishi Vaidya: AI-Powered Crop Disease Diagnosis",
+    "title": "Krishi Vaidya",
     "slug": "krishi-vaidya",
     "year": "2026",
     "description": "Mobile app with on-device AI inference for crop disease detection and treatment advisory.",
-    "domains": ["AI", "Mobile"],
-    "tech": ["React Native", "TFLite", "OpenCV", "Express", "MongoDB"],
-    "image": "/images/project-krishi-vaidya.svg",
+    "domains": [
+      "AI",
+      "Mobile"
+    ],
+    "tech": [
+      "React Native",
+      "LLM",
+      "VLM"
+    ],
+    "image": "/projects/krishi_vaidya.png",
     "imageAlt": "Krishi Vaidya preview",
     "madeAt": null,
     "links": {
@@ -31,18 +44,619 @@
     "primaryLink": "github"
   },
   {
-    "title": "Ecommerce Platform: Multi-Seller Marketplace",
+    "title": "Ecommerce Platform",
     "slug": "ecommerce-platform",
     "year": "2025",
     "description": "Full-stack TypeScript platform with 5 user roles, Stripe payments, multi-step checkout, and vendor-scoped permissions.",
-    "domains": ["Web"],
-    "tech": ["React", "Node.js (Express)", "MongoDB", "Stripe", "Docker"],
-    "image": "/images/project-ecommerce-platform.svg",
+    "domains": [
+      "Web"
+    ],
+    "tech": [
+      "React",
+      "Express JS",
+      "Stripe",
+      "Docker"
+    ],
+    "image": "/projects/ecommerce.png",
     "imageAlt": "Ecommerce Platform preview",
     "madeAt": null,
     "links": {
       "github": "https://github.com/Luke23-45/Ecommerce-API_"
     },
     "primaryLink": "github"
+  },
+  {
+    "title": "Alcedo",
+    "slug": "alcedo",
+    "year": "2026",
+    "description": "Production gym tracking app — React Native/Expo + .NET API, Material Design 3, offline workouts and encrypted social feeds.",
+    "domains": [
+      "Mobile"
+    ],
+    "tech": [
+      "React Native",
+      "Expo",
+      ".NET",
+      "AGPL-3.0"
+    ],
+    "image": "/projects/alcedo.png",
+    "imageAlt": "Alcedo preview",
+    "madeAt": null,
+    "links": {
+      "github": "https://github.com/Luke23-45/alcedo"
+    },
+    "primaryLink": "github"
+  },
+  {
+    "title": "Molt",
+    "slug": "molt",
+    "year": "2026",
+    "description": "Plugin runtime that stages replacements transactionally — 15 invariants (INV-01…15), atomic commit, owned resource scopes.",
+    "domains": [
+      "Systems"
+    ],
+    "tech": [
+      "TypeScript",
+      "MIT"
+    ],
+    "image": "/projects/molt.svg",
+    "imageAlt": "molt preview",
+    "madeAt": null,
+    "links": {
+      "github": "https://github.com/Luke23-45/molt"
+    },
+    "primaryLink": "github"
+  },
+  {
+    "title": "PhaseForge — Robotic Manipulation with MoE",
+    "slug": "phaseforge",
+    "year": "2026",
+    "description": "PyTorch state-only manipulation — phase-supervised generalist pretraining + MoE bootstrapping for long-horizon tasks.",
+    "domains": [
+      "AI",
+      "Robotics"
+    ],
+    "tech": [
+      "Python",
+      "PyTorch",
+      "MoE"
+    ],
+    "image": "/images/project-phaseforge.svg",
+    "imageAlt": "PhaseForge preview",
+    "madeAt": null,
+    "links": {
+      "github": "https://github.com/Luke23-45/PhaseForge"
+    },
+    "primaryLink": "github"
+  },
+  {
+    "title": "bgsl — Biological Gradient Supervised Learning",
+    "slug": "bgsl",
+    "year": "2026",
+    "description": "Gradient-supervised risk trajectory learning for ICU early warning — supervises risk, velocity and acceleration on soft onset targets.",
+    "domains": [
+      "AI",
+      "Research"
+    ],
+    "tech": [
+      "Python",
+      "PyTorch",
+      "PhysioNet"
+    ],
+    "image": "/images/project-bgsl.svg",
+    "imageAlt": "bgsl preview",
+    "madeAt": null,
+    "links": {
+      "github": "https://github.com/Luke23-45/bgsl"
+    },
+    "primaryLink": "github"
+  },
+  {
+    "title": "CSD Observer — Adaptive Critical-Slowing-Down Observer",
+    "slug": "csd-observer",
+    "year": "2026",
+    "description": "Causal LSTM head replaces Kalman per-step MLP to detect rising autocorrelation and slowing recovery; chick-heart lag2 benchmark.",
+    "domains": [
+      "AI",
+      "Research"
+    ],
+    "tech": [
+      "Python",
+      "PyTorch",
+      "Kalman"
+    ],
+    "image": "/images/project-csd-observer.svg",
+    "imageAlt": "CSD Observer preview",
+    "madeAt": null,
+    "links": {
+      "github": "https://github.com/Luke23-45/csd_observer"
+    },
+    "primaryLink": "github"
+  },
+  {
+    "title": "TopoSynapse — SYNAPSE Z3 Topology-First Refactor",
+    "slug": "topo-synapse",
+    "year": "2026",
+    "description": "Topology-first representation architecture — exact audit/selector/lift with synthetic datasets and ablations.",
+    "domains": [
+      "AI",
+      "Research"
+    ],
+    "tech": [
+      "Python",
+      "PyTorch"
+    ],
+    "image": "/images/project-topo-synapse.svg",
+    "imageAlt": "TopoSynapse preview",
+    "madeAt": null,
+    "links": {
+      "github": "https://github.com/Luke23-45/topo_synapse"
+    },
+    "primaryLink": "github"
+  },
+  {
+    "title": "Ghost Bank",
+    "slug": "ghost-bank",
+    "year": "2026",
+    "description": "Research project — configs, studies, manuscript and verification pipelines.",
+    "domains": [
+      "AI",
+      "Research"
+    ],
+    "tech": [
+      "Python"
+    ],
+    "image": "/images/project-ghost-bank.svg",
+    "imageAlt": "Ghost Bank preview",
+    "madeAt": null,
+    "links": {
+      "github": "https://github.com/Luke23-45/ghost-bank"
+    },
+    "primaryLink": "github"
+  },
+  {
+    "title": "SPECTRA",
+    "slug": "spectra",
+    "year": "2026",
+    "description": "Research framework — v2 branch, ablations and verification.",
+    "domains": [
+      "AI",
+      "Research"
+    ],
+    "tech": [
+      "Python"
+    ],
+    "image": "/images/project-spectra.svg",
+    "imageAlt": "SPECTRA preview",
+    "madeAt": null,
+    "links": {
+      "github": "https://github.com/Luke23-45/SPECTRA"
+    },
+    "primaryLink": "github"
+  },
+  {
+    "title": "GibbsQ — Entropy-Regularized Queue Routing",
+    "slug": "gibbsq",
+    "year": "2026",
+    "description": "Softmax/UAS routing and learned N-GibbsQ policy for parallel queues.",
+    "domains": [
+      "AI",
+      "Research"
+    ],
+    "tech": [
+      "Python"
+    ],
+    "image": "/images/project-gibbsq.svg",
+    "imageAlt": "GibbsQ preview",
+    "madeAt": null,
+    "links": {
+      "github": "https://github.com/Luke23-45/GibbsQ"
+    },
+    "primaryLink": "github"
+  },
+  {
+    "title": "ARGUS — APEX-MoE for ICU Forecasting",
+    "slug": "argus",
+    "year": "2026",
+    "description": "Transformer + diffusion + MoE for sepsis/septic-shock prediction.",
+    "domains": [
+      "AI",
+      "Research"
+    ],
+    "tech": [
+      "Python",
+      "PyTorch",
+      "MoE"
+    ],
+    "image": "/images/project-argus.svg",
+    "imageAlt": "ARGUS preview",
+    "madeAt": null,
+    "links": {
+      "github": "https://github.com/Luke23-45/ARGUS"
+    },
+    "primaryLink": "github"
+  },
+  {
+    "title": "CertiFlow",
+    "slug": "certiflow",
+    "year": "2026",
+    "description": "Learned certified dispatch research.",
+    "domains": [
+      "AI",
+      "Research"
+    ],
+    "tech": [
+      "Python"
+    ],
+    "image": "/images/project-certiflow.svg",
+    "imageAlt": "CertiFlow preview",
+    "madeAt": null,
+    "links": {
+      "github": "https://github.com/Luke23-45/CertiFlow"
+    },
+    "primaryLink": "github"
+  },
+  {
+    "title": "CertiQ-Net",
+    "slug": "certiq-net",
+    "year": "2026",
+    "description": "Quantum neural network research.",
+    "domains": [
+      "AI",
+      "Research"
+    ],
+    "tech": [
+      "Python",
+      "QNN"
+    ],
+    "image": "/images/project-certiq-net.svg",
+    "imageAlt": "CertiQ-Net preview",
+    "madeAt": null,
+    "links": {
+      "github": "https://github.com/Luke23-45/CertiQ-Net"
+    },
+    "primaryLink": "github"
+  },
+  {
+    "title": "Spatial Omics",
+    "slug": "spatial-omics",
+    "year": "2026",
+    "description": "Spatial omics analysis pipeline.",
+    "domains": [
+      "AI",
+      "Research"
+    ],
+    "tech": [
+      "Python"
+    ],
+    "image": "/images/project-spatial-omics.svg",
+    "imageAlt": "Spatial Omics preview",
+    "madeAt": null,
+    "links": {
+      "github": "https://github.com/Luke23-45/spatial_omics"
+    },
+    "primaryLink": "github"
+  },
+  {
+    "title": "MoE Route",
+    "slug": "moe-route",
+    "year": "2026",
+    "description": "Mixture-of-Experts routing experiments.",
+    "domains": [
+      "AI",
+      "Research"
+    ],
+    "tech": [
+      "Python",
+      "MoE"
+    ],
+    "image": "/images/project-moe-route.svg",
+    "imageAlt": "MoE Route preview",
+    "madeAt": null,
+    "links": {
+      "github": "https://github.com/Luke23-45/moe_route"
+    },
+    "primaryLink": "github"
+  },
+  {
+    "title": "Synapsis — SYNAPSE (Early)",
+    "slug": "synapsis",
+    "year": "2026",
+    "description": "Early SYNAPSE predecessor (superseded by topo_synapse).",
+    "domains": [
+      "AI",
+      "Research"
+    ],
+    "tech": [
+      "Python"
+    ],
+    "image": "/images/project-synapsis.svg",
+    "imageAlt": "Synapsis preview",
+    "madeAt": null,
+    "links": {
+      "github": "https://github.com/Luke23-45/synapsis"
+    },
+    "primaryLink": "github"
+  },
+  {
+    "title": "DGPO — RL Baselines & Training",
+    "slug": "dgpo",
+    "year": "2025",
+    "description": "Reinforcement learning — rl-baselines3-zoo, checkpoints and TensorBoard logs.",
+    "domains": [
+      "AI",
+      "Research"
+    ],
+    "tech": [
+      "Python",
+      "RL"
+    ],
+    "image": "/images/project-dgpo.svg",
+    "imageAlt": "DGPO preview",
+    "madeAt": null,
+    "links": {
+      "github": "https://github.com/Luke23-45/dgpo"
+    },
+    "primaryLink": "github"
+  },
+  {
+    "title": "Warehouse Robots — SDL2 Simulation",
+    "slug": "simulation-of-warehouse-working-robots-with-sdl2",
+    "year": "2025",
+    "description": "Warehouse robot fleet simulation — pathing and scheduling.",
+    "domains": [
+      "Systems",
+      "Graphics"
+    ],
+    "tech": [
+      "C",
+      "SDL2"
+    ],
+    "image": "/images/project-warehouse-robots.svg",
+    "imageAlt": "Warehouse Robots preview",
+    "madeAt": null,
+    "links": {
+      "github": "https://github.com/Luke23-45/Simulation-of-warehouse-working-robots-with-SDL2"
+    },
+    "primaryLink": "github"
+  },
+  {
+    "title": "Space Battle — Particle Simulation",
+    "slug": "coding-a-simple-space-battle-with-particle-simulation",
+    "year": "2025",
+    "description": "Space battle with particle-system explosions.",
+    "domains": [
+      "Systems",
+      "Graphics"
+    ],
+    "tech": [
+      "C",
+      "SDL2"
+    ],
+    "image": "/images/project-space-battle.svg",
+    "imageAlt": "Space Battle preview",
+    "madeAt": null,
+    "links": {
+      "github": "https://github.com/Luke23-45/Coding-a-simple-space-Battle-with-particle-simulation"
+    },
+    "primaryLink": "github"
+  },
+  {
+    "title": "Pathfinding Visualization — SDL2",
+    "slug": "visualization-of-path-finding-algorithm-with-sdl2",
+    "year": "2025",
+    "description": "Pathfinding algorithm visualization — grid, costs and traces.",
+    "domains": [
+      "Systems",
+      "Graphics"
+    ],
+    "tech": [
+      "C",
+      "SDL2"
+    ],
+    "image": "/images/project-pathfinding.svg",
+    "imageAlt": "Pathfinding preview",
+    "madeAt": null,
+    "links": {
+      "github": "https://github.com/Luke23-45/Visualization-of-path-finding-algorithm-with-SDL2"
+    },
+    "primaryLink": "github"
+  },
+  {
+    "title": "Raycasting Game — SDL2",
+    "slug": "simple-raycasting-game-with-sdl2",
+    "year": "2025",
+    "description": "Raycasting engine — pseudo-3D wall rendering.",
+    "domains": [
+      "Systems",
+      "Graphics"
+    ],
+    "tech": [
+      "C",
+      "SDL2"
+    ],
+    "image": "/images/project-raycasting.svg",
+    "imageAlt": "Raycasting Game preview",
+    "madeAt": null,
+    "links": {
+      "github": "https://github.com/Luke23-45/Simple-Raycasting-Game-with-SDL2"
+    },
+    "primaryLink": "github"
+  },
+  {
+    "title": "Helical Spring Simulation",
+    "slug": "realistic-helical-spring-simulation",
+    "year": "2025",
+    "description": "Helical spring physics — geometry and oscillation.",
+    "domains": [
+      "Systems",
+      "Graphics"
+    ],
+    "tech": [
+      "C",
+      "SDL2"
+    ],
+    "image": "/images/project-helical-spring.svg",
+    "imageAlt": "Helical Spring preview",
+    "madeAt": null,
+    "links": {
+      "github": "https://github.com/Luke23-45/Realistic-Helical-Spring-Simulation"
+    },
+    "primaryLink": "github"
+  },
+  {
+    "title": "Cloth Simulation — SDL2",
+    "slug": "cloth-simulation",
+    "year": "2025",
+    "description": "Cloth physics — mass-spring constraints.",
+    "domains": [
+      "Systems",
+      "Graphics"
+    ],
+    "tech": [
+      "C",
+      "SDL2"
+    ],
+    "image": "/images/project-cloth-simulation.svg",
+    "imageAlt": "Cloth Simulation preview",
+    "madeAt": null,
+    "links": {
+      "github": "https://github.com/Luke23-45/Cloth-simulation"
+    },
+    "primaryLink": "github"
+  },
+  {
+    "title": "Spring Physics Simulation",
+    "slug": "coding-a-spring-physics-simulation",
+    "year": "2025",
+    "description": "Spring physics — Hooke’s law and damping.",
+    "domains": [
+      "Systems",
+      "Graphics"
+    ],
+    "tech": [
+      "C",
+      "SDL2"
+    ],
+    "image": "/images/project-spring-physics.svg",
+    "imageAlt": "Spring Physics preview",
+    "madeAt": null,
+    "links": {
+      "github": "https://github.com/Luke23-45/Coding-a-Spring-Physics-Simulation"
+    },
+    "primaryLink": "github"
+  },
+  {
+    "title": "Pendulum Simulation — SDL2",
+    "slug": "pendulum-simulation",
+    "year": "2025",
+    "description": "Pendulum — angular motion and period.",
+    "domains": [
+      "Systems",
+      "Graphics"
+    ],
+    "tech": [
+      "C",
+      "SDL2"
+    ],
+    "image": "/images/project-pendulum.svg",
+    "imageAlt": "Pendulum preview",
+    "madeAt": null,
+    "links": {
+      "github": "https://github.com/Luke23-45/Pendulum-Simulation"
+    },
+    "primaryLink": "github"
+  },
+  {
+    "title": "Text Editor — C",
+    "slug": "text-editor",
+    "year": "2025",
+    "description": "Terminal text editor — buffers and input.",
+    "domains": [
+      "Systems"
+    ],
+    "tech": [
+      "C"
+    ],
+    "image": "/images/project-text-editor.svg",
+    "imageAlt": "Text Editor preview",
+    "madeAt": null,
+    "links": {
+      "github": "https://github.com/Luke23-45/Text-Editor"
+    },
+    "primaryLink": "github"
+  },
+  {
+    "title": "How Spring Simulations Work — Math Notes",
+    "slug": "how-spring-simulations-work-the-underlying-mathematics",
+    "year": "2025",
+    "description": "Notes — underlying mathematics of spring simulations.",
+    "domains": [
+      "Systems"
+    ],
+    "tech": [
+      "Math"
+    ],
+    "image": "/images/project-spring-math.svg",
+    "imageAlt": "Spring Math preview",
+    "madeAt": null,
+    "links": {
+      "github": "https://github.com/Luke23-45/How-Spring-Simulations-Work-The-Underlying-Mathematics"
+    },
+    "primaryLink": "github"
+  },
+  {
+    "title": "Automated Robotic Arm — Pick and Place (6-DOF)",
+    "slug": "robotic-arm",
+    "year": "2024",
+    "description": "6-DOF serial manipulator — DH optimization, PyBullet IK solver, Unity GUI, 3D-printed cycloidal actuators (10g payload).",
+    "domains": [
+      "Robotics"
+    ],
+    "tech": [
+      "Python",
+      "PyBullet",
+      "Unity",
+      "3D Printing"
+    ],
+    "image": "/images/project-robotic-arm.svg",
+    "imageAlt": "Robotic Arm preview",
+    "madeAt": null,
+    "links": {}
+  },
+  {
+    "title": "Shenz — EdTech Blog and Registration Backend",
+    "slug": "shenz",
+    "year": "2023",
+    "description": "Django 4 DRF API — blog, instructor registration and homepage slider.",
+    "domains": [
+      "Web"
+    ],
+    "tech": [
+      "Django",
+      "DRF",
+      "SQLite"
+    ],
+    "image": "/images/project-shenz.svg",
+    "imageAlt": "Shenz preview",
+    "madeAt": null,
+    "links": {}
+  },
+  {
+    "title": "CampusHub — EdTech Platform with Courses and Community",
+    "slug": "campushub",
+    "year": "2023",
+    "description": "Django 3 + PostgreSQL — courses, community forum, nested comment ratings.",
+    "domains": [
+      "Web"
+    ],
+    "tech": [
+      "Django",
+      "PostgreSQL"
+    ],
+    "image": "/images/project-campushub.svg",
+    "imageAlt": "CampusHub preview",
+    "madeAt": null,
+    "links": {}
   }
 ]

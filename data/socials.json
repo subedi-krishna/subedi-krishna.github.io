@@ -1,4 +1,5 @@
 [
   { "icon": "github", "label": "GitHub", "url": "https://github.com/Luke23-45" },
-  { "icon": "linkedin", "label": "LinkedIn", "url": "https://linkedin.com/in/krishna-subedi" }
+  { "icon": "linkedin", "label": "LinkedIn", "url": "https://linkedin.com/in/krishna-subedi" },
+  { "icon": "goodreads", "label": "Goodreads", "url": "https://www.goodreads.com/user/show/204545750-krishna-subedi" }
 ]

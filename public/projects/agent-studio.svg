@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <defs>
+    <radialGradient id="as-glow" cx="0.5" cy="0.46" r="0.55">
+      <stop offset="0" stop-color="#5eead4" stop-opacity="0.16"/>
+      <stop offset="0.6" stop-color="#5eead4" stop-opacity="0.05"/>
+      <stop offset="1" stop-color="#5eead4" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="as-chip" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#16213a"/>
+      <stop offset="1" stop-color="#0e1628"/>
+    </linearGradient>
+    <pattern id="as-dots" width="44" height="44" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.6" fill="#64748b" opacity="0.28"/>
+    </pattern>
+    <filter id="as-soft" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="10"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="450" fill="#0f172a"/>
+  <rect width="800" height="450" fill="url(#as-dots)"/>
+  <rect width="800" height="450" fill="url(#as-glow)"/>
+
+  <!-- orbit rings -->
+  <g fill="none" stroke="#5eead4">
+    <ellipse cx="400" cy="225" rx="262" ry="118" stroke-opacity="0.28" stroke-width="2"/>
+    <ellipse cx="400" cy="225" rx="196" ry="152" stroke-opacity="0.16" stroke-width="1.5" transform="rotate(-18 400 225)"/>
+  </g>
+
+  <!-- orbiting agents -->
+  <circle cx="152" cy="196" r="8" fill="#0f172a" stroke="#5eead4" stroke-width="2.5"/>
+  <circle cx="152" cy="196" r="2.6" fill="#5eead4"/>
+  <circle cx="636" cy="272" r="10" fill="#0f172a" stroke="#5eead4" stroke-width="2.5"/>
+  <circle cx="636" cy="272" r="3.2" fill="#5eead4"/>
+  <circle cx="508" cy="92" r="6.5" fill="#0f172a" stroke="#94a3b8" stroke-width="2"/>
+  <circle cx="508" cy="92" r="2" fill="#94a3b8"/>
+
+  <!-- canvas chips -->
+  <g>
+    <rect x="118" y="252" width="104" height="60" rx="16" fill="url(#as-chip)" stroke="#334155" stroke-width="1.5"/>
+    <circle cx="140" cy="272" r="6" fill="#5eead4" opacity="0.9"/>
+    <rect x="154" y="267" width="46" height="5" rx="2.5" fill="#475569"/>
+    <rect x="154" y="278" width="32" height="5" rx="2.5" fill="#334155"/>
+    <rect x="578" y="140" width="104" height="60" rx="16" fill="url(#as-chip)" stroke="#334155" stroke-width="1.5"/>
+    <circle cx="600" cy="160" r="6" fill="#5eead4" opacity="0.9"/>
+    <rect x="614" y="155" width="46" height="5" rx="2.5" fill="#475569"/>
+    <rect x="614" y="166" width="32" height="5" rx="2.5" fill="#334155"/>
+  </g>
+
+  <!-- ground shadow -->
+  <ellipse cx="400" cy="352" rx="128" ry="14" fill="#000000" opacity="0.5" filter="url(#as-soft)"/>
+
+  <!-- agent graph glyph: one idea, no container -->
+  <g stroke="#5eead4" stroke-width="4" stroke-linecap="round">
+    <line x1="400" y1="225" x2="340" y2="180" opacity="0.85"/>
+    <line x1="400" y1="225" x2="460" y2="180" opacity="0.85"/>
+    <line x1="400" y1="225" x2="400" y2="284" opacity="0.85"/>
+  </g>
+  <g fill="#0f172a" stroke="#5eead4" stroke-width="3.5">
+    <circle cx="340" cy="180" r="15"/>
+    <circle cx="460" cy="180" r="15"/>
+    <circle cx="400" cy="284" r="15"/>
+  </g>
+  <g fill="#5eead4">
+    <circle cx="340" cy="180" r="3.5"/>
+    <circle cx="460" cy="180" r="3.5"/>
+    <circle cx="400" cy="284" r="3.5"/>
+  </g>
+  <circle cx="400" cy="225" r="21" fill="none" stroke="#5eead4" stroke-width="5"/>
+</svg>

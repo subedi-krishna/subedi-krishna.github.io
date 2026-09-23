@@ -10,6 +10,7 @@ validateProjects(projects);
 const LIMIT = 5;
 const visibleProjects = projects.slice(0, LIMIT);
 const showArchiveLink = projects.length > 0;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 const arrowPath =
   'M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z';
@@ -30,7 +31,6 @@ const rightArrowPath = 'M3 10h13M11 5l5 5-5 5';
             <li>
               <div class="card">
                 <div class="card-body card-body--project">
-                  <p class="card-domain">{project.domains.join(' · ')}</p>
                   <h3 class="card-title">
                     {primary ? (
                       <a
@@ -59,14 +59,23 @@ const rightArrowPath = 'M3 10h13M11 5l5 5-5 5';
                       </li>
                     ))}
                   </ul>
-                  <ProjectLinkIcons project={project} />
-                </div>
+                  <div class="card-foot">
+                    <span class="card-domain card-domain--foot">{project.domains.join(' · ')}</span>
+                    <ProjectLinkIcons project={project} />
+                  </div>                </div>
                 <div
                   class="card-thumb"
-                  aria-hidden="true"
                   {...(hasVideo ? { style: `view-transition-name: project-media-${project.slug}` } : {})}
                 >
-                  <img src={`${import.meta.env.BASE_URL.replace(/\/$/, '')}${project.image}`} alt="" loading="lazy" width="400" height="225" />
+                  <button
+                    class="thumb-btn"
+                    data-full={`${base}${project.image}`}
+                    data-title={project.title}
+                    data-alt={project.imageAlt}
+                    aria-label={`View larger image of ${project.title}`}
+                  >
+                    <img src={`${base}${project.image}`} alt="" loading="lazy" width="400" height="225" />
+                  </button>
                 </div>
               </div>
             </li>
@@ -78,7 +87,7 @@ const rightArrowPath = 'M3 10h13M11 5l5 5-5 5';
   {
     showArchiveLink && (
         <a class="archive-link" href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/archive`}>
-        <span>View Full Project Archive</span>
+        <span>View Full Project Archive ({projects.length})</span>
         <svg class="arrow-right" viewBox="0 0 20 20" fill="none" aria-hidden="true">
           <path
             d={rightArrowPath}
@@ -92,3 +101,90 @@ const rightArrowPath = 'M3 10h13M11 5l5 5-5 5';
     )
   }
 </section>
+
+<div class="lightbox" id="project-lightbox" role="dialog" aria-modal="true" aria-label="Project image viewer">
+  <div class="lightbox-backdrop" data-lightbox-close></div>
+  <figure class="lightbox-figure">
+    <img class="lightbox-img" src="" alt="" />
+    <figcaption class="lightbox-meta">
+      <span class="lightbox-caption"></span>
+      <span class="lightbox-count"></span>
+    </figcaption>
+  </figure>
+  <button class="lightbox-btn lightbox-close" data-lightbox-close aria-label="Close viewer">
+    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+      <path d="M5 5l10 10M15 5L5 15" />
+    </svg>
+  </button>
+  <button class="lightbox-btn lightbox-prev" aria-label="Previous image">
+    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12.5 4L7 10l5.5 6" />
+    </svg>
+  </button>
+  <button class="lightbox-btn lightbox-next" aria-label="Next image">
+    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M7.5 4L13 10l-5.5 6" />
+    </svg>
+  </button>
+</div>
+
+<script>
+  (() => {
+    const box = document.getElementById('project-lightbox');
+    const thumbs = Array.from(document.querySelectorAll('.thumb-btn'));
+    if (!box || thumbs.length === 0) return;
+    const img = box.querySelector('.lightbox-img');
+    const caption = box.querySelector('.lightbox-caption');
+    const count = box.querySelector('.lightbox-count');
+    const closeBtn = box.querySelector('.lightbox-close');
+    const prevBtn = box.querySelector('.lightbox-prev');
+    const nextBtn = box.querySelector('.lightbox-next');
+    let idx = 0;
+    let lastFocus = null;
+
+    const render = () => {
+      const btn = thumbs[idx];
+      img.src = btn.dataset.full;
+      img.alt = btn.dataset.alt || btn.dataset.title;
+      caption.textContent = btn.dataset.title;
+      count.textContent = `${idx + 1} / ${thumbs.length}`;
+      const single = thumbs.length < 2;
+      prevBtn.hidden = single;
+      nextBtn.hidden = single;
+    };
+
+    const open = (i) => {
+      idx = (i + thumbs.length) % thumbs.length;
+      lastFocus = document.activeElement;
+      render();
+      box.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    };
+
+    const close = () => {
+      box.classList.remove('open');
+      document.body.style.overflow = '';
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    };
+
+    const step = (d) => {
+      idx = (idx + d + thumbs.length) % thumbs.length;
+      render();
+    };
+
+    thumbs.forEach((btn, i) => btn.addEventListener('click', () => open(i)));
+    closeBtn.addEventListener('click', close);
+    prevBtn.addEventListener('click', (e) => { e.stopPropagation(); step(-1); });
+    nextBtn.addEventListener('click', (e) => { e.stopPropagation(); step(1); });
+    box.querySelectorAll('[data-lightbox-close]').forEach((el) => {
+      el.addEventListener('click', (e) => { if (e.target === el) close(); });
+    });
+    document.addEventListener('keydown', (e) => {
+      if (!box.classList.contains('open')) return;
+      if (e.key === 'Escape') close();
+      else if (e.key === 'ArrowLeft') step(-1);
+      else if (e.key === 'ArrowRight') step(1);
+    });
+  })();
+</script>

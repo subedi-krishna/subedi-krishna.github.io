@@ -1,6 +1,6 @@
 # Portfolio Data Update Ledger
 
-Last updated: 2026-09-23
+Last updated: 2026-09-24
 Owner: Krishna Subedi
 Purpose: ordered, nothing-missing task list for replacing template data with
 career-verified content. Spec and exact values live in
@@ -142,9 +142,137 @@ Owner: "proceed. and implement the patches. step by step."
 
 Evidence: build log + sha256 + grep outputs above.
 
+## Phase 12 — Archive expansion + resume-exact experience (2026-09-24)
+
+Owner thread: add `github_repo.md` projects to archive → cut 5 SDL2 toys →
+"base don the resume that we wrote. it needs to be same from the resume" →
+skills-section question.
+
+- `[x]` 12.1 `projects.json` → **32 entries**: 3 → 37 via temp script sourced
+  from career `github_repo.md` (93-repo inventory), then owner rational cut −5
+  (12.2); home first-5 after cut: `agent-studio`, `krishi-vaidya`,
+  `ecommerce-platform`, `alcedo`, `molt` — **verified**: JSON.parse OK, unique
+  slugs, every `image` exists, `validateProjects` in build
+- `[x]` 12.2 Owner cut executed — dropped `coding-a-snake-game-with-sdl2`,
+  `coding-an-analog-clock-with-sdl2`, `colorfull-ball-with-particle-effect-animation`,
+  `a-pong-game-with-sdl2`, `painting-application` (How Spring Math kept per
+  owner); 5 matching orphan SVGs deleted — **verified**: node audit
+  `images/` = 32 = entry count, orphans = 0; 10 SDL2/simulation entries remain
+- `[x]` 12.3 Archive link now `View Full Project Archive ({projects.length})`
+  (Projects.astro) → renders **(32)** in `dist/index.html`; `/archive` renders
+  all 32, year-desc — **verified**: build + dist read
+- `[x]` 12.4 `experience.json` descriptions → **exact FS-resume bullets**
+  (owner: must be same as resume): Neryva 631 ch, Smaitic 456 ch, NOL 472 ch —
+  **verified**: `check-exp.js` **EXACT MATCH ×3** (normalizes `---`→em dash,
+  `\href`→text, Demo URL; markers `{Neryva}` / `{Smaitic Labs}` / `{Nepal Oil`)
+- `[x]` 12.5 Tech pills synced: NOL dropped SQL → `["Python", "Time-Series
+  Forecasting", "Automated Reporting Pipelines"]`; Smaitic unchanged (7);
+  Neryva → `["AI Architecture", "Optimization", "Safety"]` `[!]` —
+  `Optimization` not in the Neryva description; owner asked remove / replace
+  (`Evaluation` / `Multi-Tenancy`) / keep — unanswered
+- `[x]` 12.6 Online re-verification: all **12 URLs HTTP 200** (neryva.com,
+  vanidya.com, GitHub `Luke23-45`, 4× arXiv abs incl. 52-scenario check,
+  agent-studio / alcedo / molt / Ecommerce-API_ / krishi-mobile-app); LinkedIn
+  **999** known bot-block (manual browser check stays with owner)
+- `[x]` 12.7 Skills-section position question researched (eye-tracking,
+  recruiter surveys, portfolio-structure guides) — recommendation delivered:
+  **keep current order** About → Experience → Projects → Research → Skills →
+  Contact (Experience = proof 38% of gaze, Skills = keyword index after it);
+  no file change; matches both resumes (Skills last, rational.md D4)
+- `[x]` 12.8 Build gate green: `npm run build` → 4 pages, zero warnings after
+  every content change (expansion, cut, link, experience sync, SVG delete)
+- `[!]` 12.9 Publish-gate follow-ups (career track, owner "go"): home first-5
+  currently includes `molt` (`DRAFT` in career projects.md) and `alcedo` (no
+  career section); `career/data/projects.md` still 6 VERIFIED / 3 DRAFT
+  (PhaseForge, molt, bgsl) / 1 REMOVE — promotions + 10 research-entry
+  sections pending; **home order itself** (2 gate-pending cards among first-5)
+  is an owner confirm
+- `[!]` 12.10 Blurb rewrite pending owner pick (parallel `I build ...` triple
+  vs tighter line) → then patch `profile.json:4` + career `positioning.md:8`/
+  `:41` together; `profile.json:4` still holds the old blurb
+- `[ ]` 12.11 Commit this repo only — uncommitted: `projects.json`,
+  `experience.json`, `Projects.astro`, `public/images/` (32 SVGs incl. new),
+  this docs update — **on owner request**; no push (10.2)
+- `[x]` 12.12 Owner-locked About bio installed **verbatim** into `about.json`
+  (3 paragraphs, Neryva link segment preserved, no wording changes) —
+  **verified**: JSON.parse OK, build green, dist carries the copy —
+  **publish-gate exceptions logged (owner override, 2026-09-24):**
+  (a) `I lead the engineering effort` — `lead` ×0 in career data;
+  (b) `accessibility` — ×0 in career data;
+  (c) `Robotics` at Neryva — company-domain only, not in owner's Work bullets;
+  (d) `PhaseForge` — `DRAFT`/unpublished in career projects.md.
+  Prior traced About (2.1/9.6) superseded; retrace only after owner revises.
+- `[x]` 12.13 Goodreads social added: `socials.json` 3rd entry (owner URL,
+  **HTTP 200 verified**); `Sidebar.astro` `icons` record gained `goodreads`
+  official simple-icons path (same 24×24 `currentColor` pattern as github/
+  linkedin) — **verified**: build green, dist carries all 3 social hrefs +
+  goodreads path; plan §3 icon list updated
+- `[x]` 12.14 Footer removed (owner): `<Footer />` + import dropped from
+  index/archive/research/video pages; `Footer.astro` + `data/footer.json`
+  deleted — **verified**: zero `Footer|footer.json` refs in src/data, build
+  green, `Designed & built` ×0 in dist; plan §4.8 updated
+- `[x]` 12.15 Trailing whitespace after Contact fixed (owner): last `.section`
+  margin (4/6/9rem) → 0 via `.section:last-child`; desktop `.content`
+  padding-bottom 6rem → 2rem; dead `.footer` CSS removed — **verified**:
+  build green, single shared bundle carries the rule on all 3 pages
+- `[x]` 12.16 Real screenshots wired (owner supplied `public/projects/`):
+  `krishi-vaidya` → `/projects/krishi_vaidya.png`, `ecommerce-platform` →
+  `/projects/ecommerce.png`, `alcedo` → `/projects/alcedo.png`; 3 replaced
+  SVGs deleted (no orphans; 32/32 images resolve) — **verified**: clean
+  rebuild (stale partial dist removed), 4 pages, all 3 PNG paths in dist
+  home; remaining 29 entries still on SVG until owner supplies more shots
+- `[x]` 12.17 Agent Studio card: `live` link removed per owner (title now
+  links to github); `primaryLink` repointed live → github (build rejects
+  dangling primary); neryva.com still linked from Experience + About —
+  **verified**: build green
+- `[x]` 12.18 Banners enlarged (owner): `.card-thumb` span 2→3 cols,
+  `.card-body--project` span 6→5 (project cards only; research untouched) —
+  **verified**: build green, spans in bundle
+- `[x]` 12.19 Page widened (owner): `.page` side padding 6rem→2rem desktop,
+  3rem→2rem tablet (mobile 1.5rem untouched); max-width 1280px kept —
+  **verified**: build green
+- `[x]` 12.20 Home titles shortened (owner): subtitles after `:`/`—` dropped
+  on all 5 home cards (descriptions carry the detail); titles live in shared
+  data so archive rows show the short forms too — **verified**: build green
+- `[x]` 12.21 Card rework (owner): top domain eyebrow removed (cards start at
+  title); domain moved to new `.card-foot` bottom row, left of link icons;
+  tags forced single-line (nowrap+clip, project cards only); also fixed
+  invalid `span 2 / span 3` grid declaration → `span 3 / span 3` —
+  **verified**: build green, foot ×5 + zero top-eyebrow in dist, rules in bundle
+- `[x]` 12.24 Say-Hello morph fixed (owner): (a) email spilled outside the
+  narrow pill mid-morph → clipped via `.is-open:not(.is-settled)
+  { overflow: hidden }` (reveals symmetrically from center); (b) target
+  width ignored the pill's own border → 2px end snap → now
+  `email.offsetWidth + border`; (c) merged my settle rule with the
+  pre-existing static-flip rule into one block (no duplicates) —
+  **verified**: build green, single settled rule, clip+settle+JS fix all in dist
+- `[x]` 12.25 Neryva description switched FS → **AI-resume bullets verbatim**
+  (owner: portfolio derives from the AI variant): Architected runtime +
+  custom harnesses/safety/eval bullets, Demo neryva.com — **verified**:
+  `check-neryva-ai.cjs` EXACT MATCH, old FS text ×0 in dist, build green
+  (Smaitic/NOL stay FS-verbatim; Neryva pills unchanged — Optimization
+  question still open)
+- `[x]` 12.22 Brand SVGs for molt + agent-studio (owner: Apple-style,
+  professional): hand-built 800×450 (16:9), site palette (`#0f172a` +
+  `#5eead4`), zero `<text>`, glow/grid/shadow system shared across both —
+  agent-studio = app icon + agent-graph glyph + orbit rings + canvas chips;
+  molt = module row with lifted glowing replacement + dashed vacant slot +
+  guard ticks — **verified**: stack-parse well-formed ×2, wired in
+  projects.json, old SVGs deleted (no orphans), build green, both paths in
+  dist home
+- `[x]` 12.23 Banner lightbox (owner): banner click opens Apple-style modal —
+  blur backdrop, spring zoom-fade, caption + `n / 5` counter, prev/next, ×,
+  backdrop-click + Esc + arrow keys, focus in/out, scroll-lock,
+  reduced-motion off-ramp; thumb hover zoom + `zoom-in` cursor —
+  **verified**: build green, markup/triggers×5/inlined script/styles all in dist
+
+Evidence: node audits (entry/orphan counts) + `check-exp.js` EXACT MATCH ×3 +
+URL 200 list + build logs + dist phrase checks.
+
 ## Change log
 
 - 2026-09-23 — Created ledger + update_data_plan.md from full research pass (10 data JSONs, 13 components, career data/ ×14, both resume skill blocks, links register, roadmap-filters.md).
 - 2026-09-23 — Executed Phases 0–10.1: all data replaced with career-verified content, resume PDF self-hosted, D-5 resolved (GitHub Pages + base plumbing), all gates green (build ×3, purge full pass, links, preview ×2 incl. base), career sync commits `4306881` + `bd24c51`. Remaining: 10.2 owner deploy enable + push, 10.3 career push (deferred), 10.5.
 - 2026-09-23 — **Neryva restructure sync (D18):** `experience.json` Neryva desc + `about.json` P2 middle rewritten per Draft C (runtime/sandboxes/memory/safety/canvas); FS `resume.pdf` re-copied from career D18 build (new sha256 `E041B14B4C0BDD84…`, triple-hash match); verification re-run green (10/10 JSON, purge 20/20, banned-phrase clean, `npm run build` 4 pages, basecheck 12/12, artifactscan 18/18, dist phrase check 5/5).
 - 2026-09-23 — **Resume-decision sync (Phase 11):** projects → Agent Studio + Krishi + Ecommerce with verified links; research LLM desc → frontier wording (amendment 9); skills pill union trimmed (D18/D23 cuts); resume.pdf → FS 64,563 B; archive links always visible; ban greps clean; build green.
+- 2026-09-24 — **Archive expansion + resume-exact experience (Phase 12):** projects 3 → 37 (`github_repo.md`) → owner cut 5 SDL2 → **32**; 5 orphan SVGs deleted (`images/` = 32); archive link dynamic `(32)`; `experience.json` descriptions = FS-resume verbatim (EXACT MATCH ×3); pills synced (NOL SQL out; Neryva `AI Architecture/Optimization/Safety`); 12 URLs 200; Skills-order verdict = keep; build green. Open: blurb wording, Optimization tag, molt/alcedo home-gate, commit (12.9–12.11).

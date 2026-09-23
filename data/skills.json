@@ -1,32 +1,99 @@
 [
   {
     "category": "Languages",
-    "core": ["Python", "TypeScript"],
-    "items": ["Python", "TypeScript", "Java", "Kotlin", "SQL", "JavaScript", "C/C++"]
+    "core": [
+      "C/C++",
+      "Python",
+      "TypeScript"
+    ],
+    "items": [
+      "C/C++",
+      "Python",
+      "TypeScript",
+      "Java",
+      "Kotlin",
+      "SQL"
+    ]
   },
   {
     "category": "Web & Backend",
-    "core": ["Spring Boot", "React", "Node.js (Express)"],
-    "items": ["Spring Boot", "Node.js (Express)", "Django", "React", "Redux"]
+    "core": [
+      "Spring Boot",
+      "React",
+      "Node.js (Express)"
+    ],
+    "items": [
+      "Spring Boot",
+      "Node.js (Express)",
+      "NestJS",
+      "Django",
+      "React"
+    ]
   },
   {
     "category": "AI & Data",
-    "core": ["PyTorch", "LLMs/Generative AI"],
-    "items": ["PyTorch", "LLMs/Generative AI", "RAG", "LLM Evaluation", "FastAPI", "Multi-Tenancy", "Time-Series", "Multi-Task & Continual Learning"]
+    "core": [
+      "PyTorch",
+      "LLMs/Generative AI"
+    ],
+    "items": [
+      "PyTorch",
+      "LLMs/Generative AI",
+      "RAG",
+      "LLM Evaluation",
+      "FastAPI",
+      "Multi-Tenancy",
+      "Time-Series",
+      "Multi-Task & Continual Learning"
+    ]
   },
   {
     "category": "Robotics & Simulation",
-    "core": ["ROS", "PyBullet"],
-    "items": ["ROS", "PyBullet", "Unity", "Inverse Kinematics", "Motion Planning"]
+    "core": [
+      "ROS",
+      "PyBullet"
+    ],
+    "items": [
+      "ROS",
+      "PyBullet",
+      "Unity",
+      "Inverse Kinematics",
+      "Motion Planning"
+    ]
   },
   {
     "category": "Datastores & Infra",
-    "core": ["PostgreSQL", "Docker"],
-    "items": ["PostgreSQL", "MySQL", "MongoDB", "Redis", "Docker", "Kubernetes", "Jenkins", "AWS", "Git", "CI/CD", "Linux"]
+    "core": [
+      "PostgreSQL",
+      "Docker"
+    ],
+    "items": [
+      "PostgreSQL",
+      "MySQL",
+      "MongoDB",
+      "Redis",
+      "Docker",
+      "Kubernetes",
+      "Jenkins",
+      "AWS",
+      "Git",
+      "CI/CD",
+      "Linux"
+    ]
   },
   {
     "category": "Engineering Practices",
-    "core": ["REST", "RBAC"],
-    "items": ["REST", "JWT", "RBAC", "Microservices", "PWA", "Jest"]
+    "core": [
+      "REST",
+      "RBAC"
+    ],
+    "items": [
+      "REST",
+      "JWT",
+      "RBAC",
+      "Microservices",
+      "PWA",
+      "Jest"
+    ]
   }
 ]

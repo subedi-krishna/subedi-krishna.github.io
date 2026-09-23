@@ -4,23 +4,39 @@
     "companyUrl": "https://neryva.com",
     "date": "Jul 2025 — Present",
     "title": "Member of Technical Staff",
-    "description": "Architected the multi-tenant agent runtime — agent lifecycles, tool-calling loops, and state-machine transitions, executed in isolated sandboxes — with layered input/output safety, hierarchical memory, and the drag-and-drop agent canvas for building custom agents.",
-    "tech": ["Python", "FastAPI", "REST APIs", "Multi-Tenancy", "LLM Evaluation"]
+    "description": "Architected the production multi-tenant agent runtime: asynchronous orchestration of agent lifecycles, tool-calling loops, and state-machine transitions with hierarchical memory — LLM output treated as untrusted code, executed in isolated sandboxes to run many agents concurrently per customer. Built custom agent harnesses tuned to enforce safety constraints, with layered input/output safety (token-classification at ingress flags prompt-injection and jailbreak attempts; output validation at egress) and evaluation pipelines for tool-calling accuracy and context-retrieval drift. Demo: https://neryva.com.",
+    "tech": [
+      "AI Architecture",
+      "Optimization",
+      "Safety"
+    ]
   },
   {
     "company": "Smaitic Labs",
     "companyUrl": "https://vanidya.com/",
     "date": "Apr 2024 — Jul 2025",
     "title": "Full-stack Developer",
-    "description": "Built the Vanidya marketplace stack — 3-level admin hierarchy with role-specific access, multi-tenant Spring Boot backend with hierarchical RBAC and ZipCode-based delivery logistics, plus a native Android app and offline-first PWA for real-time order tracking.",
-    "tech": ["Spring Boot", "Java", "Kotlin", "TypeScript", "React", "PWA", "RBAC"]
+    "description": "Built a three-tier admin hierarchy (main/state/seller) with role-specific access and per-tier dashboards, plus a multi-tenant Spring Boot backend (hierarchical RBAC, ZipCode-based delivery logistics) that absorbs new regions and sellers without structural change and runs an automated commission engine that eliminates manual per-order fee calculation. Shipped Vanidya marketplace apps: native Android (Kotlin), offline-first PWA, real-time order tracking.",
+    "tech": [
+      "Spring Boot",
+      "Java",
+      "Kotlin",
+      "TypeScript",
+      "React",
+      "PWA",
+      "RBAC"
+    ]
   },
   {
     "company": "Nepal Oil Corporation Limited",
     "companyUrl": "#",
     "date": "Oct 2023 — Mar 2024",
     "title": "Software Engineer",
-    "description": "Built a time-series fuel-demand forecasting system for regional fuel demand (diesel, petrol, aviation), supporting inventory allocation and supply-chain decisions. Automated mission-critical daily dispatch reporting via Python/SQL pipelines, replacing manual reports with real-time executive dashboards for national fuel logistics.",
-    "tech": ["Python", "SQL", "Time-Series Forecasting", "Automated Reporting Pipelines"]
+    "description": "Designed a time-series fuel-demand forecasting system for regional fuel demand (diesel, petrol, aviation), modeling surges, strikes, and protests so inventory allocation tracked real consumption spikes, and supply stayed smooth. Built an automated dispatch reporting system for fuel logistics, consolidating daily depot and tanker movements into live per-depot dashboards that replaced manual end-of-day report preparation.",
+    "tech": [
+      "Python",
+      "Time-Series Forecasting",
+      "Automated Reporting Pipelines"
+    ]
   }
 ]
