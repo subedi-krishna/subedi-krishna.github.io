@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="225" viewBox="0 0 400 225">
+  <defs>
+    <radialGradient id="cropGlow" cx="0.5" cy="0.5" r="0.55">
+      <stop offset="0" stop-color="#4ade80" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#4ade80" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="225" fill="#0f172a"/>
+  <rect width="400" height="225" fill="url(#cropGlow)"/>
+  <rect x="148" y="48" width="104" height="150" rx="14" fill="#14213a" stroke="#4ade80" stroke-opacity="0.5" stroke-width="2"/>
+  <rect x="160" y="70" width="80" height="100" rx="6" fill="#0f172a" stroke="#4ade80" stroke-opacity="0.25"/>
+  <path d="M200 148 C 200 148, 178 132, 178 112 C 178 100, 188 94, 198 100 C 202 94, 214 94, 218 104 C 226 108, 224 124, 212 132 C 208 140, 204 146, 200 148 Z" fill="#4ade80" opacity="0.85"/>
+  <path d="M200 148 C 200 132, 204 116, 214 106" fill="none" stroke="#0f172a" stroke-width="1.5" stroke-linecap="round"/>
+  <circle cx="200" cy="60" r="3" fill="#4ade80"/>
+  <rect x="176" y="180" width="48" height="6" rx="3" fill="#4ade80" opacity="0.4"/>
+  <circle cx="86" cy="112" r="26" fill="none" stroke="#4ade80" stroke-opacity="0.35" stroke-width="2" stroke-dasharray="6 8"/>
+  <circle cx="86" cy="112" r="5" fill="#4ade80" opacity="0.8"/>
+  <path d="M314 88 l18 0 m-9 -9 l18 0 m-9 -9 l14 0" stroke="#4ade80" stroke-opacity="0.4" stroke-width="2" stroke-linecap="round"/>
+</svg>

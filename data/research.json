@@ -31,7 +31,7 @@
     "title": "The Reliability of LLMs for Medical Diagnosis: An Examination of Consistency, Manipulation, and Contextual Awareness",
     "venue": "arXiv:2503.10647 [cs.CL]",
     "venueUrl": "https://arxiv.org/abs/2503.10647",
-    "description": "Benchmarked Gemini 2.0 Flash vs ChatGPT-4o on 52 clinical scenarios; quantified adversarial and distractor prompt vulnerability.",
+    "description": "Benchmarked frontier LLMs across 52 clinical scenarios; quantified adversarial prompt vulnerability.",
     "tags": ["LLM Evaluation", "Medical AI", "Prompt Robustness"],
     "domains": ["AI"]
   }

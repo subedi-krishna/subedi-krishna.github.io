@@ -1,38 +1,48 @@
 [
   {
-    "title": "Automated Robotic Arm — Pick and Place",
-    "slug": "robotic-arm",
-    "year": "2024",
-    "description": "Designed and fabricated a custom 6-DOF pick-and-place arm — DH-parameter-optimized PyBullet inverse kinematics, real-time Python control with a custom Unity GUI, cycloidal actuators, and 3D-printed structural components. Built with a 4-person team.",
-    "domains": ["Robotics"],
-    "tech": ["Python", "PyBullet", "Unity", "3D Printing", "Inverse Kinematics"],
-    "image": "/images/project-robotic-arm.svg",
-    "imageAlt": "Automated Robotic Arm preview",
-    "madeAt": null,
-    "links": {}
+    "title": "Agent Studio: Enterprise AI Agent Platform",
+    "slug": "agent-studio",
+    "year": "2025",
+    "description": "Enterprise control layer for LLM applications — multi-tenant architecture, guardrails, evaluation pipelines, and multi-platform deployment.",
+    "domains": ["AI"],
+    "tech": ["Python", "FastAPI", "RAG", "Multi-Tenancy", "LLM Evaluation"],
+    "image": "/images/project-agent-studio.svg",
+    "imageAlt": "Agent Studio preview",
+    "madeAt": "Neryva",
+    "links": {
+      "live": "https://neryva.com",
+      "github": "https://github.com/Luke23-45/agent-studio"
+    },
+    "primaryLink": "live"
   },
   {
-    "title": "Shenz — EdTech Blog and Registration Backend",
-    "slug": "shenz",
-    "year": "2023",
-    "description": "Django REST Framework API for an EdTech platform — blog CRUD with category search and pagination, instructor registration, and a homepage slider.",
-    "domains": ["Web"],
-    "tech": ["Django", "Django REST Framework", "SQLite"],
-    "image": "/images/project-shenz.svg",
-    "imageAlt": "Shenz preview",
+    "title": "Krishi Vaidya: AI-Powered Crop Disease Diagnosis",
+    "slug": "krishi-vaidya",
+    "year": "2026",
+    "description": "Mobile app with on-device AI inference for crop disease detection and treatment advisory.",
+    "domains": ["AI", "Mobile"],
+    "tech": ["React Native", "TFLite", "OpenCV", "Express", "MongoDB"],
+    "image": "/images/project-krishi-vaidya.svg",
+    "imageAlt": "Krishi Vaidya preview",
     "madeAt": null,
-    "links": {}
+    "links": {
+      "github": "https://github.com/Luke23-45/krishi-mobile-app"
+    },
+    "primaryLink": "github"
   },
   {
-    "title": "CampusHub — EdTech Platform with Courses and Community",
-    "slug": "campushub",
-    "year": "2023",
-    "description": "Django platform with a course catalogue, community forum, and a nested-comment rating system on PostgreSQL.",
+    "title": "Ecommerce Platform: Multi-Seller Marketplace",
+    "slug": "ecommerce-platform",
+    "year": "2025",
+    "description": "Full-stack TypeScript platform with 5 user roles, Stripe payments, multi-step checkout, and vendor-scoped permissions.",
     "domains": ["Web"],
-    "tech": ["Django", "PostgreSQL"],
-    "image": "/images/project-campushub.svg",
-    "imageAlt": "CampusHub preview",
+    "tech": ["React", "Node.js (Express)", "MongoDB", "Stripe", "Docker"],
+    "image": "/images/project-ecommerce-platform.svg",
+    "imageAlt": "Ecommerce Platform preview",
     "madeAt": null,
-    "links": {}
+    "links": {
+      "github": "https://github.com/Luke23-45/Ecommerce-API_"
+    },
+    "primaryLink": "github"
   }
 ]

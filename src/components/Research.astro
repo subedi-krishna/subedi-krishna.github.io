@@ -1,10 +1,10 @@
 ---
 import research from '../../data/research.json';
 
-// Home shows a limited set; the archive link appears only when there is more to show.
+// Home shows a limited set; the archive link always appears so /research is reachable.
 const LIMIT = 5;
 const visiblePapers = research.slice(0, LIMIT);
-const showArchiveLink = research.length > LIMIT;
+const showArchiveLink = research.length > 0;
 
 const arrowPath =
   'M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z';

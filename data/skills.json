@@ -7,22 +7,22 @@
   {
     "category": "Web & Backend",
     "core": ["Spring Boot", "React", "Node.js (Express)"],
-    "items": ["Spring Boot", "Node.js (Express)", "Django", "React", "Next.js", "Redux", "Tailwind", "Material UI"]
+    "items": ["Spring Boot", "Node.js (Express)", "Django", "React", "Redux"]
   },
   {
     "category": "AI & Data",
     "core": ["PyTorch", "LLMs/Generative AI"],
-    "items": ["PyTorch", "TensorFlow", "LLMs/Generative AI", "RAG", "LLM Evaluation", "FastAPI", "Multi-Task Learning", "Continual Learning", "Time-Series Forecasting", "Multi-Tenancy"]
+    "items": ["PyTorch", "LLMs/Generative AI", "RAG", "LLM Evaluation", "FastAPI", "Multi-Tenancy", "Time-Series", "Multi-Task & Continual Learning"]
   },
   {
     "category": "Robotics & Simulation",
     "core": ["ROS", "PyBullet"],
-    "items": ["ROS", "PyBullet", "Unity Engine", "Inverse Kinematics", "Motion Planning", "SDL2", "OpenGL"]
+    "items": ["ROS", "PyBullet", "Unity", "Inverse Kinematics", "Motion Planning"]
   },
   {
     "category": "Datastores & Infra",
     "core": ["PostgreSQL", "Docker"],
-    "items": ["PostgreSQL", "MySQL", "MongoDB", "Redis", "Docker", "Kubernetes", "Jenkins", "AWS (EC2/S3)", "Git", "CI/CD", "Linux"]
+    "items": ["PostgreSQL", "MySQL", "MongoDB", "Redis", "Docker", "Kubernetes", "Jenkins", "AWS", "Git", "CI/CD", "Linux"]
   },
   {
     "category": "Engineering Practices",

@@ -30,7 +30,7 @@ Resolved 2026-09-23 via owner instruction "proceed with the implementations"
 (defaults adopted; no gate skipped):
 
 - `[x]` **D-1** Taxonomy adopted: `Web, AI, Robotics, Mobile, Systems` — plan §5
-- `[x]` **D-2** Publish gate honored: ship only the 3 `VERIFIED` projects (Robotic Arm, Shenz, CampusHub); DRAFT candidates stay out until the owner promotes them in `career/data/projects.md` — plan §4.7
+- `[x]` **D-2** Publish gate honored (original): 3 VERIFIED projects (Robotic Arm, Shenz, CampusHub); **superseded 2026-09-23 shortlist A**: projects = Agent Studio + Krishi + Ecommerce (all `VERIFIED`, EV-010/011/012) — plan §4.7
 - `[x]` **D-3** Copy drafts finalized per sources (every sentence cited); owner may revise after preview — plan §4.1/4.3/4.8
 - `[x]` **D-5** Resolved 2026-09-23: **GitHub Pages project site** → `site: https://neryva-lab.github.io`, `base: /curly-octo-memory` (repo `neryva-lab/curly-octo-memory`) — plan §4.10; workflow added; owner enables Pages (Settings → Pages → Source: GitHub Actions) and pushes
 - `[x]` **D-6** Self-host single FS resume at `/resume.pdf` (FS only: the AI resume exposes the agent-stack pills that D-7 excludes from public) — plan §4.1/§5
@@ -127,8 +127,24 @@ Gate to Phase 10: content gates green; D-5 (8.1) + deploy/push remain owner deci
 - `[x]` 10.4 Career `data/links.md` LINK-006: URL backfilled `https://neryva-lab.github.io/curly-octo-memory/`, status `NEEDS_VERIFICATION` (honest: not live until 10.2), note records the flip-to-`VERIFIED` + log-row step — career commit **`bd24c51`**
 - `[ ]` 10.5 Add live site URL to resume/LinkedIn/GitHub when those outputs next touch it (career ledger Phase 5 items)
 
+## Phase 11 — Resume-decision sync (2026-09-23 evening)
+
+Owner: "proceed. and implement the patches. step by step."
+
+- `[x]` 11.1 `projects.json` → shortlist A: `agent-studio` (2025, madeAt Neryva, live LINK-011 + github LINK-018, primary live) → `krishi-vaidya` (2026, github LINK-014) → `ecommerce-platform` (2025, github LINK-013; `live` omitted until frontend public §3.9) — descriptions = projects.md Solution lines; no metrics; no YOLOv9 — **verified**: JSON.parse OK, unique slugs, validateProjects in build
+- `[x]` 11.2 SVGs: new `project-agent-studio.svg` / `project-krishi-vaidya.svg` / `project-ecommerce-platform.svg`; removed `project-robotic-arm.svg` / `project-shenz.svg` / `project-campushub.svg` — images dir exactly 3, every `image` path exists
+- `[x]` 11.3 `research.json` LLM description → amendment 9 wording `Benchmarked frontier LLMs across 52 clinical scenarios; quantified adversarial prompt vulnerability.` (model versions out; arXiv link carries exact models) — plan §4.5 updated
+- `[x]` 11.4 `skills.json` pill sync to current resume union: dropped Next.js / Tailwind / Material UI (D23), TensorFlow / SDL2 / OpenGL (D18 render cuts), renamed Unity Engine→Unity, AWS (EC2/S3)→AWS, Time-Series Forecasting→Time-Series, Multi-Task + Continual Learning→`Multi-Task & Continual Learning`; Robotics category kept (ROS/PyBullet/Unity/IK/Motion Planning on AI resume) — **verified**: ban greps clean in `data/` + `src/`
+- `[x]` 11.5 `public/resume.pdf` ← career FS build `64,563 B` (sha256 `C336C4CF…` match build=public); dist carries same hash after build
+- `[x]` 11.6 Archive reachability: `showArchiveLink` now `length > 0` in Projects.astro + Research.astro (was `> LIMIT=5`, so `/archive` + `/research` were orphaned with 3 projects / 4 papers)
+- `[x]` 11.7 **Build gate PASS**: `npm run build` → 4 pages, 2.07s, zero warnings/errors; purge greps on data+src+dist = 0 hits (Next/Tailwind/MUI/Gemini/ChatGPT/YOLOv9/Shenz/CampusHub/robotic-arm/safety guardrails/Focus)
+- `[x]` 11.8 Commit this repo only (career uncommitted span stays separate); no push until owner enables Pages (10.2) — commit recorded in change log
+
+Evidence: build log + sha256 + grep outputs above.
+
 ## Change log
 
 - 2026-09-23 — Created ledger + update_data_plan.md from full research pass (10 data JSONs, 13 components, career data/ ×14, both resume skill blocks, links register, roadmap-filters.md).
 - 2026-09-23 — Executed Phases 0–10.1: all data replaced with career-verified content, resume PDF self-hosted, D-5 resolved (GitHub Pages + base plumbing), all gates green (build ×3, purge full pass, links, preview ×2 incl. base), career sync commits `4306881` + `bd24c51`. Remaining: 10.2 owner deploy enable + push, 10.3 career push (deferred), 10.5.
 - 2026-09-23 — **Neryva restructure sync (D18):** `experience.json` Neryva desc + `about.json` P2 middle rewritten per Draft C (runtime/sandboxes/memory/safety/canvas); FS `resume.pdf` re-copied from career D18 build (new sha256 `E041B14B4C0BDD84…`, triple-hash match); verification re-run green (10/10 JSON, purge 20/20, banned-phrase clean, `npm run build` 4 pages, basecheck 12/12, artifactscan 18/18, dist phrase check 5/5).
+- 2026-09-23 — **Resume-decision sync (Phase 11):** projects → Agent Studio + Krishi + Ecommerce with verified links; research LLM desc → frontier wording (amendment 9); skills pill union trimmed (D18/D23 cuts); resume.pdf → FS 64,563 B; archive links always visible; ban greps clean; build green.

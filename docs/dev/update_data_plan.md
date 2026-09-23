@@ -99,7 +99,7 @@ Array of `{ title, slug, year, description, domains[], tech[], image, imageAlt, 
   must be a real 11-char YouTube ID or build fails.
 - `domains` non-empty — drives home-card eyebrow and `/archive?domain=` filter.
 - `image` must exist under `public/` or the card/thumbnail breaks.
-- Home shows first 5; >5 reveals "View Full Project Archive".
+- Home shows first 5; archive link now always renders when any projects exist (`showArchiveLink = length > 0`).
 
 ### `contact.json`, `footer.json`
 Plain copy objects (Contact.astro, Footer.astro). Footer `note` is rendered on
@@ -209,7 +209,7 @@ full bibliographic titles from research.md.
   1. `Held macro 0.777→0.778 under 1000× loss rescaling, outperforming Nash-MTL on NYUv2.`
   2. `Lifted continual-learning accuracy +1.67% and cut forgetting 7.65% vs iCaRL on CIFAR-100 (ResNet-18).`
   3. `Derived direct Foster-Lyapunov drift bounds for UAS routing; achieved lower mean queue length than UAS and JSSQ.`
-  4. `Benchmarked Gemini 2.0 Flash vs ChatGPT-4o on 52 clinical scenarios; quantified adversarial and distractor prompt vulnerability.`
+  4. `Benchmarked frontier LLMs across 52 clinical scenarios; quantified adversarial prompt vulnerability.` (model versions cut amendment 9 — arXiv link carries exact models)
 - `tags` (drive the `/research?tag=` filter):
   1. `["Multi-Task Learning", "Loss Scaling", "NYUv2"]`
   2. `["Continual Learning", "Exemplar Replay", "CIFAR-100"]`
@@ -230,10 +230,10 @@ variants' exact naming (PostgreSQL, not the legacy "Postgre"). Six groups:
 | category | items | core (primary pills) |
 |---|---|---|
 | Languages | Python, TypeScript, Java, Kotlin, SQL, JavaScript, C/C++ | Python, TypeScript |
-| Web & Backend | Spring Boot, Node.js (Express), Django, React, Next.js, Redux, Tailwind, Material UI | Spring Boot, React, Node.js (Express) |
-| AI & Data | PyTorch, TensorFlow, LLMs/Generative AI, RAG, LLM Evaluation, FastAPI, Multi-Task Learning, Continual Learning, Time-Series Forecasting, Multi-Tenancy | PyTorch, LLMs/Generative AI |
-| Robotics & Simulation | ROS, PyBullet, Unity Engine, Inverse Kinematics, Motion Planning, SDL2, OpenGL | ROS, PyBullet |
-| Datastores & Infra | PostgreSQL, MySQL, MongoDB, Redis, Docker, Kubernetes, Jenkins, AWS (EC2/S3), Git, CI/CD, Linux | PostgreSQL, Docker |
+| Web & Backend | Spring Boot, Node.js (Express), Django, React, Redux | Spring Boot, React, Node.js (Express) |
+| AI & Data | PyTorch, LLMs/Generative AI, RAG, LLM Evaluation, FastAPI, Multi-Tenancy, Time-Series, Multi-Task & Continual Learning | PyTorch, LLMs/Generative AI |
+| Robotics & Simulation | ROS, PyBullet, Unity, Inverse Kinematics, Motion Planning | ROS, PyBullet |
+| Datastores & Infra | PostgreSQL, MySQL, MongoDB, Redis, Docker, Kubernetes, Jenkins, AWS, Git, CI/CD, Linux | PostgreSQL, Docker |
 | Engineering Practices | REST, JWT, RBAC, Microservices, PWA, Jest | REST, RBAC |
 
 Note: LangGraph/Presidio/NeMo Guardrails/Langfuse appear on the **AI resume
@@ -242,28 +242,26 @@ only**. They are `VERIFIED` in skills.md but reveal employer stack; default =
 
 ### 4.7 `projects.json` — **gated by D-2** (status check before anything ships)
 
-Publishable **today** (status `VERIFIED` in career/data/projects.md):
+Publishable **today** (status `VERIFIED` in career/data/projects.md) — **revised 2026-09-23**: owner shortlist A (Agent Studio + Krishi + Ecommerce) matches both resume variants; Arm/Shenz/CampusHub moved to `/archive`-only or out (Arm kept only if links needed later — currently out):
 
 | title | slug | year | domains (D-1) | tech | links | madeAt |
 |---|---|---|---|---|---|---|
-| Automated Robotic Arm — Pick and Place | `robotic-arm` | `2024` | `["Robotics"]` | `["Python","PyBullet","Unity","3D Printing","Inverse Kinematics"]` | `{}` (no public repo — Report: private) | `null` |
-| Shenz — EdTech Blog Backend | `shenz` | `2023` | `["Web"]` | `["Django","Django REST Framework","SQLite"]` | `{}` (local only, LINK-005) | `null` |
-| CampusHub — EdTech Platform | `campushub` | `2023` | `["Web"]` | `["Django","PostgreSQL"]` | `{}` (local only, LINK-004) | `null` |
+| Agent Studio: Enterprise AI Agent Platform | `agent-studio` | `2025` | `["AI"]` | `["Python","FastAPI","RAG","Multi-Tenancy","LLM Evaluation"]` | live LINK-011 + github LINK-018; primary live | `Neryva` |
+| Krishi Vaidya: AI-Powered Crop Disease Diagnosis | `krishi-vaidya` | `2026` | `["AI","Mobile"]` | `["React Native","TFLite","OpenCV","Express","MongoDB"]` | github LINK-014; primary github | `null` |
+| Ecommerce Platform: Multi-Seller Marketplace | `ecommerce-platform` | `2025` | `["Web"]` | `["React","Node.js (Express)","MongoDB","Stripe","Docker"]` | github LINK-013; `live` stays `{}` until frontend public (§3.9) | `null` |
 
 Candidate pool — **`DRAFT` in career data; owner must promote to `VERIFIED`
 there before the card appears here** (publish gate):
 
 | title | slug | year | links if promoted | notes |
 |---|---|---|---|---|
-| Krishi Vaidya | `krishi-vaidya` | `2025` | github `…/krishi-mobile-app` | dates "verify exact months", pilot size unverified — promote only what's confirmed |
-| PhaseForge | `phaseforge` | `2026` | github `…/PhaseForge` | repo public, 256 commits |
-| molt | `molt` | `2026` | github `…/molt` | repo public, MIT |
-| bgsl | `bgsl` | `2026` | github `…/bgsl` | repo public, manuscript in prep |
-| Ecommerce Platform | `ecommerce-platform` | `2025` | `{}` (private) | promote or leave out (D-2) |
+| PhaseForge | `phaseforge` | `2026` | github `…/PhaseForge` | repo public, 256 commits, `DRAFT` |
+| molt | `molt` | `2026` | github `…/molt` | repo public, MIT, `DRAFT` |
+| bgsl | `bgsl` | `2026` | github `…/bgsl` | repo public, manuscript in prep, `DRAFT` |
+| Automated Robotic Arm | `robotic-arm` | `2024` | `{}` (report private) | `VERIFIED` but no public repo; owner may re-add later |
+| Shenz / CampusHub | `shenz` / `campushub` | `2023` | `{}` (local only) | `VERIFIED` learning projects; out of shortlist A |
 
-Never: Aurora (`REMOVE`), Neryva Agent Studio as a *project* card (work is
-covered by the Experience section; repo private), anything without a career
-data entry.
+Never: Aurora (`REMOVE`), anything without a career data entry.
 
 - `description`: one factual sentence each = problem → solution from
   projects.md `Solution`/`Problem` lines; written at task 6.3, no metrics.
