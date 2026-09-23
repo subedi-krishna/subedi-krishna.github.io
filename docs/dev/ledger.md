@@ -252,6 +252,67 @@ skills-section question.
   `check-neryva-ai.cjs` EXACT MATCH, old FS text ×0 in dist, build green
   (Smaitic/NOL stay FS-verbatim; Neryva pills unchanged — Optimization
   question still open)
+- `[x]` 12.26 Say-Hello lateral drift removed (owner): (a) `:active`
+  press-scale suppressed during morph (was dipping mid-grow);
+  (b) email `max-width: 88vw` cap removed (capped box + uncapped text =
+  left shift, snapping centered at settle) with the viewport guard moved to
+  the   pill (`max-width: calc(100vw - 3rem)`), so all overflow stays symmetric —
+  **verified**: build green, all three rules in bundle, `88vw` ×0
+- `[x]` 12.27 Say-Hello motion removed entirely (owner: drift persisted):
+  width spring, email rise, and label/hub scales all deleted — click now
+  takes final width instantly with only an opacity/blur crossfade (base and
+  open transforms identical, zero positional delta); settle still flips
+  email in-flow on opacity end; also removed leftover dead `.footer` CSS
+  the earlier cleanup missed — **verified**: build green, no width
+  animation / rise / scale in bundle, new settle logic in dist script
+- `[x]` 12.28 Email selectable (owner): drag-selecting the revealed email
+  fired mailto on mouseup (killing the selection) and the browser started a
+  link-drag instead of selecting — fixed with `draggable="false"` on the
+  anchor + drag-vs-click disambiguation (moved > 5px = selecting, mailto
+  suppressed; clean click still mails); settled cursor → text —
+  **verified**: build green, mousedown/hypot logic + attr + cursor rule in dist
+- `[x]` 12.29 Email selection rebuilt structurally (owner: still unselectable
+  — threshold patch couldn't fix double-click navigating on its first click):
+  at settle the anchor sheds `href`/`aria-expanded` so the email is plain
+  text (single/double/triple-click all safe); explicit Copy button
+  (clipboard API → textarea fallback → manual-select last resort, 2s
+  "Copied" feedback) + explicit Compose icon link; dead drag-threshold code
+  removed; buttons are anchor siblings (valid HTML); no-JS mailto fallback
+  intact —   **verified**: build green, actions/copy/compose/clipboard/
+  execCommand/href-removal in dist, old hypot logic ×0, sibling structure valid
+
+## Phase 13 — GitHub Pages deploy readiness (2026-09-24)
+
+Owner: deploy on github.io; audit demanded zero mistakes (web-checked).
+
+- `[x]` 13.1 Config: `site: https://neryva-lab.github.io` + `base:
+  /curly-octo-memory` match repo `neryva-lab/curly-octo-memory` exactly
+  (remote verified, branch `main`); `package-lock.json` tracked (action
+  auto-detects npm); `dist/` gitignored (CI builds); local node v24
+- `[x]` 13.2 Workflow fixed: `withastro/action@v2` → **@v6** (v2-era
+  artifact actions sunset by GitHub; v6.1.2 current per withastro releases
+  2026-07); `checkout@v4` + `deploy-pages@v4` current; permissions
+  (contents/pages/id-token), concurrency, `workflow_dispatch` all per
+  official docs
+- `[x]` 13.3 Dist audit on clean rebuild: 4 pages; **BASE OK** (every
+  internal href/src prefixed); canonical + og:url =
+  `https://neryva-lab.github.io/curly-octo-memory/`; 7 image refs, 0
+  missing; `resume.pdf` 64,563 B (= FS build); `404.html` present
+  (Pages serves it for unknown paths under base); purge greps (template +
+  bans) ×0; secrets grep ×0. No `.nojekyll` needed (Actions artifact
+  deploy bypasses Jekyll; `_astro/` served fine)
+- `[x]` 13.4 Consistency repaired mid-audit: owner hand-edited
+  `experience.json` "tuned" → "customised" (broke AI-resume exact match) →
+  propagated "customised" to career `resume_/ai/main.tex:156` +
+  `data/experience.md:138`; `check-neryva-ai.cjs` EXACT MATCH again
+- `[!]` 13.5 Owner contact.json edit folded in (research-idea wording, valid,
+  all keys present — no action)
+- `[ ]` 13.6 SHIP (owner): commit remaining 6 files
+  (`deploy.yml`, `contact.json`, `experience.json`, `ledger.md`,
+  `Contact.astro`, `global.css`) + push `main` → enable repo Settings →
+  Pages → Source = GitHub Actions → first workflow run → confirm live URL
+  → flip career LINK-006 to `VERIFIED` + log row. Career `customised`
+  2-file edit commits separately (never both repos in one commit).
 - `[x]` 12.22 Brand SVGs for molt + agent-studio (owner: Apple-style,
   professional): hand-built 800×450 (16:9), site palette (`#0f172a` +
   `#5eead4`), zero `<text>`, glow/grid/shadow system shared across both —

@@ -785,27 +785,22 @@ a:hover .arrow-icon {
 }
 
 /* "Say Hello" morphs into the email address on first click.
-   Apple-style: springy ease, label blurs out, email rises in. */
+   Motionless by design (owner): final size instantly, soft opacity/blur
+   crossfade in place — no positional animation anywhere. */
 .contact-reveal {
   position: relative;
   box-sizing: border-box;
   max-width: calc(100vw - 3rem);
   white-space: nowrap;
   transition:
-    width 0.55s cubic-bezier(0.32, 0.72, 0, 1),
     background-color 0.25s ease,
     color 0.25s ease,
     transform 0.25s ease;
 }
 
-/* While the pill grows, clip the email to the live border. */
+/* While revealing, clip the email to the live border. */
 .contact-reveal.is-open:not(.is-settled) {
   overflow: hidden;
-}
-
-/* No press-scale dip while the morph runs (it reads as a positional jump). */
-.contact-reveal.is-open:not(.is-settled):active {
-  transform: none;
 }
 
 .contact-reveal:active {
@@ -814,7 +809,7 @@ a:hover .arrow-icon {
 
 .contact-reveal .reveal-label {
   display: inline-block;
-  transition: opacity 0.3s ease, filter 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.3s ease, filter 0.3s ease;
 }
 
 .contact-reveal .reveal-email {
@@ -828,30 +823,32 @@ a:hover .arrow-icon {
   padding: 0 1.75rem;
   opacity: 0;
   visibility: hidden;
-  transform: translate(-50%, 10px) scale(0.98);
+  transform: translate(-50%, 0);
   filter: blur(6px);
   transition:
-    opacity 0.4s cubic-bezier(0.32, 0.72, 0, 1),
-    transform 0.4s cubic-bezier(0.32, 0.72, 0, 1),
-    filter 0.4s cubic-bezier(0.32, 0.72, 0, 1),
+    opacity 0.4s ease,
+    filter 0.4s ease,
     visibility 0s linear 0.4s;
 }
 
 .contact-reveal.is-open .reveal-label {
   opacity: 0;
   filter: blur(4px);
-  transform: scale(0.96);
 }
 
 .contact-reveal.is-open .reveal-email {
   opacity: 1;
   visibility: visible;
-  transform: translate(-50%, 0) scale(1);
+  transform: translate(-50%, 0);
   filter: blur(0);
   transition-delay: 0.1s;
 }
 
 /* once the morph finishes, the email layer owns the layout */
+.contact-reveal.is-settled {
+  cursor: text;
+}
+
 .contact-reveal.is-settled .reveal-label {
   display: none;
 }
@@ -867,33 +864,104 @@ a:hover .arrow-icon {
   filter: none;
 }
 
+/* post-reveal actions: explicit copy + compose (the email itself is plain
+   selectable text and never navigates, so selection can't break) */
+.contact-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.contact-actions[hidden] {
+  display: none;
+}
+
+.contact-actions.is-shown {
+  opacity: 1;
+  transform: none;
+}
+
+.contact-copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.15rem;
+  border-radius: 9999px;
+  border: 1px solid var(--border-img);
+  background: transparent;
+  color: var(--text);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.contact-copy:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background-color: rgb(94 234 212 / 0.06);
+}
+
+.contact-copy:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.contact-copy svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.contact-copy [hidden] {
+  display: none;
+}
+
+.contact-compose {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 9999px;
+  border: 1px solid var(--border-img);
+  color: var(--muted);
+  transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.contact-compose:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background-color: rgb(94 234 212 / 0.06);
+}
+
+.contact-compose:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.contact-compose svg {
+  width: 1rem;
+  height: 1rem;
+}
+
 @media (prefers-reduced-motion: reduce) {
 
   .contact-reveal,
   .contact-reveal .reveal-label,
-  .contact-reveal .reveal-email {
+  .contact-reveal .reveal-email,
+  .contact-actions {
     transition: none;
   }
 }
 
 /* ---------- footer ---------- */
-/* Removed 2026-09-24 with Footer.astro (owner). */
-
-.footer a {
-  color: var(--text);
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.footer a:hover {
-  color: var(--accent);
-}
-
-@media (min-width: 640px) {
-  .footer {
-    padding-bottom: 0;
-  }
-}
+/* Removed 2026-09-24 with Footer.astro (owner); no footer styles remain. */
 
 /* accessible focus default */
 a:focus-visible {

@@ -16,53 +16,132 @@ import profile from '../../data/profile.json';
       data-contact-reveal
       href={`mailto:${profile.email}`}
       aria-expanded="false"
+      draggable="false"
     >
       <span class="reveal-label">{contact.buttonLabel}</span>
       <span class="reveal-email" aria-hidden="true">{profile.email}</span>
     </a>
+    <div class="contact-actions" data-contact-actions hidden>
+      <button class="contact-copy" data-contact-copy type="button">
+        <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+        </svg>
+        <svg class="icon-done" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" hidden>
+          <path d="M20 6L9 17l-5-5" />
+        </svg>
+        <span data-contact-copy-label aria-live="polite">Copy email</span>
+      </button>
+      <a class="contact-compose" href={`mailto:${profile.email}`} aria-label="Compose email">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 20h9" />
+          <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
+        </svg>
+      </a>
+    </div>
   </div>
 </section>
 
 <script>
-  // "Say Hello" morphs into the email address on first click.
-  // Without JS the button is a plain mailto link, so nothing breaks.
+  // "Say Hello" swaps to the email address on first click. Motionless: the
+  // pill takes its final width instantly (no width transition in CSS) and
+  // only a soft opacity/blur crossfade plays. Without JS the button is a
+  // plain mailto link, so nothing breaks.
+  //
+  // Selectability is structural, not patched: at settle the anchor sheds its
+  // href, so the email becomes plain text — single, double, and triple
+  // clicks can never navigate. Copying goes through an explicit button
+  // (clipboard API with textarea fallback, plus manual-select last resort);
+  // composing stays available through an explicit icon link.
   const reveal = document.querySelector('[data-contact-reveal]');
   if (reveal) {
     const email = reveal.querySelector('.reveal-email');
+    const actions = document.querySelector('[data-contact-actions]');
+    const copyBtn = document.querySelector('[data-contact-copy]');
+    const copyLabel = document.querySelector('[data-contact-copy-label]');
+    const iconCopy = copyBtn ? copyBtn.querySelector('.icon-copy') : null;
+    const iconDone = copyBtn ? copyBtn.querySelector('.icon-done') : null;
+    let copyTimer = 0;
+
+    const settle = () => {
+      reveal.classList.add('is-settled');
+      reveal.style.width = '';
+      reveal.removeAttribute('href');
+      reveal.removeAttribute('aria-expanded');
+      if (actions) {
+        actions.hidden = false;
+        void actions.offsetWidth; // let the row paint before fading in
+        actions.classList.add('is-shown');
+      }
+    };
+
     reveal.addEventListener('click', (event) => {
-      if (reveal.classList.contains('is-open')) return; // settled: follow the mailto link
+      if (reveal.classList.contains('is-open')) return; // settled: plain text now
       event.preventDefault();
 
       reveal.setAttribute('aria-expanded', 'true');
       email.removeAttribute('aria-hidden');
 
-      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const startWidth = reveal.offsetWidth;
-      // Target = email width + the pill's own border, so the border lands
-      // exactly on the email and the settle flip (absolute -> static) is seamless.
-      const endWidth = email.offsetWidth + (reveal.offsetWidth - reveal.clientWidth);
-
-      if (reduceMotion || endWidth <= startWidth) {
-        reveal.classList.add('is-open', 'is-settled');
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        reveal.classList.add('is-open');
+        settle();
         return;
       }
 
-      // Lock the current width, then animate to the email's natural width.
-      reveal.style.width = `${startWidth}px`;
-      void reveal.offsetWidth; // force the locked width to paint before animating
+      // Final width, applied instantly: email width + the pill's own border.
+      reveal.style.width = `${email.offsetWidth + (reveal.offsetWidth - reveal.clientWidth)}px`;
       reveal.classList.add('is-open');
-      reveal.style.width = `${endWidth}px`;
 
-      reveal.addEventListener('transitionend', function onEnd(e) {
-        // NOTE: do not use { once: true } — other transitions (e.g. the
-        // :active press scale) can end first and would swallow the listener.
-        if (e.propertyName !== 'width') return;
-        reveal.removeEventListener('transitionend', onEnd);
-        // Flip the email in-flow (see .is-settled CSS) and drop the locked
-        // width in the same frame: widths already match, so no jump.
-        reveal.classList.add('is-settled');
-        reveal.style.width = '';
+      // Settle once the email fade lands; widths already match, so the
+      // absolute -> static flip is invisible and the pill stays correct.
+      email.addEventListener('transitionend', function onFade(e) {
+        if (e.propertyName !== 'opacity') return;
+        email.removeEventListener('transitionend', onFade);
+        settle();
       });
     });
+
+    if (copyBtn) {
+      copyBtn.addEventListener('click', async () => {
+        const text = email.textContent.trim();
+        let ok = false;
+        try {
+          await navigator.clipboard.writeText(text);
+          ok = true;
+        } catch {
+          const ta = document.createElement('textarea');
+          ta.value = text;
+          ta.setAttribute('readonly', '');
+          ta.style.position = 'absolute';
+          ta.style.opacity = '0';
+          document.body.appendChild(ta);
+          ta.select();
+          try {
+            ok = document.execCommand('copy');
+          } catch {
+            ok = false;
+          }
+          ta.remove();
+        }
+        if (!ok) {
+          // Last resort: hand the user a live selection to copy manually.
+          const range = document.createRange();
+          range.selectNodeContents(email);
+          const sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(range);
+          return;
+        }
+        copyLabel.textContent = 'Copied';
+        iconCopy.hidden = true;
+        iconDone.hidden = false;
+        window.clearTimeout(copyTimer);
+        copyTimer = window.setTimeout(() => {
+          copyLabel.textContent = 'Copy email';
+          iconCopy.hidden = false;
+          iconDone.hidden = true;
+        }, 2000);
+      });
+    }
   }
 </script>
