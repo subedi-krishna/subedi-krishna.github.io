@@ -1,8 +1,8 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  // Deploy target (D-5): GitHub Pages project site neryva-lab/curly-octo-memory.
-  // Drives canonical URLs, social preview images, and in-site path prefixing.
-  site: 'https://neryva-lab.github.io',
-  base: '/curly-octo-memory',
+  // Deploy target: root user site subedi-krishna.github.io
+  // (repo subedi-krishna/subedi-krishna.github.io). base '/' = root-absolute paths.
+  site: 'https://subedi-krishna.github.io',
+  base: '/',
 });

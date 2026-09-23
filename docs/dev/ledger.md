@@ -313,8 +313,7 @@ Owner: deploy on github.io; audit demanded zero mistakes (web-checked).
   Pages → Source = GitHub Actions → first workflow run → confirm live URL
   → flip career LINK-006 to `VERIFIED` + log row. Career `customised`
   2-file edit commits separately (never both repos in one commit).
-- `[!]` 13.7 Copy-regime change (owner hand-edits, found pre-push):
-  `experience.json` Smaitic/NOL no longer FS-resume-verbatim ("and a
+- `[!]` 13.7 Copy-regime change (owner hand-edits, found pre-push):  `experience.json` Smaitic/NOL no longer FS-resume-verbatim ("and a
   multi-tenant", "ZIP code-based", "accommodates", festival/national
   dropped) while `full-stack/main.tex:150/156/157` keeps the old wording —
   so EXACT MATCH now holds for Neryva (AI) only; Smaitic/NOL are
@@ -322,6 +321,23 @@ Owner: deploy on github.io; audit demanded zero mistakes (web-checked).
   functionally). Pending owner pick: (a) propagate portfolio wording into
   FS resume + rebuild + re-copy `resume.pdf`, or (b) accept portfolio-led
   copy and retire the exact-match gate for those two jobs.
+
+## Phase 14 — Root user site move (2026-09-24)
+
+Owner created `subedi-krishna/subedi-krishna.github.io` (public, empty);
+target `https://subedi-krishna.github.io` (root — only possible with the
+`<user>.github.io` repo name, verified).
+
+- `[x]` 14.1 `astro.config.mjs`: `site` → `https://subedi-krishna.github.io`,
+  `base` → `/`; remote repointed neryva-lab → `subedi-krishna/
+  subedi-krishna.github.io` (old remote never existed — first push failed
+  "not found", nothing dangling)
+- `[x]` 14.2 Root-URL dist audit on clean rebuild: 4 pages; root-absolute
+  refs, zero `curly-octo-memory`/`neryva-lab` traces; canonical + og:url +
+  og:image all on `subedi-krishna.github.io`; 6 asset refs, 0 missing;
+  `resume.pdf` 64,563 B; archive/research/404 present
+- `[ ]` 14.3 Commit + push `main` → enable Pages (Source = GitHub Actions)
+  → confirm live root URL → flip career LINK-006 to new URL + `VERIFIED`
 - `[x]` 12.22 Brand SVGs for molt + agent-studio (owner: Apple-style,
   professional): hand-built 800×450 (16:9), site palette (`#0f172a` +
   `#5eead4`), zero `<text>`, glow/grid/shadow system shared across both —
