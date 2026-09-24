@@ -43,7 +43,7 @@ that data pass; its taxonomy question is decision **D-1** below.
 | `data/footer.json` | rewrite (currently claims "all content here is placeholder") |
 | `data/navigation.json` | **no change** — all 6 sections still exist |
 | `astro.config.mjs` | replace `site: 'https://example.com'` with the real domain (D-5) |
-| `public/resume.pdf` | **new** — copy of the verified resume PDF; powers `resumeUrl` (D-6) |
+| `public/resume.pdf` | **split 2026-09-24** → `public/fullstack.pdf` (FS 64,563 B, page button target) + `public/ai.pdf` (AI 75,658 B, direct URL only) | powers `resumeUrl` (D-6) |
 | `public/images/project-*.svg` | rename/extend to cover selected projects (task 6.4) |
 | `public/og-image.png`, `public/favicon.svg` | optional branding pass (task 8.1) |
 
@@ -121,7 +121,7 @@ sign-off before they go live; **[D-n]** defers to a decision.
 | `title` | `Software Engineer` | accurate, neutral; alternative `Full-stack & AI Software Engineer` is **[APPROVAL]** (positioning.md is `DRAFT` and warns against overclaiming) |
 | `blurb` | draft: `"Mechanical engineer by degree, software engineer by experience, AI engineer by direction. I build production web systems, AI agent platforms, and robotics software."` | derived from positioning.md one-line profile (status `DRAFT`) + experience.md `VERIFIED` — **[APPROVAL]** |
 | `tagline` | draft: `"Software engineer in Kathmandu — full-stack systems, applied AI, and sole-author research. Four arXiv papers."` | identity + research.md (4× sole author `VERIFIED`) — **[APPROVAL]**; no invented metric |
-| `resumeUrl` | `/resume.pdf` after task 7.1, else keep `#` | **[D-6]** |
+| `resumeUrl` | `/fullstack.pdf` (page button → FS; `/ai.pdf` also hosted, direct URL only) | **[D-6 revised 2026-09-24]** |
 
 Phone: **never** (identity.md `TODO` — "Never invent").
 

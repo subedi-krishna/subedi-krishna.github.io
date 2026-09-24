@@ -336,8 +336,28 @@ target `https://subedi-krishna.github.io` (root — only possible with the
   refs, zero `curly-octo-memory`/`neryva-lab` traces; canonical + og:url +
   og:image all on `subedi-krishna.github.io`; 6 asset refs, 0 missing;
   `resume.pdf` 64,563 B; archive/research/404 present
-- `[ ]` 14.3 Commit + push `main` → enable Pages (Source = GitHub Actions)
-  → confirm live root URL → flip career LINK-006 to new URL + `VERIFIED`
+- `[x]` 14.3 Pushed `main` → `subedi-krishna/subedi-krishna.github.io`
+  (commit `9477ea3`; collaborator invite fixed the 403; upstream tracked,
+  tree clean) — Pages enabled by owner, workflow green, **LIVE at
+  `https://subedi-krishna.github.io`** (HTTP 200, 41 KB, canonical + blurb
+  + archive (32) verified over HTTP) → career LINK-006 flipped to new URL
+  + `VERIFIED` with log row (career commit, no push)
+
+## Phase 15 — Split resumes (2026-09-24)
+
+Owner: `/fullstack.pdf` + `/ai.pdf` live at URL; page button → fullstack.
+
+- `[x]` 15.1 AI resume built from `career/resume_/ai/main.tex` via `build.ps1
+  ai` — 1 page, zero `!` log lines, 75,658 B (MiKTeX update-nag on stderr
+  is noise; PDF + preview both emitted; career `build/` is gitignored)
+- `[x]` 15.2 `public/resume.pdf` → split: `fullstack.pdf` (FS 64,563 B,
+  byte-identical to verified build) + `ai.pdf` (fresh AI build);
+  `resume.pdf` deleted; `profile.json resumeUrl` → `/fullstack.pdf`
+  (button label unchanged); plan §4.1/§2 updated
+- `[x]` 15.3 D-7 override recorded: AI PDF publishes the agent-stack pills
+  — owner explicitly ordered it live
+- `[x]` 15.4 Build green; dist carries both PDFs with correct bytes, button
+  href → fullstack only, zero `resume.pdf` references
 - `[x]` 12.22 Brand SVGs for molt + agent-studio (owner: Apple-style,
   professional): hand-built 800×450 (16:9), site palette (`#0f172a` +
   `#5eead4`), zero `<text>`, glow/grid/shadow system shared across both —
