@@ -1,70 +1,207 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
   <defs>
-    <radialGradient id="as-glow" cx="0.5" cy="0.46" r="0.55">
-      <stop offset="0" stop-color="#5eead4" stop-opacity="0.16"/>
-      <stop offset="0.6" stop-color="#5eead4" stop-opacity="0.05"/>
-      <stop offset="1" stop-color="#5eead4" stop-opacity="0"/>
+    <!-- Background Gradients -->
+    <radialGradient id="as-ambient" cx="0.5" cy="0.45" r="0.6">
+      <stop offset="0%" stop-color="#5eead4" stop-opacity="0.14"/>
+      <stop offset="35%" stop-color="#38bdf8" stop-opacity="0.06"/>
+      <stop offset="70%" stop-color="#0f172a" stop-opacity="0.01"/>
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0"/>
     </radialGradient>
-    <linearGradient id="as-chip" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#16213a"/>
-      <stop offset="1" stop-color="#0e1628"/>
+    <radialGradient id="core-glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#5eead4" stop-opacity="0.45"/>
+      <stop offset="40%" stop-color="#2dd4bf" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#5eead4" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="node-glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Linear Gradients for Cards & Borders -->
+    <linearGradient id="card-surface" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.88"/>
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.94"/>
     </linearGradient>
-    <pattern id="as-dots" width="44" height="44" patternUnits="userSpaceOnUse">
-      <circle cx="2" cy="2" r="1.6" fill="#64748b" opacity="0.28"/>
+    <linearGradient id="card-stroke-glow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#5eead4" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#38bdf8" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#1e293b" stop-opacity="0.3"/>
+    </linearGradient>
+    <linearGradient id="core-ring-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#5eead4"/>
+      <stop offset="50%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#14b8a6"/>
+    </linearGradient>
+    <linearGradient id="beam-left" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#5eead4" stop-opacity="0.2"/>
+    </linearGradient>
+    <linearGradient id="beam-right" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5eead4" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.2"/>
+    </linearGradient>
+
+    <!-- Dot Grid Pattern -->
+    <pattern id="as-grid-dots" width="32" height="32" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.2" fill="#64748b" opacity="0.22"/>
     </pattern>
-    <filter id="as-soft" x="-60%" y="-60%" width="220%" height="220%">
-      <feGaussianBlur stdDeviation="10"/>
+
+    <!-- Blur Filters -->
+    <filter id="soft-blur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="16"/>
+    </filter>
+    <filter id="glow-blur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+    <filter id="card-shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.6"/>
     </filter>
   </defs>
 
-  <rect width="800" height="450" fill="#0f172a"/>
-  <rect width="800" height="450" fill="url(#as-dots)"/>
-  <rect width="800" height="450" fill="url(#as-glow)"/>
+  <!-- Deep Slate Canvas Background -->
+  <rect width="800" height="450" fill="#090d16"/>
+  <rect width="800" height="450" fill="url(#as-grid-dots)"/>
+  <rect width="800" height="450" fill="url(#as-ambient)"/>
 
-  <!-- orbit rings -->
-  <g fill="none" stroke="#5eead4">
-    <ellipse cx="400" cy="225" rx="262" ry="118" stroke-opacity="0.28" stroke-width="2"/>
-    <ellipse cx="400" cy="225" rx="196" ry="152" stroke-opacity="0.16" stroke-width="1.5" transform="rotate(-18 400 225)"/>
+  <!-- Studio Corner Tech Brackets -->
+  <g stroke="#334155" stroke-width="1.5" fill="none" opacity="0.6">
+    <path d="M 32 44 L 32 32 L 44 32"/>
+    <path d="M 768 44 L 768 32 L 756 32"/>
+    <path d="M 32 406 L 32 418 L 44 418"/>
+    <path d="M 768 406 L 768 418 L 756 418"/>
   </g>
 
-  <!-- orbiting agents -->
-  <circle cx="152" cy="196" r="8" fill="#0f172a" stroke="#5eead4" stroke-width="2.5"/>
-  <circle cx="152" cy="196" r="2.6" fill="#5eead4"/>
-  <circle cx="636" cy="272" r="10" fill="#0f172a" stroke="#5eead4" stroke-width="2.5"/>
-  <circle cx="636" cy="272" r="3.2" fill="#5eead4"/>
-  <circle cx="508" cy="92" r="6.5" fill="#0f172a" stroke="#94a3b8" stroke-width="2"/>
-  <circle cx="508" cy="92" r="2" fill="#94a3b8"/>
+  <!-- Ground Plane Halo Shadow -->
+  <ellipse cx="400" cy="380" rx="280" ry="32" fill="#000000" opacity="0.45" filter="url(#soft-blur)"/>
 
-  <!-- canvas chips -->
-  <g>
-    <rect x="118" y="252" width="104" height="60" rx="16" fill="url(#as-chip)" stroke="#334155" stroke-width="1.5"/>
-    <circle cx="140" cy="272" r="6" fill="#5eead4" opacity="0.9"/>
-    <rect x="154" y="267" width="46" height="5" rx="2.5" fill="#475569"/>
-    <rect x="154" y="278" width="32" height="5" rx="2.5" fill="#334155"/>
-    <rect x="578" y="140" width="104" height="60" rx="16" fill="url(#as-chip)" stroke="#334155" stroke-width="1.5"/>
-    <circle cx="600" cy="160" r="6" fill="#5eead4" opacity="0.9"/>
-    <rect x="614" y="155" width="46" height="5" rx="2.5" fill="#475569"/>
-    <rect x="614" y="166" width="32" height="5" rx="2.5" fill="#334155"/>
+  <!-- Orbital Trajectory Rings -->
+  <g fill="none" stroke-linecap="round">
+    <!-- Outer Orbit with dashed segments -->
+    <ellipse cx="400" cy="215" rx="310" ry="135" stroke="#334155" stroke-width="1.5" opacity="0.4" transform="rotate(-6 400 215)"/>
+    <ellipse cx="400" cy="215" rx="310" ry="135" stroke="#5eead4" stroke-width="2" stroke-dasharray="24 120" stroke-dashoffset="30" opacity="0.5" transform="rotate(-6 400 215)"/>
+    
+    <!-- Mid Orbit -->
+    <ellipse cx="400" cy="215" rx="220" ry="105" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="16 70" opacity="0.45" transform="rotate(12 400 215)"/>
+    <ellipse cx="400" cy="215" rx="150" ry="70" stroke="#334155" stroke-width="1" opacity="0.35"/>
   </g>
 
-  <!-- ground shadow -->
-  <ellipse cx="400" cy="352" rx="128" ry="14" fill="#000000" opacity="0.5" filter="url(#as-soft)"/>
+  <!-- Luminous Data Beams (Connecting Hub to Satellite Agents) -->
+  <g fill="none" stroke-linecap="round">
+    <!-- Center to Left Node -->
+    <path d="M 400 215 C 310 215 250 170 200 160" stroke="url(#beam-left)" stroke-width="2.5" stroke-dasharray="6 6"/>
+    <!-- Center to Right Node -->
+    <path d="M 400 215 C 490 215 550 170 600 160" stroke="url(#beam-right)" stroke-width="2.5" stroke-dasharray="6 6"/>
+    <!-- Center to Bottom Console -->
+    <path d="M 400 215 L 400 310" stroke="#5eead4" stroke-width="2" stroke-dasharray="4 4" opacity="0.5"/>
+  </g>
 
-  <!-- agent graph glyph: one idea, no container -->
-  <g stroke="#5eead4" stroke-width="4" stroke-linecap="round">
-    <line x1="400" y1="225" x2="340" y2="180" opacity="0.85"/>
-    <line x1="400" y1="225" x2="460" y2="180" opacity="0.85"/>
-    <line x1="400" y1="225" x2="400" y2="284" opacity="0.85"/>
+  <!-- Satellite Agent 1 (Left Card: Sandbox Runtime) -->
+  <g transform="translate(110, 115)" filter="url(#card-shadow)">
+    <!-- Backing glow -->
+    <rect x="-10" y="-10" width="180" height="106" rx="20" fill="url(#node-glow)" opacity="0.6"/>
+    <!-- Card Frame -->
+    <rect x="0" y="0" width="160" height="86" rx="14" fill="url(#card-surface)" stroke="url(#card-stroke-glow)" stroke-width="1.5"/>
+    
+    <!-- Card Header / Status Pill -->
+    <circle cx="20" cy="22" r="4.5" fill="#38bdf8"/>
+    <circle cx="20" cy="22" r="8" fill="#38bdf8" opacity="0.25"/>
+    <rect x="34" y="18" width="56" height="8" rx="4" fill="#475569" opacity="0.8"/>
+    <rect x="122" y="16" width="22" height="12" rx="6" fill="#0e172a" stroke="#334155" stroke-width="1"/>
+    <circle cx="133" cy="22" r="2.5" fill="#38bdf8"/>
+    
+    <!-- Mini Code / Memory Channels -->
+    <rect x="16" y="38" width="128" height="6" rx="3" fill="#1e293b"/>
+    <rect x="16" y="38" width="82" height="6" rx="3" fill="#38bdf8" opacity="0.75"/>
+    
+    <rect x="16" y="52" width="128" height="6" rx="3" fill="#1e293b"/>
+    <rect x="16" y="52" width="104" height="6" rx="3" fill="#5eead4" opacity="0.7"/>
+
+    <rect x="16" y="66" width="48" height="5" rx="2.5" fill="#334155"/>
+    <rect x="70" y="66" width="34" height="5" rx="2.5" fill="#334155"/>
   </g>
-  <g fill="#0f172a" stroke="#5eead4" stroke-width="3.5">
-    <circle cx="340" cy="180" r="15"/>
-    <circle cx="460" cy="180" r="15"/>
-    <circle cx="400" cy="284" r="15"/>
+
+  <!-- Satellite Agent 2 (Right Card: Safety & Eval Harness) -->
+  <g transform="translate(530, 115)" filter="url(#card-shadow)">
+    <!-- Backing glow -->
+    <rect x="-10" y="-10" width="180" height="106" rx="20" fill="url(#core-glow)" opacity="0.5"/>
+    <!-- Card Frame -->
+    <rect x="0" y="0" width="160" height="86" rx="14" fill="url(#card-surface)" stroke="url(#card-stroke-glow)" stroke-width="1.5"/>
+    
+    <!-- Card Header: Shield Icon -->
+    <g transform="translate(18, 15)">
+      <path d="M 6 0 L 12 3 L 12 7 C 12 11 6 14 6 14 C 6 14 0 11 0 7 L 0 3 Z" fill="#0f172a" stroke="#5eead4" stroke-width="1.5"/>
+      <circle cx="6" cy="6" r="2" fill="#5eead4"/>
+    </g>
+    <rect x="38" y="18" width="60" height="8" rx="4" fill="#475569" opacity="0.8"/>
+    <rect x="114" y="16" width="30" height="12" rx="6" fill="#0f172a" stroke="#5eead4" stroke-width="1" stroke-opacity="0.5"/>
+    <circle cx="122" cy="22" r="2.5" fill="#5eead4"/>
+    <rect x="128" y="20" width="10" height="4" rx="2" fill="#5eead4" opacity="0.8"/>
+
+    <!-- Waveform / Verification Metric -->
+    <path d="M 16 54 L 36 54 L 46 44 L 58 60 L 70 48 L 82 56 L 94 42 L 106 54 L 144 54" fill="none" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <rect x="16" y="66" width="38" height="5" rx="2.5" fill="#334155"/>
+    <rect x="60" y="66" width="54" height="5" rx="2.5" fill="#334155"/>
   </g>
-  <g fill="#5eead4">
-    <circle cx="340" cy="180" r="3.5"/>
-    <circle cx="460" cy="180" r="3.5"/>
-    <circle cx="400" cy="284" r="3.5"/>
+
+  <!-- Bottom Execution Console Card (Orchestration Bus) -->
+  <g transform="translate(300, 310)" filter="url(#card-shadow)">
+    <rect x="0" y="0" width="200" height="56" rx="14" fill="url(#card-surface)" stroke="#334155" stroke-width="1.5"/>
+    <!-- Terminal dots -->
+    <circle cx="20" cy="18" r="3.5" fill="#ef4444" opacity="0.8"/>
+    <circle cx="32" cy="18" r="3.5" fill="#eab308" opacity="0.8"/>
+    <circle cx="44" cy="18" r="3.5" fill="#22c55e" opacity="0.8"/>
+    <rect x="62" y="15" width="80" height="6" rx="3" fill="#334155"/>
+    <!-- Progress bar -->
+    <rect x="18" y="32" width="164" height="6" rx="3" fill="#1e293b"/>
+    <rect x="18" y="32" width="112" height="6" rx="3" fill="url(#core-ring-grad)"/>
+    <circle cx="130" cy="35" r="4" fill="#ffffff" filter="url(#glow-blur)"/>
   </g>
-  <circle cx="400" cy="225" r="21" fill="none" stroke="#5eead4" stroke-width="5"/>
+
+  <!-- Central Orchestration Core (Hero Glass Emblematics) -->
+  <g transform="translate(400, 215)">
+    <!-- Radial Backing Bloom -->
+    <circle cx="0" cy="0" r="85" fill="url(#core-glow)"/>
+
+    <!-- Outer Precision Compass / Coordinate Ring -->
+    <circle cx="0" cy="0" r="54" fill="none" stroke="#5eead4" stroke-width="1.5" stroke-opacity="0.3" stroke-dasharray="4 8"/>
+    <circle cx="0" cy="0" r="48" fill="none" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.2"/>
+
+    <!-- Cardinal Coordinate Ticks -->
+    <g stroke="#5eead4" stroke-width="2" stroke-linecap="round" opacity="0.85">
+      <line x1="0" y1="-58" x2="0" y2="-50"/>
+      <line x1="0" y1="50" x2="0" y2="58"/>
+      <line x1="-58" y1="0" x2="-50" y2="0"/>
+      <line x1="50" y1="0" x2="58" y2="0"/>
+    </g>
+
+    <!-- Glass Core Base -->
+    <circle cx="0" cy="0" r="38" fill="#0b1324" stroke="url(#core-ring-grad)" stroke-width="2.5" filter="url(#card-shadow)"/>
+    <!-- Inner Concentric Ring -->
+    <circle cx="0" cy="0" r="28" fill="#0f172a" stroke="#5eead4" stroke-width="1.5" stroke-opacity="0.4"/>
+
+    <!-- Dynamic Agent Studio Core Glyph: Neural Hub + Orbit Nodes -->
+    <g stroke="#5eead4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Star/Nexus Hub Lines -->
+      <line x1="0" y1="0" x2="0" y2="-17"/>
+      <line x1="0" y1="0" x2="15" y2="9"/>
+      <line x1="0" y1="0" x2="-15" y2="9"/>
+    </g>
+    <!-- Hub Satellite Dots -->
+    <circle cx="0" cy="-17" r="4" fill="#38bdf8"/>
+    <circle cx="15" cy="9" r="4" fill="#5eead4"/>
+    <circle cx="-15" cy="9" r="4" fill="#5eead4"/>
+    
+    <!-- Central Luminous Fusion Nucleus -->
+    <circle cx="0" cy="0" r="6.5" fill="#ffffff"/>
+    <circle cx="0" cy="0" r="10" fill="#5eead4" opacity="0.6" filter="url(#glow-blur)"/>
+  </g>
+
+  <!-- Floating Energy Pulse Dots along the trajectory -->
+  <circle cx="295" cy="180" r="3.5" fill="#38bdf8" filter="url(#glow-blur)"/>
+  <circle cx="295" cy="180" r="2" fill="#ffffff"/>
+  <circle cx="505" cy="180" r="3.5" fill="#5eead4" filter="url(#glow-blur)"/>
+  <circle cx="505" cy="180" r="2" fill="#ffffff"/>
+  <circle cx="400" cy="270" r="3" fill="#5eead4"/>
+
 </svg>

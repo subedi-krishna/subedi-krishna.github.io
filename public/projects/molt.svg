@@ -1,79 +1,262 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
   <defs>
-    <radialGradient id="mo-glow" cx="0.5" cy="0.5" r="0.55">
-      <stop offset="0" stop-color="#5eead4" stop-opacity="0.15"/>
-      <stop offset="0.6" stop-color="#5eead4" stop-opacity="0.05"/>
-      <stop offset="1" stop-color="#5eead4" stop-opacity="0"/>
+    <!-- Background Gradients -->
+    <radialGradient id="molt-ambient" cx="0.5" cy="0.45" r="0.65">
+      <stop offset="0%" stop-color="#5eead4" stop-opacity="0.14"/>
+      <stop offset="35%" stop-color="#0f766e" stop-opacity="0.05"/>
+      <stop offset="70%" stop-color="#090d16" stop-opacity="0.01"/>
+      <stop offset="100%" stop-color="#090d16" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="mo-lift" cx="0.5" cy="0.5" r="0.5">
-      <stop offset="0" stop-color="#5eead4" stop-opacity="0.28"/>
-      <stop offset="1" stop-color="#5eead4" stop-opacity="0"/>
+    <radialGradient id="molt-lift-glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#5eead4" stop-opacity="0.35"/>
+      <stop offset="45%" stop-color="#38bdf8" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#5eead4" stop-opacity="0"/>
     </radialGradient>
-    <linearGradient id="mo-mod" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#1b2942"/>
-      <stop offset="1" stop-color="#0d1526"/>
+    <radialGradient id="bus-glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Linear Surface & Metallic Gradients -->
+    <linearGradient id="mod-docked" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="40%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#0b1120"/>
     </linearGradient>
-    <linearGradient id="mo-hot" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#234047"/>
-      <stop offset="1" stop-color="#101d26"/>
+    <linearGradient id="mod-staged" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#134e4a"/>
+      <stop offset="30%" stop-color="#0f2b35"/>
+      <stop offset="100%" stop-color="#09141c"/>
     </linearGradient>
-    <pattern id="mo-dots" width="44" height="44" patternUnits="userSpaceOnUse">
-      <circle cx="2" cy="2" r="1.6" fill="#64748b" opacity="0.28"/>
+    <linearGradient id="staged-stroke" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#5eead4"/>
+      <stop offset="50%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#2dd4bf"/>
+    </linearGradient>
+    <linearGradient id="docked-stroke" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#475569"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="rail-grad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0"/>
+      <stop offset="20%" stop-color="#334155" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#5eead4" stop-opacity="0.9"/>
+      <stop offset="80%" stop-color="#334155" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#1e293b" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="laser-beam" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5eead4" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#5eead4" stop-opacity="0.1"/>
+    </linearGradient>
+
+    <!-- Dot Grid Pattern -->
+    <pattern id="molt-dots" width="32" height="32" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.2" fill="#64748b" opacity="0.22"/>
     </pattern>
-    <filter id="mo-soft" x="-60%" y="-60%" width="220%" height="220%">
-      <feGaussianBlur stdDeviation="10"/>
+
+    <!-- Shadow & Blur Filters -->
+    <filter id="molt-soft-shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="16"/>
+    </filter>
+    <filter id="molt-core-shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#000000" flood-opacity="0.75"/>
+    </filter>
+    <filter id="molt-bloom" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="6"/>
     </filter>
   </defs>
 
-  <rect width="800" height="450" fill="#0f172a"/>
-  <rect width="800" height="450" fill="url(#mo-dots)"/>
-  <rect width="800" height="450" fill="url(#mo-glow)"/>
+  <!-- Canvas Background -->
+  <rect width="800" height="450" fill="#090d16"/>
+  <rect width="800" height="450" fill="url(#molt-dots)"/>
+  <rect width="800" height="450" fill="url(#molt-ambient)"/>
 
-  <!-- baseline rail -->
-  <line x1="196" y1="352" x2="604" y2="352" stroke="#334155" stroke-width="2" opacity="0.7"/>
-  <circle cx="196" cy="352" r="4" fill="#334155"/>
-  <circle cx="604" cy="352" r="4" fill="#334155"/>
-
-  <!-- motion guides from slot to lifted module -->
-  <g stroke="#5eead4" stroke-width="2" stroke-dasharray="3 9" stroke-linecap="round" opacity="0.55">
-    <line x1="352" y1="196" x2="352" y2="148"/>
-    <line x1="448" y1="196" x2="448" y2="148"/>
+  <!-- Tech Frame Corner Brackets -->
+  <g stroke="#334155" stroke-width="1.5" fill="none" opacity="0.6">
+    <path d="M 32 44 L 32 32 L 44 32"/>
+    <path d="M 768 44 L 768 32 L 756 32"/>
+    <path d="M 32 406 L 32 418 L 44 418"/>
+    <path d="M 768 406 L 768 418 L 756 418"/>
   </g>
 
-  <!-- left seated module -->
+  <!-- Mechanical System Bus / Rail Backbone (y=348) -->
   <g>
-    <ellipse cx="272" cy="344" rx="66" ry="9" fill="#000000" opacity="0.45" filter="url(#mo-soft)"/>
-    <rect x="208" y="216" width="128" height="128" rx="30" fill="url(#mo-mod)" stroke="#3b506b" stroke-width="2"/>
-    <rect x="244" y="252" width="56" height="56" rx="14" fill="none" stroke="#475569" stroke-width="2.5"/>
-    <circle cx="272" cy="280" r="8" fill="#5eead4" opacity="0.85"/>
+    <!-- Deep Rail Channel -->
+    <rect x="140" y="344" width="520" height="10" rx="5" fill="#0f172a" stroke="#1e293b" stroke-width="1.5"/>
+    <!-- Luminous Optical Data Track -->
+    <line x1="150" y1="349" x2="650" y2="349" stroke="url(#rail-grad)" stroke-width="2"/>
+    
+    <!-- Precision Graduation Tick Marks -->
+    <g stroke="#334155" stroke-width="1" opacity="0.7">
+      <line x1="180" y1="340" x2="180" y2="344"/>
+      <line x1="220" y1="340" x2="220" y2="344"/>
+      <line x1="260" y1="340" x2="260" y2="344"/>
+      <line x1="300" y1="340" x2="300" y2="344"/>
+      <line x1="340" y1="340" x2="340" y2="344"/>
+      <line x1="380" y1="340" x2="380" y2="344"/>
+      <line x1="420" y1="340" x2="420" y2="344"/>
+      <line x1="460" y1="340" x2="460" y2="344"/>
+      <line x1="500" y1="340" x2="500" y2="344"/>
+      <line x1="540" y1="340" x2="540" y2="344"/>
+      <line x1="580" y1="340" x2="580" y2="344"/>
+      <line x1="620" y1="340" x2="620" y2="344"/>
+    </g>
+
+    <!-- Bus Termination Hardware Nodes -->
+    <circle cx="140" cy="349" r="6" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+    <circle cx="660" cy="349" r="6" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+    <circle cx="140" cy="349" r="2" fill="#38bdf8"/>
+    <circle cx="660" cy="349" r="2" fill="#5eead4"/>
   </g>
 
-  <!-- vacant slot (dashed) -->
-  <rect x="336" y="216" width="128" height="128" rx="30" fill="none" stroke="#5eead4" stroke-width="2" stroke-dasharray="10 8" opacity="0.5"/>
+  <!-- ==================== SLOT 1: LEFT DOCKED MODULE ==================== -->
+  <g transform="translate(196, 215)">
+    <!-- Contact Shadow -->
+    <ellipse cx="60" cy="132" rx="55" ry="8" fill="#000000" opacity="0.5" filter="url(#molt-bloom)"/>
+    
+    <!-- Cartridge Enclosure -->
+    <rect x="0" y="0" width="120" height="126" rx="20" fill="url(#mod-docked)" stroke="url(#docked-stroke)" stroke-width="1.8"/>
+    <!-- Top Edge Chamfer Highlight -->
+    <path d="M 20 1 L 100 1" stroke="#475569" stroke-width="1.2" stroke-linecap="round"/>
+    
+    <!-- Module Pin Connector Feet -->
+    <rect x="30" y="126" width="16" height="6" rx="2" fill="#334155"/>
+    <rect x="74" y="126" width="16" height="6" rx="2" fill="#334155"/>
+    <circle cx="38" cy="130" r="1.5" fill="#38bdf8"/>
+    <circle cx="82" cy="130" r="1.5" fill="#38bdf8"/>
 
-  <!-- right seated module -->
-  <g>
-    <ellipse cx="528" cy="344" rx="66" ry="9" fill="#000000" opacity="0.45" filter="url(#mo-soft)"/>
-    <rect x="464" y="216" width="128" height="128" rx="30" fill="url(#mo-mod)" stroke="#3b506b" stroke-width="2"/>
-    <rect x="500" y="252" width="56" height="56" rx="14" fill="none" stroke="#475569" stroke-width="2.5"/>
-    <circle cx="528" cy="280" r="8" fill="#5eead4" opacity="0.85"/>
+    <!-- Module Status Bar -->
+    <circle cx="20" cy="22" r="3.5" fill="#38bdf8"/>
+    <rect x="32" y="19" width="38" height="6" rx="3" fill="#334155"/>
+    <rect x="88" y="18" width="16" height="8" rx="4" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+    <circle cx="96" cy="22" r="2" fill="#38bdf8" opacity="0.8"/>
+
+    <!-- Internal Core Facet -->
+    <rect x="24" y="42" width="72" height="62" rx="12" fill="#0b1324" stroke="#1e293b" stroke-width="1.5"/>
+    <!-- Bus Activity Traces -->
+    <path d="M 36 60 L 52 60 L 60 74 L 84 74" fill="none" stroke="#334155" stroke-width="1.5" stroke-linecap="round"/>
+    <circle cx="36" cy="60" r="3" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <circle cx="84" cy="74" r="3" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
   </g>
 
-  <!-- lifted replacement module -->
-  <g>
-    <ellipse cx="400" cy="352" rx="76" ry="10" fill="#000000" opacity="0.5" filter="url(#mo-soft)"/>
-    <circle cx="400" cy="132" r="86" fill="url(#mo-lift)"/>
-    <rect x="336" y="68" width="128" height="128" rx="30" fill="url(#mo-hot)" stroke="#5eead4" stroke-width="3"/>
-    <rect x="336" y="68" width="128" height="128" rx="30" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1"/>
-    <rect x="372" y="104" width="56" height="56" rx="14" fill="none" stroke="#5eead4" stroke-width="3"/>
-    <circle cx="400" cy="132" r="9" fill="#5eead4"/>
+  <!-- ==================== SLOT 2: VACANT DOCKING BAY (CENTER) ==================== -->
+  <g transform="translate(340, 215)">
+    <!-- Base Docking Bay Floor Matrix -->
+    <rect x="0" y="0" width="120" height="126" rx="20" fill="none" stroke="#5eead4" stroke-width="1.8" stroke-dasharray="10 8" stroke-opacity="0.45"/>
+    
+    <!-- Target Alignment Crosshair on Bay Floor -->
+    <g stroke="#5eead4" stroke-width="1.2" opacity="0.6">
+      <circle cx="60" cy="63" r="26" fill="none" stroke-dasharray="4 4"/>
+      <line x1="60" y1="25" x2="60" y2="40"/>
+      <line x1="60" y1="86" x2="60" y2="101"/>
+      <line x1="22" y1="63" x2="37" y2="63"/>
+      <line x1="83" y1="63" x2="98" y2="63"/>
+    </g>
+
+    <!-- Upward Motion Laser Tracks (Aligning with lifted module) -->
+    <line x1="16" y1="0" x2="16" y2="-75" stroke="url(#laser-beam)" stroke-width="2" stroke-dasharray="4 6"/>
+    <line x1="104" y1="0" x2="104" y2="-75" stroke="url(#laser-beam)" stroke-width="2" stroke-dasharray="4 6"/>
   </g>
 
-  <!-- guard ticks: safety checkmarks flanking the swap -->
-  <g stroke="#5eead4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.8">
-    <circle cx="238" cy="132" r="17" stroke-opacity="0.5"/>
-    <path d="M231 132 l5 5 l9 -10"/>
-    <circle cx="562" cy="132" r="17" stroke-opacity="0.5"/>
-    <path d="M555 132 l5 5 l9 -10"/>
+  <!-- ==================== SLOT 3: RIGHT DOCKED MODULE ==================== -->
+  <g transform="translate(484, 215)">
+    <!-- Contact Shadow -->
+    <ellipse cx="60" cy="132" rx="55" ry="8" fill="#000000" opacity="0.5" filter="url(#molt-bloom)"/>
+    
+    <!-- Cartridge Enclosure -->
+    <rect x="0" y="0" width="120" height="126" rx="20" fill="url(#mod-docked)" stroke="url(#docked-stroke)" stroke-width="1.8"/>
+    <!-- Top Edge Chamfer Highlight -->
+    <path d="M 20 1 L 100 1" stroke="#475569" stroke-width="1.2" stroke-linecap="round"/>
+
+    <!-- Module Pin Connector Feet -->
+    <rect x="30" y="126" width="16" height="6" rx="2" fill="#334155"/>
+    <rect x="74" y="126" width="16" height="6" rx="2" fill="#334155"/>
+    <circle cx="38" cy="130" r="1.5" fill="#38bdf8"/>
+    <circle cx="82" cy="130" r="1.5" fill="#38bdf8"/>
+
+    <!-- Module Status Bar -->
+    <circle cx="20" cy="22" r="3.5" fill="#38bdf8"/>
+    <rect x="32" y="19" width="38" height="6" rx="3" fill="#334155"/>
+    <rect x="88" y="18" width="16" height="8" rx="4" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+    <circle cx="96" cy="22" r="2" fill="#38bdf8" opacity="0.8"/>
+
+    <!-- Internal Core Facet -->
+    <rect x="24" y="42" width="72" height="62" rx="12" fill="#0b1324" stroke="#1e293b" stroke-width="1.5"/>
+    <!-- Bus Activity Traces -->
+    <path d="M 36 74 L 60 74 L 68 60 L 84 60" fill="none" stroke="#334155" stroke-width="1.5" stroke-linecap="round"/>
+    <circle cx="36" cy="74" r="3" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <circle cx="84" cy="60" r="3" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
   </g>
+
+  <!-- ==================== LIFTED REPLACEMENT MODULE (HERO ATOMIC SWAP) ==================== -->
+  <g transform="translate(340, 72)" filter="url(#molt-core-shadow)">
+    <!-- Backing Elevation Glow Field -->
+    <circle cx="60" cy="63" r="110" fill="url(#molt-lift-glow)"/>
+
+    <!-- Cast Floor Shadow under elevated module -->
+    <ellipse cx="60" cy="275" rx="72" ry="12" fill="#000000" opacity="0.6" filter="url(#molt-soft-shadow)"/>
+
+    <!-- Hero Module Shell -->
+    <rect x="0" y="0" width="120" height="126" rx="20" fill="url(#mod-staged)" stroke="url(#staged-stroke)" stroke-width="2.5"/>
+    <!-- Glass Rim Highlight -->
+    <rect x="1" y="1" width="118" height="124" rx="19" fill="none" stroke="#ffffff" stroke-width="1" stroke-opacity="0.12"/>
+
+    <!-- Module Header -->
+    <circle cx="20" cy="22" r="4" fill="#5eead4"/>
+    <circle cx="20" cy="22" r="8" fill="#5eead4" opacity="0.25"/>
+    <rect x="34" y="19" width="46" height="6" rx="3" fill="#5eead4" opacity="0.75"/>
+
+    <!-- Atomic Verification Badge (Top Right) -->
+    <rect x="86" y="16" width="20" height="12" rx="6" fill="#0f172a" stroke="#5eead4" stroke-width="1.2"/>
+    <circle cx="96" cy="22" r="2.5" fill="#5eead4"/>
+
+    <!-- Central High-Tech Swap Core (The Atomic Replacement Engine) -->
+    <g transform="translate(24, 40)">
+      <!-- Inner Dark Sapphire Window -->
+      <rect x="0" y="0" width="72" height="66" rx="14" fill="#061219" stroke="#5eead4" stroke-width="1.5" stroke-opacity="0.6"/>
+      
+      <!-- Atomic Swap Glyph: Precision Dual Rotating Exchange Loop -->
+      <g stroke="#5eead4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+        <!-- Top-Right Arc with Arrowhead -->
+        <path d="M 44 24 A 14 14 0 0 0 24 24"/>
+        <path d="M 40 19 L 46 24 L 40 29"/>
+        
+        <!-- Bottom-Left Arc with Arrowhead -->
+        <path d="M 28 42 A 14 14 0 0 0 48 42"/>
+        <path d="M 32 47 L 26 42 L 32 37"/>
+      </g>
+      
+      <!-- Center Quantum Nucleus -->
+      <circle cx="36" cy="33" r="4" fill="#ffffff" filter="url(#molt-bloom)"/>
+      <circle cx="36" cy="33" r="2.5" fill="#5eead4"/>
+    </g>
+
+    <!-- Precision Alignment Brackets on Cartridge Corners -->
+    <g stroke="#5eead4" stroke-width="1.5" fill="none" opacity="0.8">
+      <path d="M 8 16 L 8 8 L 16 8"/>
+      <path d="M 112 16 L 112 8 L 104 8"/>
+      <path d="M 8 110 L 8 118 L 16 118"/>
+      <path d="M 112 110 L 112 118 L 104 118"/>
+    </g>
+  </g>
+
+  <!-- ==================== FLANKING INVARIANT GUARDS (INV-01...15) ==================== -->
+  
+  <!-- Left Guard Badge: Scope Verification Shield -->
+  <g transform="translate(240, 110)" filter="url(#molt-core-shadow)">
+    <circle cx="0" cy="0" r="22" fill="#0f172a" stroke="#38bdf8" stroke-width="1.8"/>
+    <circle cx="0" cy="0" r="26" fill="none" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.3" stroke-dasharray="3 4"/>
+    <!-- Precision Shield Lock -->
+    <path d="M 0 -8 L 7 -4 L 7 2 C 7 7 0 10 0 10 C 0 10 -7 7 -7 2 L -7 -4 Z" fill="#09141c" stroke="#38bdf8" stroke-width="1.8" stroke-linejoin="round"/>
+    <circle cx="0" cy="0" r="2" fill="#38bdf8"/>
+  </g>
+
+  <!-- Right Guard Badge: Atomic Commit Checkmark -->
+  <g transform="translate(560, 110)" filter="url(#molt-core-shadow)">
+    <circle cx="0" cy="0" r="22" fill="#0f172a" stroke="#5eead4" stroke-width="1.8"/>
+    <circle cx="0" cy="0" r="26" fill="none" stroke="#5eead4" stroke-width="1" stroke-opacity="0.3" stroke-dasharray="3 4"/>
+    <!-- Crisp Checkmark -->
+    <path d="M -7 0 L -2 5 L 8 -5" fill="none" stroke="#5eead4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
 </svg>
