@@ -375,6 +375,11 @@ Owner: `/fullstack.pdf` + `/ai.pdf` live at URL; page button → fullstack.
 Evidence: node audits (entry/orphan counts) + `check-exp.js` EXACT MATCH ×3 +
 URL 200 list + build logs + dist phrase checks.
 
+## Phase 16 — Tagline refinement (2026-09-24)
+
+- `[x]` 16.1 `profile.json`: tagline refined to `Software engineer — full-stack systems, applied AI.`
+- `[x]` 16.2 Build gate green: `npm run build` PASS (4 pages, zero warnings); meta description, og:description, and twitter:description updated in dist.
+
 ## Change log
 
 - 2026-09-23 — Created ledger + update_data_plan.md from full research pass (10 data JSONs, 13 components, career data/ ×14, both resume skill blocks, links register, roadmap-filters.md).
@@ -382,3 +387,5 @@ URL 200 list + build logs + dist phrase checks.
 - 2026-09-23 — **Neryva restructure sync (D18):** `experience.json` Neryva desc + `about.json` P2 middle rewritten per Draft C (runtime/sandboxes/memory/safety/canvas); FS `resume.pdf` re-copied from career D18 build (new sha256 `E041B14B4C0BDD84…`, triple-hash match); verification re-run green (10/10 JSON, purge 20/20, banned-phrase clean, `npm run build` 4 pages, basecheck 12/12, artifactscan 18/18, dist phrase check 5/5).
 - 2026-09-23 — **Resume-decision sync (Phase 11):** projects → Agent Studio + Krishi + Ecommerce with verified links; research LLM desc → frontier wording (amendment 9); skills pill union trimmed (D18/D23 cuts); resume.pdf → FS 64,563 B; archive links always visible; ban greps clean; build green.
 - 2026-09-24 — **Archive expansion + resume-exact experience (Phase 12):** projects 3 → 37 (`github_repo.md`) → owner cut 5 SDL2 → **32**; 5 orphan SVGs deleted (`images/` = 32); archive link dynamic `(32)`; `experience.json` descriptions = FS-resume verbatim (EXACT MATCH ×3); pills synced (NOL SQL out; Neryva `AI Architecture/Optimization/Safety`); 12 URLs 200; Skills-order verdict = keep; build green. Open: blurb wording, Optimization tag, molt/alcedo home-gate, commit (12.9–12.11).
+- 2026-09-24 — **Tagline refinement (Phase 16):** updated profile tagline to `Software engineer — full-stack systems, applied AI.`; build green, dist verified.
+
