@@ -375,10 +375,35 @@ Owner: `/fullstack.pdf` + `/ai.pdf` live at URL; page button → fullstack.
 Evidence: node audits (entry/orphan counts) + `check-exp.js` EXACT MATCH ×3 +
 URL 200 list + build logs + dist phrase checks.
 
-## Phase 16 — Tagline refinement (2026-09-24)
+## Phase 16 — Privacy trim: tagline, OG image, resume PDFs (2026-09-24)
 
-- `[x]` 16.1 `profile.json`: tagline refined to `Software engineer — full-stack systems, applied AI.`
-- `[x]` 16.2 Build gate green: `npm run build` PASS (4 pages, zero warnings); meta description, og:description, and twitter:description updated in dist.
+Owner: remove Kathmandu/location + LinkedIn from **resumes only** (site keeps
+LinkedIn); "sole-author" rejected as cringe — keep "researcher" professional.
+
+- `[x]` 16.1 `profile.json` tagline → `Software engineer and researcher —
+  full-stack systems, applied AI.` (Kathmandu dropped; owner trimmed the
+  `sole-author research. Four arXiv papers` tail as cringe; trailing newline
+  restored)
+- `[x]` 16.2 `og-image.svg` description line → `AI agent platforms, full-stack
+  systems, and research.` (sole-author out of the share card); `og-image.png`
+  re-rasterized **1200×630 via Edge headless** (cairosvg install broken —
+  missing native cairo DLL; Edge = original renderer class) — visually
+  verified: new text, layout intact
+- `[x]` 16.3 Live-PDF leak closed: `public/fullstack.pdf` ← career FS build
+  **64,486 B** + `public/ai.pdf` ← AI build **76,234 B** (both 15:52 builds:
+  pdftotext zero `Kathmandu`/`linkedin`, portfolio URL present, 1 page each) —
+  the previously deployed copies still carried `Kathmandu, Nepal` + LinkedIn
+  in their headers
+- `[x]` 16.4 Scope correction (owner): **LinkedIn stays on the site**
+  (`socials.json` keeps its 3 entries; earlier removal attempt never persisted
+  — no-op); location/link removal was always resume-only
+- `[x]` 16.5 Build gate: `npm run build` PASS — 4 pages, 2.01s, zero
+  warnings; dist greps: `sole-author`=0, `kathmandu`=0, `Four arXiv`=0;
+  index meta/og/twitter:description = new tagline, page-specific descriptions
+  intact; `og-image.png` sha256 public=dist (217,595 B); PDFs 64,486/76,234;
+  LinkedIn href still present on index (intended)
+- `[ ]` 16.6 Commit this repo (tagline + og pair + 2 PDFs + this ledger) →
+  push `main` → Actions → live verify (meta text, og bytes, both PDFs)
 
 ## Change log
 
@@ -387,5 +412,5 @@ URL 200 list + build logs + dist phrase checks.
 - 2026-09-23 — **Neryva restructure sync (D18):** `experience.json` Neryva desc + `about.json` P2 middle rewritten per Draft C (runtime/sandboxes/memory/safety/canvas); FS `resume.pdf` re-copied from career D18 build (new sha256 `E041B14B4C0BDD84…`, triple-hash match); verification re-run green (10/10 JSON, purge 20/20, banned-phrase clean, `npm run build` 4 pages, basecheck 12/12, artifactscan 18/18, dist phrase check 5/5).
 - 2026-09-23 — **Resume-decision sync (Phase 11):** projects → Agent Studio + Krishi + Ecommerce with verified links; research LLM desc → frontier wording (amendment 9); skills pill union trimmed (D18/D23 cuts); resume.pdf → FS 64,563 B; archive links always visible; ban greps clean; build green.
 - 2026-09-24 — **Archive expansion + resume-exact experience (Phase 12):** projects 3 → 37 (`github_repo.md`) → owner cut 5 SDL2 → **32**; 5 orphan SVGs deleted (`images/` = 32); archive link dynamic `(32)`; `experience.json` descriptions = FS-resume verbatim (EXACT MATCH ×3); pills synced (NOL SQL out; Neryva `AI Architecture/Optimization/Safety`); 12 URLs 200; Skills-order verdict = keep; build green. Open: blurb wording, Optimization tag, molt/alcedo home-gate, commit (12.9–12.11).
-- 2026-09-24 — **Tagline refinement (Phase 16):** updated profile tagline to `Software engineer — full-stack systems, applied AI.`; build green, dist verified.
+- 2026-09-24 — **Privacy trim (Phase 16):** tagline → `Software engineer and researcher — full-stack systems, applied AI.` (Kathmandu out; "sole-author" tail rejected by owner); OG card text → `AI agent platforms, full-stack systems, and research.` + PNG re-raster 1200×630; both resume PDFs refreshed (live copies leaked Kathmandu + LinkedIn headers); LinkedIn KEPT on site per owner scope; build green, all dist gates 0-hit.
 
