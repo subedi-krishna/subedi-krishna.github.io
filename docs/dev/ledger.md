@@ -402,8 +402,13 @@ LinkedIn); "sole-author" rejected as cringe — keep "researcher" professional.
   index meta/og/twitter:description = new tagline, page-specific descriptions
   intact; `og-image.png` sha256 public=dist (217,595 B); PDFs 64,486/76,234;
   LinkedIn href still present on index (intended)
-- `[ ]` 16.6 Commit this repo (tagline + og pair + 2 PDFs + this ledger) →
-  push `main` → Actions → live verify (meta text, og bytes, both PDFs)
+- `[x]` 16.6 Commit `3e13729` (2 PDFs + this ledger; tagline/OG pair had
+  landed earlier in `d2253e7`) → pushed `d2253e7..3e13729` → Actions green →
+  **LIVE verified over HTTP**: home meta = `Software engineer and researcher —
+  full-stack systems, applied AI.` (kathmandu 0, sole-author 0, LinkedIn 1 =
+  intended); `og-image.png` 217,595 B sha256 = local; `og-image.svg` new
+  description line; `/fullstack.pdf` 64,486 B + `/ai.pdf` 76,234 B →
+  pdftotext leak=[], portfolioUrl=1, pages=1 each
 
 ## Change log
 
