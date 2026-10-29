@@ -22,30 +22,22 @@ const pixelArrowPath =
       {
         experience.map((job) => (
           <li>
-            <div class="card">
-              <header class="card-date" aria-label={job.date}>
-                {job.date}
-              </header>
+            <div class="card card--experience">
               <div class="card-body">
-                <h3 class="card-title">
+                <h3 class="job-title">
+                  {job.title}{' '}
+                  <span class="job-at" aria-hidden="true">@</span>{' '}
                   {job.companyUrl && job.companyUrl !== '#' ? (
-                    <a href={job.companyUrl} aria-label={`${job.title} at ${job.company} (opens in a new tab)`} target="_blank" rel="noreferrer noopener">
-                      <span>
-                        {job.title} ·{' '}
-                        <span style="display:inline-block">
-                          {job.company}
-                          <svg class="arrow-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd" d={arrowPath} clip-rule="evenodd" />
-                          </svg>
-                        </span>
-                      </span>
+                    <a class="company-link" href={job.companyUrl} aria-label={`${job.title} at ${job.company} (opens in a new tab)`} target="_blank" rel="noreferrer noopener">
+                      {job.company}
                     </a>
                   ) : (
-                    <span>
-                      {job.title} · {job.company}
-                    </span>
+                    <span class="company-plain">{job.company}</span>
                   )}
                 </h3>
+                <p class="job-date" aria-label={job.date}>
+                  {job.date}
+                </p>
                 <ul class="exp-points">
                   {job.points.map((point) => (
                     <li>
