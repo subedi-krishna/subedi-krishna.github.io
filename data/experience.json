@@ -5,10 +5,10 @@
     "date": "Jul 2025 — Present",
     "title": "Member of Technical Staff",
     "points": [
-      "Built a durable Temporal agent runtime governed by a bounded 13-state kernel, fail-closed per-step budget caps (tokens, cost, wall-clock), deterministic history replay, and idempotent ConnectRPC/SSE token streaming, validated across 10,820 stress runs.",
-      "Engineered an agent security perimeter with dual-stage fail-closed moderation (ingress/egress), deny-topic filtering, and spotlighting against prompt injection, gating tools behind engine authorization, credential scoping, human approvals, and a cross-runtime SHA-256 hash-chained audit trail.",
+      "Built a durable Temporal agent runtime governed by a bounded 13-state kernel, fail-closed per-step budget caps (tokens, cost, wall-clock), deterministic history replay, and idempotent ConnectRPC/SSE token streaming.",
+      "Engineered an agent security perimeter with dual-stage fail-closed moderation (ingress/egress), deny-topic filtering, and prompt-injection spotlighting, gating tools behind engine authorization, credential scoping, human approvals, and a cross-runtime SHA-256 hash-chained audit trail.",
       "Built a model gateway for 10 providers (240+ models) with live catalog sync, ordered failover, and AES-256-GCM BYOK custody, paired with a hybrid RAG engine (pgvector, MongoDB Atlas, Qdrant) enforcing pre-scoring ACLs, outbox index synchronization, and MinHash deduplication.",
-      "Architected a multi-tenant NestJS 11/Fastify control plane using Buf-managed ConnectRPC contracts with breaking-change CI, transaction-local RLS, PostgreSQL/MongoDB persistence parity, an outbox with dead-letter recovery, two-tier idempotency, DNS-pinned SSRF defense, and a zero-modal React/TanStack console."
+      "Architected a multi-tenant NestJS 11/Fastify control plane with Buf-managed ConnectRPC contracts, breaking-change CI, transaction-local RLS, and PostgreSQL/MongoDB persistence parity, backed by two-tier idempotency, DNS-pinned SSRF defense, an outbox with dead-letter recovery, and a zero-modal React/TanStack console."
     ],
     "tech": [
       "AI Architecture",

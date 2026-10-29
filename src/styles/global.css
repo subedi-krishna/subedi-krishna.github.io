@@ -413,6 +413,9 @@ p {
 
 .about-body p {
   margin: 0 0 1rem;
+  text-align: left;
+  text-wrap: pretty;
+  line-height: 1.65;
 }
 
 .about-body p:last-child {
@@ -640,6 +643,13 @@ a:hover .arrow-icon {
   margin-bottom: 0.625rem;
   font-size: 0.875rem;
   line-height: 1.5;
+}
+
+.exp-points li span {
+  flex: 1;
+  text-align: left;
+  text-wrap: pretty;
+  line-height: 1.65;
 }
 
 .exp-points li:last-child {
