@@ -15,13 +15,21 @@ const rightArrowPath = 'M3 10h13M11 5l5 5-5 5';
     <h2>Research</h2>
   </div>
   <div>
-    <ol class="card-list">
+    <ol class="research-list">
       {
-        visiblePapers.map((paper) => (
-          <li>
-            <div class="card card--research">
-              <div class="card-body">
-                <h3 class="paper-title">
+        visiblePapers.map((paper) => {
+          // Left column shows the identifier only, as in the approved
+          // preview: "arXiv:2608.21653" (category stays in the archive
+          // tags), or the full DOI for Zenodo papers.
+          const venueId = paper.venue.startsWith('DOI:') ? paper.venue : paper.venue.split(' ')[0];
+          return (
+            <li class="research-row">
+              <div class="research-meta">
+                <span class="research-year">{paper.year}</span>
+                <span class="research-id">{venueId}</span>
+              </div>
+              <div class="research-body">
+                <h3 class="research-title">
                   {paper.venueUrl && paper.venueUrl !== '#' ? (
                     <a href={paper.venueUrl} aria-label={`${paper.title} (opens in a new tab)`} target="_blank" rel="noreferrer noopener">
                       <span>
@@ -35,14 +43,11 @@ const rightArrowPath = 'M3 10h13M11 5l5 5-5 5';
                     <span>{paper.title}</span>
                   )}
                 </h3>
-                <p class="paper-meta">
-                  {paper.year} · {paper.venue}
-                </p>
-                <p class="paper-desc">{paper.description}</p>
+                <p class="research-desc">{paper.description}</p>
               </div>
-            </div>
-          </li>
-        ))
+            </li>
+          );
+        })
       }
     </ol>
   </div>

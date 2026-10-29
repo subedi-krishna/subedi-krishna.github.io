@@ -698,20 +698,50 @@ a:hover .arrow-icon {
   color: var(--muted);
 }
 
-/* research (title / date / description only): the card spans the full
-   content column, like experience. Vertical rhythm uses the site's
-   4px/8px scale, and nothing else is invented:
-   - title -> date line: 0.25rem (4px), so title + date read as one block
-   - date line -> description: 0.5rem (8px), the site's card-desc gap
-   - card -> card: 3rem (48px), the existing .card-list gap, unchanged,
-     so research cards sit on the same rhythm as experience and projects */
-@media (min-width: 640px) {
-  .card--research .card-body {
-    grid-column: span 8 / span 8;
-  }
+/* research (left year/id, right title/description, no index numbers):
+   a two-column row, not a card, so research reads differently from
+   experience and projects. Vertical rhythm:
+   - row padding: 1.25rem (20px) top and bottom, with a 1px divider,
+     so the gap between one description and the next title is 40px
+   - title -> description: 0.5rem (8px), the site's card-desc gap
+   - on mobile the row stacks, and the meta becomes one line:
+     year · identifier, above the title */
+.research-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.paper-title {
+.research-row {
+  display: grid;
+  grid-template-columns: 9.375rem minmax(0, 1fr);
+  gap: 1.5rem;
+  padding: 1.25rem 0;
+  border-top: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.research-row:last-child {
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.research-meta {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.research-year {
+  display: block;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.research-id {
+  display: block;
+  word-break: break-all;
+}
+
+.research-title {
   margin: 0;
   font-size: 1.0625rem;
   line-height: 1.375;
@@ -719,7 +749,7 @@ a:hover .arrow-icon {
   color: var(--heading);
 }
 
-.paper-title a {
+.research-title a {
   display: inline-flex;
   align-items: baseline;
   font-weight: 600;
@@ -729,31 +759,44 @@ a:hover .arrow-icon {
   transition: color 0.2s ease;
 }
 
-.paper-title a:hover,
-.paper-title a:focus-visible {
+.research-title a:hover,
+.research-title a:focus-visible {
   color: var(--accent);
 }
 
-.paper-title a:focus-visible {
+.research-title a:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 4px;
 }
 
-.card:hover .paper-title a {
-  color: var(--accent);
-}
-
-.paper-meta {
-  margin: 0.25rem 0 0;
-  font-size: 0.875rem;
-  line-height: 1.5;
-  color: var(--muted);
-}
-
-.paper-desc {
+.research-desc {
   margin: 0.5rem 0 0;
   font-size: 0.875rem;
   line-height: 1.5;
+}
+
+@media (max-width: 639px) {
+  .research-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.25rem;
+    padding: 1rem 0;
+  }
+
+  .research-meta {
+    display: flex;
+    gap: 0.375rem;
+    align-items: baseline;
+  }
+
+  .research-year,
+  .research-id {
+    display: inline;
+  }
+
+  .research-year::after {
+    content: ' · ';
+    color: var(--muted);
+  }
 }
 
 .venue {

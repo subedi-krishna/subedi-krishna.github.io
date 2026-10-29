@@ -10,6 +10,15 @@
   },
   {
     "year": "2026",
+    "title": "Separating Routing Organization from Task Success: Matched Evidence from Prototype-Routed MoE Policies",
+    "venue": "DOI: 10.5281/zenodo.23659693",
+    "venueUrl": "https://zenodo.org/records/23659693",
+    "description": "Showed trajectory-derived prototype initialization structures offline MoE routing (0.67 NMI) without translating to closed-loop success gains.",
+    "tags": ["MoE Routing", "Prototype Learning", "Robotics"],
+    "domains": ["AI", "Robotics"]
+  },
+  {
+    "year": "2026",
     "title": "Uniform Herding: Exemplar Replay with Representation Refresh",
     "venue": "arXiv:2608.13061 [cs.AI]",
     "venueUrl": "https://arxiv.org/abs/2608.13061",
