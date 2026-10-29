@@ -540,7 +540,9 @@ p {
 
 .card-title {
   margin: 0;
-  font-size: 1rem;
+  /* Option B, approved 2026-10-29: 18px, up from 16px, a modest step so
+     the project title clearly leads the card. Used by Projects only. */
+  font-size: 1.125rem;
   line-height: 1.375;
   font-weight: 500;
   color: var(--heading);
