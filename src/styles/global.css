@@ -608,7 +608,9 @@ a:hover .arrow-icon {
 .exp-points {
   list-style: none;
   margin: 0.5rem 0 0;
-  padding: 0;
+  /* Variant B, approved 2026-10-29: bullets nested 16px under the job
+     header, hanging indent inside the list unchanged. */
+  padding: 0 0 0 1rem;
 }
 
 .exp-points li {
