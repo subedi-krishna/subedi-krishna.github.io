@@ -350,6 +350,16 @@ p {
     margin-bottom: 9rem;
     scroll-margin-top: 6rem;
   }
+
+  /* About-to-Experience gap only, 2026-10-29: About is short, so the
+     full 9rem below it read as empty space in the screenshot. 6rem
+     brings the rendered gap to roughly the Experience-to-Projects
+     gap, without tightening any other section. Mobile/tablet
+     unchanged, where the visible section heading already fills
+     part of the gap. */
+  #about.section {
+    margin-bottom: 6rem;
+  }
 }
 
 /* sticky section heading visible only below lg */
