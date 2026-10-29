@@ -6,8 +6,8 @@ const LIMIT = 5;
 const visiblePapers = research.slice(0, LIMIT);
 const showArchiveLink = research.length > 0;
 
-const arrowPath = 'M4 16 L16 4 M8 4 H16 V12';
-const rightArrowPath = 'M3 10h13M11 5l5 5-5 5';
+const arrowPath = 'M6 14 L14 6 M9 6 H14 V11';
+const rightArrowPath = 'M5 10 H15 M10 5 L15 10 L10 15';
 ---
 
 <section id="research" class="section" aria-label="Research">
@@ -34,7 +34,7 @@ const rightArrowPath = 'M3 10h13M11 5l5 5-5 5';
                     <a href={paper.venueUrl} aria-label={`${paper.title} (opens in a new tab)`} target="_blank" rel="noreferrer noopener">
                       <span>
                         {paper.title}
-                        <svg class="arrow-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <svg class="arrow-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                           <path d={arrowPath} />
                         </svg>
                       </span>
@@ -59,7 +59,7 @@ const rightArrowPath = 'M3 10h13M11 5l5 5-5 5';
           <path
             d={rightArrowPath}
             stroke="currentColor"
-            stroke-width="1.8"
+            stroke-width="2.5"
             stroke-linecap="round"
             stroke-linejoin="round"
           />

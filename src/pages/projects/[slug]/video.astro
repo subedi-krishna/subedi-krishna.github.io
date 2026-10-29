@@ -18,7 +18,7 @@ const videoId = getYouTubeId(project.links.video)!;
 const aspect = getVideoAspect(project);
 const isPortrait = aspect === '9:16';
 const otherLinks = availableLinks(project).filter((link) => link.type !== 'video');
-const backArrowPath = 'M17 10H4M9 5l-5 5 5 5';
+const backArrowPath = 'M15 10 H5 M10 5 L5 10 L10 15';
 ---
 
 <Layout
@@ -31,7 +31,7 @@ const backArrowPath = 'M17 10H4M9 5l-5 5 5 5';
         <path
           d={backArrowPath}
           stroke="currentColor"
-          stroke-width="1.8"
+          stroke-width="2.5"
           stroke-linecap="round"
           stroke-linejoin="round"
         />
