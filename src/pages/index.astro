@@ -7,16 +7,21 @@ import Projects from '../components/Projects.astro';
 import Research from '../components/Research.astro';
 import Skills from '../components/Skills.astro';
 import Contact from '../components/Contact.astro';
+
+// Soft delete for Skills: flip this one variable to true and the section
+// AND its nav link come back together. Nothing is deleted — Skills.astro
+// and data/skills.json stay untouched in the repo.
+const SHOW_SKILLS = false;
 ---
 
 <Layout>
-  <Sidebar />
+  <Sidebar showSkills={SHOW_SKILLS} />
   <main id="content" class="content">
     <About />
     <Experience />
     <Projects />
     <Research />
-    <Skills />
+    {SHOW_SKILLS && <Skills />}
     <Contact />
   </main>
 </Layout>
