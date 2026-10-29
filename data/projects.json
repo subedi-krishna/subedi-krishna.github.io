@@ -3,7 +3,7 @@
     "title": "Agent Studio",
     "slug": "agent-studio",
     "year": "2025",
-    "description": "Enterprise control layer for LLM applications — multi-tenant architecture, guardrails, evaluation pipelines, and multi-platform deployment.",
+    "description": "Enterprise control layer for LLM applications with multi-tenant architecture, guardrails, evaluation pipelines, and multi-platform deployment.",
     "domains": [
       "AI"
     ],

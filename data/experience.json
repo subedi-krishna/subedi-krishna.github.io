@@ -5,9 +5,10 @@
     "date": "Jul 2025 — Present",
     "title": "Member of Technical Staff",
     "points": [
-      "Architected the production multi-tenant agent runtime: asynchronous orchestration of agent lifecycles, tool-calling loops, and state-machine transitions with hierarchical memory.",
-      "Treated LLM output as untrusted code, executed in isolated sandboxes to run many agents concurrently per customer.",
-      "Built custom agent harnesses customised to enforce safety constraints, with layered input/output safety (token-classification at ingress flags prompt-injection and jailbreak attempts; output validation at egress) and evaluation pipelines for tool-calling accuracy and context-retrieval drift."
+      "Built a durable Temporal agent runtime governed by a bounded 13-state kernel, fail-closed per-step budget caps (tokens, cost, wall-clock), deterministic history replay, and idempotent ConnectRPC/SSE token streaming, validated across 10,820 stress runs.",
+      "Engineered an agent security perimeter with dual-stage fail-closed moderation (ingress/egress), deny-topic filtering, and spotlighting against prompt injection, gating tools behind engine authorization, credential scoping, human approvals, and a cross-runtime SHA-256 hash-chained audit trail.",
+      "Built a model gateway for 10 providers (240+ models) with live catalog sync, ordered failover, and AES-256-GCM BYOK custody, paired with a hybrid RAG engine (pgvector, MongoDB Atlas, Qdrant) enforcing pre-scoring ACLs, outbox index synchronization, and MinHash deduplication.",
+      "Architected a multi-tenant NestJS 11/Fastify control plane using Buf-managed ConnectRPC contracts with breaking-change CI, transaction-local RLS, PostgreSQL/MongoDB persistence parity, an outbox with dead-letter recovery, two-tier idempotency, DNS-pinned SSRF defense, and a zero-modal React/TanStack console."
     ],
     "tech": [
       "AI Architecture",
@@ -21,9 +22,9 @@
     "date": "Apr 2024 — Jul 2025",
     "title": "Full-stack Developer",
     "points": [
-      "Built a three-tier admin hierarchy (main/state/seller) with role-specific access and per-tier dashboards.",
-      "Built a multi-tenant Spring Boot backend (hierarchical RBAC, ZIP code-based delivery logistics) that accommodates new regions and sellers without structural change and runs an automated commission engine that eliminates manual per-order fee calculation.",
-      "Shipped Vanidya marketplace apps: native Android (Kotlin), offline-first PWA, real-time order tracking."
+      "Designed Vanidya’s three-tier admin model (main, state, and seller) with hierarchical RBAC and tenant-level data isolation. Built a dashboard for each tier. Region and seller onboarding required data changes only, with no schema or code changes.",
+      "Built Vanidya’s multi-tenant Spring Boot backend with ZIP-code-keyed delivery routing and coverage. Implemented an automated seller commission and fee engine, replacing manual per-order fee calculation.",
+      "Shipped real-time order tracking across native Android (Kotlin) and offline-first PWA clients, synchronizing order status across buyer and seller views."
     ],
     "tech": [
       "Spring Boot",
@@ -41,8 +42,8 @@
     "date": "Oct 2023 — Mar 2024",
     "title": "Software Engineer",
     "points": [
-      "Designed a time-series fuel-demand forecasting system for regional fuel demand (diesel, petrol, aviation), modeling surges, strikes, and protests so inventory allocation tracked real consumption spikes, and supply stayed smooth.",
-      "Built an automated dispatch reporting system for fuel logistics, consolidating daily depot and tanker movements into live dashboards that replaced manual end-of-day report preparation."
+      "Designed a dynamic time-series forecasting system for regional diesel, petrol, and aviation fuel demand, modeling shock surges from strikes and festivals to optimize depot inventory allocation and prevent consumer-side pump stockouts.",
+      "Engineered automated Python and SQL pipelines consolidating national depot and tanker movements into live operational dashboards, replacing manual end-of-day reporting with continuous dispatch visibility."
     ],
     "tech": [
       "Python",
