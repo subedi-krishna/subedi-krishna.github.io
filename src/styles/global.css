@@ -416,6 +416,14 @@ p {
   text-decoration: none;
 }
 
+/* About highlights: heading colour + semibold only, no teal, so they
+   read as emphasis, not as links. Used sparingly: origin story and
+   current focus. */
+.about-highlight {
+  color: var(--heading);
+  font-weight: 600;
+}
+
 .inline-link:hover {
   color: var(--accent);
 }

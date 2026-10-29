@@ -1,27 +1,43 @@
 {
-  "heading": "About",
-  "paragraphs": [
-    [
-      {
-        "text": "Hi there, I'm Krishna, and I enjoy research, designing and building things. I'm an engineer with a mechanical degree, and expertise across AI and full-stack. I take pride in designing and building thoughtful products for people. I enjoy working most at the intersection of AI, robotics, and backend engineering, where research meets user needs."
-      }
-    ],
-    [
-      {
-        "text": "Currently, I'm a Member of Technical Staff at "
-      },
-      {
-        "text": "Neryva",
-        "url": "https://neryva.com"
-      },
-      {
-        "text": ", where I work on LLMs and Robotics and help build new products like Neryva Agent Studio and PhaseForge. I lead the engineering effort in system architecture, harness, and safety, partnering closely with engineers from different teams to ensure accessibility and quality are built into the foundations of everything that we ship."
-      }
-    ],
-    [
-      {
-        "text": "In my spare time, I enjoy building robots, reading books, hiking, playing football, and camping with my friends"
-      }
+    "heading": "About",
+    "paragraphs": [
+        [
+            {
+                "text": "Hello! My name is Krishna, and I enjoy creating things that move and live on the internet. My interest in robotics and coding started back in 2016, when I decided to "
+            },
+            {
+                "highlight": true,
+                "text": "build a drone for a robotics competition"
+            },
+            {
+                "text": ". Turns out, hacking hardware and code together taught me a lot about both. That experience inspired me to graduate with a degree in "
+            },
+            {
+                "highlight": true,
+                "text": "mechanical engineering"
+            },
+            {
+                "text": "."
+            }
+        ],
+        [
+            {
+                "text": "Fast-forward to today, and I’ve had the privilege of working at a corporation, a web and AI consulting agency, and a research lab, where the research ideas were aimed at building a better world. My main focus these days is working on "
+            },
+            {
+                "highlight": true,
+                "text": "LLM efficiency, AI agents, and robotics"
+            },
+            {
+                "text": " at "
+            },
+            {
+                "text": "Neryva",
+                "url": "https://neryva.com"
+            },
+            {
+                "text": "."
+            }
+        ]
     ]
-  ]
 }
