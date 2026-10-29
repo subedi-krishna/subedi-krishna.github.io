@@ -4,6 +4,13 @@ import profile from '../../data/profile.json';
 
 const arrowPath =
   'M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z';
+
+// Stepped-pixel arrow (original, 9x9 grid): a solid triangle pointing right,
+// widest on the centre row and narrowing by steps above and below, so the
+// diagonal reads as stairs rather than a smooth line. Integer coordinates
+// plus crispEdges keep it blocky at any size.
+const pixelArrowPath =
+  'M0 0h1v1h2v1h2v1h2v1h2v1H7v1H5v1H3v1H1v1H0z';
 ---
 
 <section id="experience" class="section" aria-label="Work experience">
@@ -39,7 +46,16 @@ const arrowPath =
                     </span>
                   )}
                 </h3>
-                <p class="card-desc">{job.description}</p>
+                <ul class="exp-points">
+                  {job.points.map((point) => (
+                    <li>
+                      <svg class="exp-arrow" viewBox="0 0 9 9" fill="currentColor" shape-rendering="crispEdges" aria-hidden="true">
+                        <path d={pixelArrowPath} />
+                      </svg>
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
                 <ul class="pills" aria-label="Technologies used">
                   {job.tech.map((t) => (
                     <li>

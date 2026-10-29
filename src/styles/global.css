@@ -603,6 +603,36 @@ a:hover .arrow-icon {
   line-height: 1.5;
 }
 
+/* experience bullet list: same type size/leading as .card-desc, with a
+   hanging indent so wrapped lines align under the text, not the marker */
+.exp-points {
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+}
+
+.exp-points li {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  margin-bottom: 0.625rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.exp-points li:last-child {
+  margin-bottom: 0;
+}
+
+.exp-arrow {
+  flex-shrink: 0;
+  width: 0.8125rem;
+  height: 0.8125rem;
+  margin-top: 0.25rem;
+  color: var(--accent);
+  shape-rendering: crispEdges;
+}
+
 .venue {
   font-style: normal;
   font-weight: 500;
