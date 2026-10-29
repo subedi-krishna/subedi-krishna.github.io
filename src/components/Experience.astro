@@ -2,8 +2,20 @@
 import experience from '../../data/experience.json';
 import profile from '../../data/profile.json';
 
-const arrowPath =
-  'M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z';
+const arrowPath = 'M4 16 L16 4 M8 4 H16 V12';
+
+// Soft delete for Experience tech pills: flip this one variable to true
+// and they come back. data/experience.json tech arrays stay untouched.
+// When false, the <ul> is not rendered at all, so it takes no space —
+// no 0.5rem pill margin, no empty list, no gap after the last bullet.
+const SHOW_EXPERIENCE_TECH = false;
+
+// Stepped-pixel arrow (original, 9x9 grid): a solid triangle pointing right,
+// widest on the centre row and narrowing by steps above and below, so the
+// diagonal reads as stairs rather than a smooth line. Integer coordinates
+// plus crispEdges keep it blocky at any size.
+const pixelArrowPath =
+  'M0 0h1v1h2v1h2v1h2v1h2v1H7v1H5v1H3v1H1v1H0z';
 ---
 
 <section id="experience" class="section" aria-label="Work experience">
@@ -15,38 +27,41 @@ const arrowPath =
       {
         experience.map((job) => (
           <li>
-            <div class="card">
-              <header class="card-date" aria-label={job.date}>
-                {job.date}
-              </header>
+            <div class="card card--experience">
               <div class="card-body">
-                <h3 class="card-title">
+                <h3 class="job-title">
+                  {job.title}{' '}
+                  <span class="job-at" aria-hidden="true">@</span>{' '}
                   {job.companyUrl && job.companyUrl !== '#' ? (
-                    <a href={job.companyUrl} aria-label={`${job.title} at ${job.company} (opens in a new tab)`} target="_blank" rel="noreferrer noopener">
-                      <span>
-                        {job.title} ·{' '}
-                        <span style="display:inline-block">
-                          {job.company}
-                          <svg class="arrow-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd" d={arrowPath} clip-rule="evenodd" />
-                          </svg>
-                        </span>
-                      </span>
+                    <a class="company-link" href={job.companyUrl} aria-label={`${job.title} at ${job.company} (opens in a new tab)`} target="_blank" rel="noreferrer noopener">
+                      {job.company}
                     </a>
                   ) : (
-                    <span>
-                      {job.title} · {job.company}
-                    </span>
+                    <span class="company-plain">{job.company}</span>
                   )}
                 </h3>
-                <p class="card-desc">{job.description}</p>
-                <ul class="pills" aria-label="Technologies used">
-                  {job.tech.map((t) => (
+                <p class="job-date" aria-label={job.date}>
+                  {job.date}
+                </p>
+                <ul class="exp-points">
+                  {job.points.map((point) => (
                     <li>
-                      <span class="pill">{t}</span>
+                      <svg class="exp-arrow" viewBox="0 0 9 9" fill="currentColor" shape-rendering="crispEdges" aria-hidden="true">
+                        <path d={pixelArrowPath} />
+                      </svg>
+                      <span>{point}</span>
                     </li>
                   ))}
                 </ul>
+                {SHOW_EXPERIENCE_TECH && (
+                  <ul class="pills" aria-label="Technologies used">
+                    {job.tech.map((t) => (
+                      <li>
+                        <span class="pill">{t}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
             </div>
           </li>
@@ -66,8 +81,8 @@ const arrowPath =
         >
           <span>
             View Full Résumé
-            <svg class="arrow-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd" d={arrowPath} clip-rule="evenodd" />
+            <svg class="arrow-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d={arrowPath} />
             </svg>
           </span>
         </a>

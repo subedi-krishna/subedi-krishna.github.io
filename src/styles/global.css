@@ -603,6 +603,159 @@ a:hover .arrow-icon {
   line-height: 1.5;
 }
 
+/* experience bullet list: same type size/leading as .card-desc, with a
+   hanging indent so wrapped lines align under the text, not the marker */
+.exp-points {
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+}
+
+.exp-points li {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  margin-bottom: 0.625rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.exp-points li:last-child {
+  margin-bottom: 0;
+}
+
+.exp-arrow {
+  flex-shrink: 0;
+  width: 0.8125rem;
+  height: 0.8125rem;
+  margin-top: 0.25rem;
+  color: var(--accent);
+  shape-rendering: crispEdges;
+}
+
+/* experience header (screenshot style): title in heading colour, @ and
+   company in teal, date below in muted grey. The experience card spans the
+   full content column, so there is no empty date column on the left. */
+@media (min-width: 640px) {
+  .card--experience .card-body {
+    grid-column: span 8 / span 8;
+  }
+}
+
+.job-title {
+  margin: 0;
+  font-size: 1.0625rem;
+  line-height: 1.375;
+  font-weight: 600;
+  color: var(--heading);
+}
+
+.job-at {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.company-link {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 2px;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.company-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background-color: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.company-link:hover::after,
+.company-link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.company-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+.company-plain {
+  color: var(--accent);
+}
+
+.job-date {
+  margin: 0.125rem 0 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+/* research (title / date / description only): the card spans the full
+   content column, like experience. Vertical rhythm uses the site's
+   4px/8px scale, and nothing else is invented:
+   - title -> date line: 0.25rem (4px), so title + date read as one block
+   - date line -> description: 0.5rem (8px), the site's card-desc gap
+   - card -> card: 3rem (48px), the existing .card-list gap, unchanged,
+     so research cards sit on the same rhythm as experience and projects */
+@media (min-width: 640px) {
+  .card--research .card-body {
+    grid-column: span 8 / span 8;
+  }
+}
+
+.paper-title {
+  margin: 0;
+  font-size: 1.0625rem;
+  line-height: 1.375;
+  font-weight: 600;
+  color: var(--heading);
+}
+
+.paper-title a {
+  display: inline-flex;
+  align-items: baseline;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--heading);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.paper-title a:hover,
+.paper-title a:focus-visible {
+  color: var(--accent);
+}
+
+.paper-title a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.card:hover .paper-title a {
+  color: var(--accent);
+}
+
+.paper-meta {
+  margin: 0.25rem 0 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.paper-desc {
+  margin: 0.5rem 0 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
 .venue {
   font-style: normal;
   font-weight: 500;

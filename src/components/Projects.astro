@@ -12,8 +12,7 @@ const visibleProjects = projects.slice(0, LIMIT);
 const showArchiveLink = projects.length > 0;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
-const arrowPath =
-  'M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z';
+const arrowPath = 'M4 16 L16 4 M8 4 H16 V12';
 const rightArrowPath = 'M3 10h13M11 5l5 5-5 5';
 ---
 
@@ -41,8 +40,8 @@ const rightArrowPath = 'M3 10h13M11 5l5 5-5 5';
                         <span>
                           {project.title}
                           {primary.external && (
-                            <svg class="arrow-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                              <path fill-rule="evenodd" d={arrowPath} clip-rule="evenodd" />
+                            <svg class="arrow-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                              <path d={arrowPath} />
                             </svg>
                           )}
                         </span>
