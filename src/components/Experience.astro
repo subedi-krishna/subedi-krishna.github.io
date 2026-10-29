@@ -4,6 +4,12 @@ import profile from '../../data/profile.json';
 
 const arrowPath = 'M4 16 L16 4 M8 4 H16 V12';
 
+// Soft delete for Experience tech pills: flip this one variable to true
+// and they come back. data/experience.json tech arrays stay untouched.
+// When false, the <ul> is not rendered at all, so it takes no space —
+// no 0.5rem pill margin, no empty list, no gap after the last bullet.
+const SHOW_EXPERIENCE_TECH = false;
+
 // Stepped-pixel arrow (original, 9x9 grid): a solid triangle pointing right,
 // widest on the centre row and narrowing by steps above and below, so the
 // diagonal reads as stairs rather than a smooth line. Integer coordinates
@@ -47,13 +53,15 @@ const pixelArrowPath =
                     </li>
                   ))}
                 </ul>
-                <ul class="pills" aria-label="Technologies used">
-                  {job.tech.map((t) => (
-                    <li>
-                      <span class="pill">{t}</span>
-                    </li>
-                  ))}
-                </ul>
+                {SHOW_EXPERIENCE_TECH && (
+                  <ul class="pills" aria-label="Technologies used">
+                    {job.tech.map((t) => (
+                      <li>
+                        <span class="pill">{t}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
             </div>
           </li>
