@@ -25,8 +25,7 @@ const tagOptions = [...tagStats.entries()]
   .map(([value, stat]) => ({ value, ...stat }))
   .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
 
-const externalIconPath =
-  'M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z';
+const externalIconPath = 'M4 16 L16 4 M8 4 H16 V12';
 const backArrowPath = 'M17 10H4M9 5l-5 5 5 5';
 ---
 
@@ -98,8 +97,8 @@ const backArrowPath = 'M17 10H4M9 5l-5 5 5 5';
                       rel="noreferrer noopener"
                       aria-label={`${paper.title} (opens in a new tab)`}
                     >
-                      <svg class="ext-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                        <path fill-rule="evenodd" d={externalIconPath} clip-rule="evenodd" />
+                      <svg class="ext-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d={externalIconPath} />
                       </svg>
                     </a>
                   )}
