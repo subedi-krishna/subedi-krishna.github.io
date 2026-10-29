@@ -416,11 +416,11 @@ p {
   text-decoration: none;
 }
 
-/* About highlights: heading colour + semibold only, no teal, so they
-   read as emphasis, not as links. Used sparingly: origin story and
+/* About highlights: primary colour (teal --accent) + semibold, per
+   Krishna's correction 2026-10-29. Used sparingly: origin story and
    current focus. */
 .about-highlight {
-  color: var(--heading);
+  color: var(--accent);
   font-weight: 600;
 }
 
