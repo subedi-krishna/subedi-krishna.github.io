@@ -1,6 +1,16 @@
 [
   {
     "year": "2026",
+    "title": "Separating Routing Organisation from Task Success: Matched Evidence from Prototype-Routed MoE Policies",
+    "venue": "Zenodo: 10.5281/zenodo.23659693",
+    "venueUrl": "https://doi.org/10.5281/zenodo.23659693",
+    "blogUrl": "https://www.neryva.com/resources/blog/separating-routing-organization-from-task-success",
+    "description": "Structured offline routing geometry shapes the expert partition, but does not guarantee closed-loop performance gains over random prototypes.",
+    "tags": ["Mixture-of-Experts", "Robot Manipulation", "Prototype Routing"],
+    "domains": ["AI", "Robotics"]
+  },
+  {
+    "year": "2026",
     "title": "Bounded Precision-Geometry Scaling for Robust Multi-Task Learning under Loss Scale Mismatch",
     "venue": "arXiv:2608.21653 [cs.LG]",
     "venueUrl": "https://arxiv.org/abs/2608.21653",
