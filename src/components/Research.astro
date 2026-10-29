@@ -19,12 +19,9 @@ const rightArrowPath = 'M3 10h13M11 5l5 5-5 5';
       {
         visiblePapers.map((paper) => (
           <li>
-            <div class="card">
-              <header class="card-date" aria-label={paper.year}>
-                {paper.year}
-              </header>
+            <div class="card card--research">
               <div class="card-body">
-                <h3 class="card-title">
+                <h3 class="paper-title">
                   {paper.venueUrl && paper.venueUrl !== '#' ? (
                     <a href={paper.venueUrl} aria-label={`${paper.title} (opens in a new tab)`} target="_blank" rel="noreferrer noopener">
                       <span>
@@ -38,16 +35,10 @@ const rightArrowPath = 'M3 10h13M11 5l5 5-5 5';
                     <span>{paper.title}</span>
                   )}
                 </h3>
-                <p class="card-desc">
-                  <span class="venue">{paper.venue}.</span> {paper.description}
+                <p class="paper-meta">
+                  {paper.year} · {paper.venue}
                 </p>
-                <ul class="pills" aria-label="Research topics">
-                  {paper.tags.map((t) => (
-                    <li>
-                      <span class="pill">{t}</span>
-                    </li>
-                  ))}
-                </ul>
+                <p class="paper-desc">{paper.description}</p>
               </div>
             </div>
           </li>

@@ -698,6 +698,64 @@ a:hover .arrow-icon {
   color: var(--muted);
 }
 
+/* research (title / date / description only): the card spans the full
+   content column, like experience. Vertical rhythm uses the site's
+   4px/8px scale, and nothing else is invented:
+   - title -> date line: 0.25rem (4px), so title + date read as one block
+   - date line -> description: 0.5rem (8px), the site's card-desc gap
+   - card -> card: 3rem (48px), the existing .card-list gap, unchanged,
+     so research cards sit on the same rhythm as experience and projects */
+@media (min-width: 640px) {
+  .card--research .card-body {
+    grid-column: span 8 / span 8;
+  }
+}
+
+.paper-title {
+  margin: 0;
+  font-size: 1.0625rem;
+  line-height: 1.375;
+  font-weight: 600;
+  color: var(--heading);
+}
+
+.paper-title a {
+  display: inline-flex;
+  align-items: baseline;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--heading);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.paper-title a:hover,
+.paper-title a:focus-visible {
+  color: var(--accent);
+}
+
+.paper-title a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.card:hover .paper-title a {
+  color: var(--accent);
+}
+
+.paper-meta {
+  margin: 0.25rem 0 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.paper-desc {
+  margin: 0.5rem 0 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
 .venue {
   font-style: normal;
   font-weight: 500;
