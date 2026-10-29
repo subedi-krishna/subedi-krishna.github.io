@@ -646,7 +646,9 @@ a:hover .arrow-icon {
 
 .job-title {
   margin: 0;
-  font-size: 1.0625rem;
+  /* Option C, approved 2026-10-29: 20px, up from 17px, so the job title
+     reads as a clear step above the 14px body and 16px project titles. */
+  font-size: 1.25rem;
   line-height: 1.375;
   font-weight: 600;
   color: var(--heading);
