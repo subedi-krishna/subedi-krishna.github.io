@@ -88,7 +88,7 @@
     "primaryLink": "github"
   },
   {
-    "title": "Molt",
+    "title": "Moult",
     "slug": "molt",
     "year": "2026",
     "description": "Plugin runtime that stages replacements transactionally — 15 invariants (INV-01…15), atomic commit, owned resource scopes.",

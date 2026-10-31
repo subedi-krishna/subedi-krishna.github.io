@@ -6,8 +6,15 @@
     "venueUrl": "https://doi.org/10.5281/zenodo.23659693",
     "blogUrl": "https://www.neryva.com/resources/blog/separating-routing-organization-from-task-success",
     "description": "Structured offline routing geometry shapes the expert partition, but does not guarantee closed-loop performance gains over random prototypes.",
-    "tags": ["Mixture-of-Experts", "Robot Manipulation", "Prototype Routing"],
-    "domains": ["AI", "Robotics"]
+    "tags": [
+      "Mixture-of-Experts",
+      "Robot Manipulation",
+      "Prototype Routing"
+    ],
+    "domains": [
+      "AI",
+      "Robotics"
+    ]
   },
   {
     "year": "2026",
@@ -15,17 +22,14 @@
     "venue": "arXiv:2608.21653 [cs.LG]",
     "venueUrl": "https://arxiv.org/abs/2608.21653",
     "description": "Held macro 0.777→0.778 under 1000× loss rescaling, outperforming Nash-MTL on NYUv2.",
-    "tags": ["Multi-Task Learning", "Loss Scaling", "NYUv2"],
-    "domains": ["AI"]
-  },
-  {
-    "year": "2026",
-    "title": "Separating Routing Organization from Task Success: Matched Evidence from Prototype-Routed MoE Policies",
-    "venue": "DOI: 10.5281/zenodo.23659693",
-    "venueUrl": "https://zenodo.org/records/23659693",
-    "description": "Showed trajectory-derived prototype initialization structures offline MoE routing (0.67 NMI) without translating to closed-loop success gains.",
-    "tags": ["MoE Routing", "Prototype Learning", "Robotics"],
-    "domains": ["AI", "Robotics"]
+    "tags": [
+      "Multi-Task Learning",
+      "Loss Scaling",
+      "NYUv2"
+    ],
+    "domains": [
+      "AI"
+    ]
   },
   {
     "year": "2026",
@@ -33,8 +37,14 @@
     "venue": "arXiv:2608.13061 [cs.AI]",
     "venueUrl": "https://arxiv.org/abs/2608.13061",
     "description": "Lifted continual-learning accuracy +1.67% and cut forgetting 7.65% vs iCaRL on CIFAR-100 (ResNet-18).",
-    "tags": ["Continual Learning", "Exemplar Replay", "CIFAR-100"],
-    "domains": ["AI"]
+    "tags": [
+      "Continual Learning",
+      "Exemplar Replay",
+      "CIFAR-100"
+    ],
+    "domains": [
+      "AI"
+    ]
   },
   {
     "year": "2026",
@@ -42,8 +52,14 @@
     "venue": "arXiv:2607.28688 [cs.PF]",
     "venueUrl": "https://arxiv.org/abs/2607.28688",
     "description": "Derived direct Foster-Lyapunov drift bounds for UAS routing; achieved lower mean queue length than UAS and JSSQ.",
-    "tags": ["Queueing Theory", "Lyapunov Drift", "UAS"],
-    "domains": ["Systems"]
+    "tags": [
+      "Queueing Theory",
+      "Lyapunov Drift",
+      "UAS"
+    ],
+    "domains": [
+      "Systems"
+    ]
   },
   {
     "year": "2025",
@@ -51,7 +67,13 @@
     "venue": "arXiv:2503.10647 [cs.CL]",
     "venueUrl": "https://arxiv.org/abs/2503.10647",
     "description": "Benchmarked frontier LLMs across 52 clinical scenarios; quantified adversarial prompt vulnerability.",
-    "tags": ["LLM Evaluation", "Medical AI", "Prompt Robustness"],
-    "domains": ["AI"]
+    "tags": [
+      "LLM Evaluation",
+      "Medical AI",
+      "Prompt Robustness"
+    ],
+    "domains": [
+      "AI"
+    ]
   }
 ]
